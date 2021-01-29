@@ -420,6 +420,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
          String address = txtaddress.getText();
         
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+
+        // To be fixed! txtdob doesn't exist
         String date = da.format("2020-03-15");//txtdob.getDate());
         String Gender;
         
@@ -542,6 +544,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                   txtpassport.setText(passport.trim());
                   txtaddress.setText(address.trim());
                   txtcontact.setText(contact.trim());
+
+                // To be fixed! txtdob doesn't exist
                   //txtdob.setDate(date1);
                   txtphoto.setIcon(newImage);
               

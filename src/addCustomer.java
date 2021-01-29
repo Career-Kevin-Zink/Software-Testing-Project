@@ -442,6 +442,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
          String address = txtaddress.getText();
         
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+
+        // To be fixed! txtdob doesn't exist
         String date = da.format("2020-03-15");//txtdob.getDate());
         String Gender;
         

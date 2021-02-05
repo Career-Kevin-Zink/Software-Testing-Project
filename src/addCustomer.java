@@ -18,9 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
@@ -74,6 +72,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         txtaddress = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         txtid = new javax.swing.JLabel();
+        txtdate = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -219,6 +218,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
                             .addComponent(jLabel10))
                         .addGap(43, 43, 43)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtdate, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(r1)
                                 .addGap(18, 18, 18)
@@ -230,7 +230,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jLabel8)
+                .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -435,16 +437,17 @@ public class addCustomer extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         String id = txtid.getText();
-         String firstname = txtfirstname.getText();
-         String lastname = txtlastname.getText();
-         String nic = txtnic.getText(); 
+        String firstname = txtfirstname.getText();
+        String lastname = txtlastname.getText();
+        String nic = txtnic.getText();
         String passport = txtpassport.getText();
-         String address = txtaddress.getText();
+        String address = txtaddress.getText();
         
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
 
         // To be fixed! txtdob doesn't exist
-        String date = da.format("2020-03-15");//txtdob.getDate());
+        //String date = da.format("2020-03-15");
+        String date = da.format(txtdate.getDate());
         String Gender;
         
         if(r1.isSelected())
@@ -524,6 +527,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea txtaddress;
     private javax.swing.JTextField txtcontact;
     private javax.swing.JTextField txtfirstname;
+    private com.toedter.calendar.JDateChooser txtdate;
     private javax.swing.JLabel txtid;
     private javax.swing.JTextField txtlastname;
     private javax.swing.JTextField txtnic;

@@ -269,7 +269,7 @@ public class userCreation extends javax.swing.JInternalFrame {
 
       pst.executeUpdate();
 
-      JOptionPane.showMessageDialog(null, "User Createdd.........");
+      JOptionPane.showMessageDialog(null, "User Created.........");
 
     } catch (SQLException ex) {
       Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);

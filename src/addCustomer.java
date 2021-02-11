@@ -615,7 +615,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
       pst.setBytes(10, userimage);
       pst.executeUpdate();
 
-      JOptionPane.showMessageDialog(null, "Registation Createdd.........");
+      JOptionPane.showMessageDialog(null, "Registration Created.........");
 
     } catch (SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);

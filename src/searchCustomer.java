@@ -569,7 +569,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
 
     // To be fixed! txtdob doesn't exist
-    String date = da.format("2020-03-15"); // txtdob.getDate());
+    String date = da.format(txtdate.getDate());
     String Gender;
 
     if (r1.isSelected()) {
@@ -598,7 +598,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
       pst.setString(10, id);
       pst.executeUpdate();
 
-      JOptionPane.showMessageDialog(null, "Registation Updateddddd.........");
+      JOptionPane.showMessageDialog(null, "Registration Updated.........");
 
     } catch (SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);

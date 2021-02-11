@@ -569,7 +569,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
 
     // To be fixed! txtdob doesn't exist
-    String date = da.format(txtdate.getDate());
+    String date = da.format("2020-07-15"); //txtdate.getDate()
     String Gender;
 
     if (r1.isSelected()) {

@@ -15,7 +15,9 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /*
@@ -71,7 +73,6 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     jButton3 = new javax.swing.JButton();
     txtcustid = new javax.swing.JTextField();
     jButton4 = new javax.swing.JButton();
-    txtdate = new com.toedter.calendar.JDateChooser();
 
     jPanel1.setBackground(new java.awt.Color(51, 0, 255));
 
@@ -278,11 +279,6 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                                         jPanel2Layout
                                             .createParallelGroup(
                                                 javax.swing.GroupLayout.Alignment.LEADING, false)
-                                              .addComponent(
-                                                      txtdate,
-                                                      javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                      255,
-                                                      javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(
                                                 jPanel2Layout
                                                     .createSequentialGroup()
@@ -298,13 +294,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                 jPanel2Layout
                     .createSequentialGroup()
                     .addGap(37, 37, 37)
-                        .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                          .addComponent(jLabel8)
-                          .addComponent(
-                                  txtdate,
-                                  javax.swing.GroupLayout.PREFERRED_SIZE,
-                                  javax.swing.GroupLayout.DEFAULT_SIZE,
-                                  javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel8)
                     .addGap(18, 18, 18)
                     .addGroup(
                         jPanel2Layout
@@ -711,6 +701,5 @@ public class searchCustomer extends javax.swing.JInternalFrame {
   private javax.swing.JTextField txtnic;
   private javax.swing.JTextField txtpassport;
   private javax.swing.JLabel txtphoto;
-  private com.toedter.calendar.JDateChooser txtdate;
   // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,9 @@
 # Software Testing Project
-## CEN 4072 CRN 10421
-## Josh Colicchio, Seth Graham, Peter Look, Kevin Zink
-### Spring 2021
+## Spring 2021 CEN 4072 CRN 10421
+## Contributors:
+### Josh Colicchio - "JoshuaColicchio"
+### Seth Graham - "Seth-Graham"
+### Peter Look - "Peter-Look"
+### Kevin Zink - ""
+## Project Outline: 
 [SWT Group Project Outline](https://github.com/JoshuaColicchio/SoftwareTestingProject/files/5934416/SWT-GroupProject-Outline.pdf)

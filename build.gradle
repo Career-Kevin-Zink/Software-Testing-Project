@@ -14,9 +14,18 @@ sourceSets {
             srcDirs = ['src']
         }
     }
+    test {
+        java {
+            srcDirs = ['test/java']
+        }
+    }
+}
+test {
+    useJUnitPlatform()
 }
 dependencies {
-    compile 'junit:junit:4.12'
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.49'
     compile group: 'com.toedter', name: 'jcalendar', version: '1.4'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
 }

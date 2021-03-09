@@ -12,12 +12,17 @@ class userCreationTest {
         String username = "jdoe09";
         String password = "12345678";
 
-        // The simulated inputs should pass the following:
-        assertTrue(!firstName.isEmpty()
-                            && !lastName.isEmpty()
-                            && username.length() > 3
-                            && Database.isUsernameAvailable(username)
-                            && password.length() >= 8);
+        // Test if the first name is valid.
+        assertTrue(!firstName.isEmpty());
+
+        // Test if the last name is valid.
+        assertTrue(!lastName.isEmpty());
+
+        // Test if the username is available and valid.
+        assertTrue(username.length() > 3 && Database.isUsernameAvailable(username));
+
+        // Test if the password is valid
+        assertTrue(password.length() >= 8);
     }
 
 }

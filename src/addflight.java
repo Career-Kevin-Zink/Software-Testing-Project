@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -42,6 +43,7 @@ public class addflight extends javax.swing.JInternalFrame {
     txtflightname = new javax.swing.JTextField();
     jLabel6 = new javax.swing.JLabel();
     txtdate = new com.toedter.calendar.JDateChooser();
+    txtdate.getJCalendar().setMinSelectableDate(new Date());
     jLabel7 = new javax.swing.JLabel();
     txtdtime = new javax.swing.JTextField();
     txtarrtime = new javax.swing.JTextField();
@@ -416,7 +418,7 @@ public class addflight extends javax.swing.JInternalFrame {
       pst.setString(8, flightcharge);
 
       pst.executeUpdate();
-
+      autoID();
       JOptionPane.showMessageDialog(null, "Flight Created.........");
     } catch (SQLException ex) {
       Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);

@@ -617,6 +617,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
       JOptionPane.showMessageDialog(null, "Registration Created.........");
 
+      autoID();
+
     } catch (SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }

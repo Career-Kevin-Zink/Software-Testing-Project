@@ -319,3 +319,5 @@ public class userCreation extends javax.swing.JInternalFrame {
   private javax.swing.JTextField txtusername;
   // End of variables declaration//GEN-END:variables
 }
+
+

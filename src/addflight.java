@@ -418,7 +418,7 @@ public class addflight extends javax.swing.JInternalFrame {
       pst.setString(8, flightcharge);
 
       pst.executeUpdate();
-
+      autoID();
       JOptionPane.showMessageDialog(null, "Flight Created.........");
     } catch (SQLException ex) {
       Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);

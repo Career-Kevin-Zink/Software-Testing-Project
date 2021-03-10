@@ -43,4 +43,23 @@ public class Database {
       return returnVal;
     }
 
+    public static boolean doesCustomerExist(String customerId) {
+        boolean returnVal = false;
+
+        try {
+            Connection connection = getConnection();
+            PreparedStatement pst = connection.prepareStatement("select * from customer where id= ?");
+            pst.setString(1, customerId);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) returnVal = true;
+
+        } catch (SQLException e) {
+            System.out.println("SQLException in isUsernameAvailable: " + e.getMessage());
+        }
+
+        return returnVal;
+    }
+
 }

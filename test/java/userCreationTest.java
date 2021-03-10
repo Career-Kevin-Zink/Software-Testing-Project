@@ -8,7 +8,7 @@ class userCreationTest {
     public void testSubmitUserDetails() {
         // The simulated inputs
         String firstName = "John";
-        String lastName = "John";
+        String lastName = "Doe";
         String username = "jdoe09";
         String password = "12345678";
 

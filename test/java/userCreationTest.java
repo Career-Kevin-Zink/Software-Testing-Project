@@ -19,17 +19,17 @@ class userCreationTest {
             Database.getConnection();
             Statement s = Database.connection.createStatement();
             s.execute("DROP TABLE `user`");
-            s.execute("CREATE TABLE `user` (\n" +
-                    "  `id` varchar(255) NOT NULL,\n" +
-                    "  `firstname` varchar(255) NOT NULL,\n" +
-                    "  `lastname` varchar(255) NOT NULL,\n" +
-                    "  `username` varchar(255) NOT NULL,\n" +
-                    "  `password` varchar(255) NOT NULL\n" +
+            s.execute("CREATE TABLE `user` (" +
+                    "  `id` varchar(255) NOT NULL," +
+                    "  `firstname` varchar(255) NOT NULL," +
+                    "  `lastname` varchar(255) NOT NULL," +
+                    "  `username` varchar(255) NOT NULL," +
+                    "  `password` varchar(255) NOT NULL" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-            s.execute("INSERT INTO `user` (`id`, `firstname`, `lastname`, `username`, `password`) VALUES\n" +
-                    "('UO001', 'john', 'peter', 'john', '123'),\n" +
-                    "('UO002', 'nimal', 'raja', 'raja', '321'),\n" +
-                    "('UO003', 'Jim', 'Jones', 'jjones', '123'),\n" +
+            s.execute("INSERT INTO `user` (`id`, `firstname`, `lastname`, `username`, `password`) VALUES" +
+                    "('UO001', 'john', 'peter', 'john', '123')," +
+                    "('UO002', 'nimal', 'raja', 'raja', '321')," +
+                    "('UO003', 'Jim', 'Jones', 'jjones', '123')," +
                     "('UO004', 'Ravi', 'Kumar', 'rjumar', '123');");
         } catch (SQLException ignored) {}
     }

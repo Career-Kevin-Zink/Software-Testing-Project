@@ -13,7 +13,12 @@ class userCreationTest {
 
     @Test
     void initComponents() {
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
         new userCreation().initComponents();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+
+        // Testing the GUI initialization time is less than 5 seconds.
+        assertTrue(endTime - startTime <= 5000);
     }
 
     @Test

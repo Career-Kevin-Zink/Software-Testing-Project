@@ -13,6 +13,11 @@ import javax.swing.JOptionPane;
  * and open the template in the editor.
  */
 
+/* TODO
+    initComponents needs to be set to PRIVATE after testing completes.
+    jButton1ActionPerformed needs to be set to PRIVATE after testing completes.
+    jButton2ActionPerformed needs to be set to PRIVATE after testing completes.
+*/
 public class userCreation extends javax.swing.JInternalFrame {
 
   /** Creates new form userCreation */
@@ -29,7 +34,7 @@ public class userCreation extends javax.swing.JInternalFrame {
    */
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  private void initComponents() {
+  public void initComponents() {
 
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
@@ -67,20 +72,10 @@ public class userCreation extends javax.swing.JInternalFrame {
     txtuserid.setText("jLabel6");
 
     jButton1.setText("Add");
-    jButton1.addActionListener(
-        new java.awt.event.ActionListener() {
-          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton1ActionPerformed(evt);
-          }
-        });
+    jButton1.addActionListener(this::jButton1ActionPerformed);
 
     jButton2.setText("Cancel");
-    jButton2.addActionListener(
-        new java.awt.event.ActionListener() {
-          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton2ActionPerformed(evt);
-          }
-        });
+    jButton2.addActionListener(this::jButton2ActionPerformed);
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -245,7 +240,7 @@ public class userCreation extends javax.swing.JInternalFrame {
     pack();
   } // </editor-fold>//GEN-END:initComponents
 
-  private void jButton1ActionPerformed(
+  public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
@@ -276,7 +271,7 @@ public class userCreation extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton1ActionPerformed
 
-  private void jButton2ActionPerformed(
+  public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
     this.hide();
@@ -304,19 +299,20 @@ public class userCreation extends javax.swing.JInternalFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
-  private javax.swing.JPanel jPanel1;
-  private javax.swing.JTextField txtfirstname;
-  private javax.swing.JTextField txtlastname;
-  private javax.swing.JPasswordField txtpassword;
-  private javax.swing.JLabel txtuserid;
-  private javax.swing.JTextField txtusername;
+  // TODO: These should be PRIVATE after we finish testing.
+  public javax.swing.JButton jButton1;
+  public javax.swing.JButton jButton2;
+  public javax.swing.JLabel jLabel1;
+  public javax.swing.JLabel jLabel2;
+  public javax.swing.JLabel jLabel3;
+  public javax.swing.JLabel jLabel4;
+  public javax.swing.JLabel jLabel5;
+  public javax.swing.JPanel jPanel1;
+  public javax.swing.JTextField txtfirstname;
+  public javax.swing.JTextField txtlastname;
+  public javax.swing.JPasswordField txtpassword;
+  public javax.swing.JLabel txtuserid;
+  public javax.swing.JTextField txtusername;
   // End of variables declaration//GEN-END:variables
 }
 

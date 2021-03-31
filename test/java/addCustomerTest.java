@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.imageio.ImageIO;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -103,4 +104,46 @@ class addCustomerTest {
         }
     }
 
+    @Test
+    void txtlastnameActionPerformed() {
+
+        addCustomer addCustomer = new addCustomer();
+
+        // Setup the GUI
+        addCustomer.initComponents();
+
+        ActionEvent ae = new ActionEvent(ActionEvent.ACTION_PERFORMED, 0, "Hello");
+
+        // Execute the method.
+        addCustomer.txtlastnameActionPerformed(ae);
+    }
+
+    @Test
+    void initComponents() {
+
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+        new userCreation().initComponents();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+
+        // Testing the GUI initialization time is less than 5 seconds.
+        assertTrue(endTime - startTime <= 5000);
+    }
+
+    @Test
+    void txtpassportActionPerformed() {
+
+        addCustomer addCustomer = new addCustomer();
+
+        // Setup the GUI
+        addCustomer.initComponents();
+
+        ActionEvent ae = new ActionEvent(ActionEvent.ACTION_PERFORMED, 0, "Hello");
+
+        // Execute the method.
+        addCustomer.txtpassportActionPerformed(ae);
+    }
+
+    @Test
+    void jButton1ActionPerformed() {
+    }
 }

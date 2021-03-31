@@ -126,5 +126,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
         @Test
         void initComponents() {
+
+            long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+            new addflight().initComponents();
+            long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+
+            // Testing the GUI initialization time is less than 5 seconds.
+            assertTrue(endTime - startTime <= 5000);
+        }
+
+        @Test
+        void jButton2ActionPerformed() {
+
+            addflight addFlight = new addflight();
+
+            // Setup the GUI
+            addFlight.initComponents();
+
+            // Execute the method.
+            addFlight.jButton2.doClick();
         }
     }

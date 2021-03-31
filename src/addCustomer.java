@@ -42,7 +42,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
   @SuppressWarnings("unchecked")
 
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  private void initComponents() {
+  // TODO: Make private once testing is completed.
+  public void initComponents() {
 
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
@@ -529,17 +530,21 @@ public class addCustomer extends javax.swing.JInternalFrame {
     }
   }
 
-  private void txtlastnameActionPerformed(
+  // TODO: Change to private once testing is finished.
+  public void txtlastnameActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_txtlastnameActionPerformed
     // TODO add your handling code here:
   } // GEN-LAST:event_txtlastnameActionPerformed
 
-  private void txtpassportActionPerformed(
+  // TODO: Change to private once testing is finished.
+  public void txtpassportActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_txtpassportActionPerformed
     // TODO add your handling code here:
   } // GEN-LAST:event_txtpassportActionPerformed
 
-  private void jButton1ActionPerformed(
+
+  // TODO: Change to private once testing is finished.
+  public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 

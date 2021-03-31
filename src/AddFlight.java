@@ -32,7 +32,9 @@ public class addflight extends javax.swing.JInternalFrame {
    */
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  private void initComponents() {
+
+  // TODO: Make private once done testing.
+  public void initComponents() {
 
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
@@ -385,7 +387,8 @@ public class addflight extends javax.swing.JInternalFrame {
     }
   }
 
-  private void jButton1ActionPerformed(
+  // TODO: Change back to private.
+  public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
@@ -433,24 +436,25 @@ public class addflight extends javax.swing.JInternalFrame {
   } // GEN-LAST:event_jButton2ActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
-  private javax.swing.JLabel jLabel6;
-  private javax.swing.JLabel jLabel7;
-  private javax.swing.JLabel jLabel8;
-  private javax.swing.JLabel jLabel9;
-  private javax.swing.JPanel jPanel1;
-  private javax.swing.JTextField txtarrtime;
-  private com.toedter.calendar.JDateChooser txtdate;
-  private javax.swing.JComboBox<String> txtdepart;
-  private javax.swing.JTextField txtdtime;
-  private javax.swing.JTextField txtflightcharge;
-  private javax.swing.JLabel txtflightid;
-  private javax.swing.JTextField txtflightname;
-  private javax.swing.JComboBox<String> txtsource;
+  // TODO: Change the methods back to private.
+  public javax.swing.JButton jButton1;
+  public javax.swing.JButton jButton2;
+  public javax.swing.JLabel jLabel1;
+  public javax.swing.JLabel jLabel3;
+  public javax.swing.JLabel jLabel4;
+  public javax.swing.JLabel jLabel5;
+  public javax.swing.JLabel jLabel6;
+  public javax.swing.JLabel jLabel7;
+  public javax.swing.JLabel jLabel8;
+  public javax.swing.JLabel jLabel9;
+  public javax.swing.JPanel jPanel1;
+  public javax.swing.JTextField txtarrtime;
+  public com.toedter.calendar.JDateChooser txtdate;
+  public javax.swing.JComboBox<String> txtdepart;
+  public javax.swing.JTextField txtdtime;
+  public javax.swing.JTextField txtflightcharge;
+  public javax.swing.JLabel txtflightid;
+  public javax.swing.JTextField txtflightname;
+  public javax.swing.JComboBox<String> txtsource;
   // End of variables declaration//GEN-END:variables
 }

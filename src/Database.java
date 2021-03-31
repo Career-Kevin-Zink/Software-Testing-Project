@@ -62,4 +62,24 @@ public class Database {
         return returnVal;
     }
 
+    public static boolean doesFlightExist(String flightId) {
+        boolean returnVal = false;
+
+        try {
+            Connection connection = getConnection();
+            PreparedStatement pst = connection.prepareStatement("SELECT * FROM flight WHERE id = ?");
+            pst.setString(1, flightId);
+
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) returnVal = true;
+
+        } catch (SQLException e) {
+            System.out.println("SQLException in doesFlightExist: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return returnVal;
+    }
+
 }

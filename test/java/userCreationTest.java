@@ -2,10 +2,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,7 +23,7 @@ class userCreationTest {
         userCreation userCreation = new userCreation();
 
         // Ensure the user does not already exist.
-        assertTrue(Database.isUsernameAvailable("jdoe69"));
+        assertTrue(isUsernameAvailable("jdoe69"));
 
         // Setup the GUI
         userCreation.initComponents();
@@ -42,7 +39,7 @@ class userCreationTest {
         userCreation.jButton1.doClick();
 
         // Ensure the user was successfully created.
-        assertFalse(Database.isUsernameAvailable("jdoe69"));
+        assertFalse(isUsernameAvailable("jdoe69"));
     }
 
     @Test
@@ -111,5 +108,24 @@ class userCreationTest {
                     "  `password` varchar(255) NOT NULL\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
         } catch (SQLException ignored) {}
+    }
+
+    public static boolean isUsernameAvailable(String username) {
+        boolean returnVal = false;
+
+        try {
+            Connection connection = Database.getConnection();
+            PreparedStatement pst = connection.prepareStatement("select * from user where username= ?");
+            pst.setString(1, username);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (!rs.next()) returnVal = true;
+
+        } catch (SQLException e) {
+            System.out.println("SQLException in isUsernameAvailable: " + e.getMessage());
+        }
+
+        return returnVal;
     }
 }

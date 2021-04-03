@@ -8,9 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -72,7 +70,7 @@ class addCustomerTest {
     }
 
     @Test
-    void testCreateCustomer() {
+    void testCreateValidCustomer() {
         // Valid Customer information.
         String id = "CS004";
         String firstName = "John";
@@ -83,6 +81,8 @@ class addCustomerTest {
         String dob = "1994-09-12";
         String gender = "Correct";
         String contact = "1234567";
+
+        assertFalse(doesCustomerExist("CS004"));
 
         try {
             Database.getConnection();
@@ -100,6 +100,8 @@ class addCustomerTest {
             pst.setString(8, gender);
             pst.setString(9, contact);
             pst.executeUpdate();
+
+            assertTrue(doesCustomerExist("CS004"));
         } catch (Exception ignored) {
         }
     }
@@ -145,5 +147,24 @@ class addCustomerTest {
 
     @Test
     void jButton1ActionPerformed() {
+    }
+
+    public static boolean doesCustomerExist(String customerId) {
+        boolean returnVal = false;
+
+        try {
+            Connection connection = Database.getConnection();
+            PreparedStatement pst = connection.prepareStatement("select * from customer where id= ?");
+            pst.setString(1, customerId);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) returnVal = true;
+
+        } catch (SQLException e) {
+            System.out.println("SQLException in isUsernameAvailable: " + e.getMessage());
+        }
+
+        return returnVal;
     }
 }

@@ -131,7 +131,7 @@ class ticketTest {
 
 
         ticket.jButton1.doClick();
-        assertTrue(Database.doesTicketExist("TO004"));
+        assertTrue(doesTicketExist("TO004"));
     }
     @Test
     void testJButton2ActionPerformed(){
@@ -154,4 +154,25 @@ class ticketTest {
             new ticket().autoID();
         });
     }
+
+    public static boolean doesTicketExist(String ticketNo) {
+        boolean returnVal = false;
+
+        try {
+            Connection connection = Database.getConnection();
+            PreparedStatement pst = connection.prepareStatement("select * from ticket where id= ?");
+            pst.setString(1, ticketNo);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) returnVal = true;
+
+        } catch (SQLException e) {
+            System.out.println("SQLException in doesTicketExist: " + e.getMessage());
+        }
+
+        return returnVal;
+    }
+
 }
+

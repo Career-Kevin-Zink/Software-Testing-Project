@@ -5,9 +5,7 @@ import org.junit.jupiter.api.Test;
 
 
 import java.awt.event.ActionEvent;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -121,11 +119,11 @@ import static org.junit.jupiter.api.Assertions.*;
             addFlight.txtarrtime.setText("8.00PM");
             addFlight.txtflightcharge.setText("700");
 
-            assertFalse(Database.doesFlightExist("FO107"));
+            assertFalse(doesFlightExist("FO107"));
 
             addFlight.jButton1.doClick();
 
-            assertTrue(Database.doesFlightExist("FO107"));
+            assertTrue(doesFlightExist("FO107"));
         }
 
         @Test
@@ -143,11 +141,11 @@ import static org.junit.jupiter.api.Assertions.*;
             addFlight.txtarrtime.setText("8.00PM");
             addFlight.txtflightcharge.setText("700");
 
-            assertFalse(Database.doesFlightExist("FO108"));
+            assertFalse(doesFlightExist("FO108"));
 
             addFlight.jButton1.doClick();
 
-            assertFalse(Database.doesFlightExist("FO108"));
+            assertFalse(doesFlightExist("FO108"));
         }
 
         @Test
@@ -165,11 +163,11 @@ import static org.junit.jupiter.api.Assertions.*;
             addFlight.txtarrtime.setText("8.00PM");
             addFlight.txtflightcharge.setText("700");
 
-            assertFalse(Database.doesFlightExist("FO109"));
+            assertFalse(doesFlightExist("FO109"));
 
             addFlight.jButton1.doClick();
 
-            assertFalse(Database.doesFlightExist("FO109"));
+            assertFalse(doesFlightExist("FO109"));
         }
 
         @Test
@@ -187,11 +185,11 @@ import static org.junit.jupiter.api.Assertions.*;
             addFlight.txtarrtime.setText("-8.00PM");
             addFlight.txtflightcharge.setText("700");
 
-            assertFalse(Database.doesFlightExist("FO110"));
+            assertFalse(doesFlightExist("FO110"));
 
             addFlight.jButton1.doClick();
 
-            assertFalse(Database.doesFlightExist("FO110"));
+            assertFalse(doesFlightExist("FO110"));
         }
 
         @Test
@@ -209,11 +207,11 @@ import static org.junit.jupiter.api.Assertions.*;
             addFlight.txtarrtime.setText("8.00PM");
             addFlight.txtflightcharge.setText("-700");
 
-            assertFalse(Database.doesFlightExist("FO111"));
+            assertFalse(doesFlightExist("FO111"));
 
             addFlight.jButton1.doClick();
 
-            assertFalse(Database.doesFlightExist("FO111"));
+            assertFalse(doesFlightExist("FO111"));
 
         }
 
@@ -241,4 +239,26 @@ import static org.junit.jupiter.api.Assertions.*;
             // Execute the method.
             addFlight.jButton2.doClick();
         }
+
+        public static boolean doesFlightExist(String flightId) {
+            boolean returnVal = false;
+
+            try {
+                Connection connection = Database.getConnection();
+                PreparedStatement pst = connection.prepareStatement("SELECT * FROM flight WHERE id = ?");
+                pst.setString(1, flightId);
+
+
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) returnVal = true;
+
+            } catch (SQLException e) {
+                System.out.println("SQLException in doesFlightExist: " + e.getMessage());
+                e.printStackTrace();
+            }
+            return returnVal;
+        }
     }
+
+

@@ -1,4 +1,8 @@
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +30,7 @@ class searchCustomerTest {
   @Test
   @DisplayName("Invalid customer ID search")
   public void invalidCustomerID() throws Exception {
-    assertFalse(Database.doesCustomerExist("CS010"));
+    assertFalse(doesCustomerExist("CS010"));
   }
 
   @Test
@@ -140,4 +144,23 @@ class searchCustomerTest {
     assertNotEquals(null, searchCustomerTestObject.txtphoto);
   }
 
+
+  public static boolean doesCustomerExist(String customerId) {
+    boolean returnVal = false;
+
+    try {
+      Connection connection = Database.getConnection();
+      PreparedStatement pst = connection.prepareStatement("select * from customer where id= ?");
+      pst.setString(1, customerId);
+
+      ResultSet rs = pst.executeQuery();
+
+      if (rs.next()) returnVal = true;
+
+    } catch (SQLException e) {
+      System.out.println("SQLException in isUsernameAvailable: " + e.getMessage());
+    }
+
+    return returnVal;
+  }
 }

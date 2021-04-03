@@ -28,7 +28,8 @@ public class ticketreport extends javax.swing.JInternalFrame {
    */
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  private void initComponents() {
+  //todo SET THIS METHOD BACK TO PRIVATE AFTER TESTING
+  public void initComponents() {
 
     jScrollPane1 = new javax.swing.JScrollPane();
     jTable1 = new javax.swing.JTable();
@@ -103,11 +104,14 @@ public class ticketreport extends javax.swing.JInternalFrame {
     pack();
   } // </editor-fold>//GEN-END:initComponents
 
-  private void jButton1ActionPerformed(
+  //TODO Should be set to "Private" Made public only for testing purposes
+
+  public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
     this.hide();
   } // GEN-LAST:event_jButton1ActionPerformed
+
 
   public void LoadData() {
     try {
@@ -144,8 +148,9 @@ public class ticketreport extends javax.swing.JInternalFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JTable jTable1;
+  //todo set these back to private after testing
+  public javax.swing.JButton jButton1;
+  public javax.swing.JScrollPane jScrollPane1;
+  public javax.swing.JTable jTable1;
   // End of variables declaration//GEN-END:variables
 }

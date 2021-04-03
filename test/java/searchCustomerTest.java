@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.awt.event.ActionEvent;
 import java.util.Date;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -29,7 +26,7 @@ class searchCustomerTest {
   @Test
   @DisplayName("Invalid customer ID search")
   public void invalidCustomerID() throws Exception {
-    assertFalse(doesCustomerExist("CS010"));
+    assertFalse(Database.doesCustomerExist("CS010"));
   }
 
   @Test
@@ -63,6 +60,7 @@ class searchCustomerTest {
   @Test
   @DisplayName("jBtn #4 ActionPerformed")
   void jBtnFOURActionPerformed(){
+    searchCustomerTestObject.r1.setSelected(false);
     searchCustomerTestObject.setVisible(true);
     searchCustomerTestObject.txtcustid.setText("CS001");
     assertDoesNotThrow(()->searchCustomerTestObject.jButton4.doClick());
@@ -95,6 +93,8 @@ class searchCustomerTest {
   @Test
   @DisplayName("Lastname (valid/invalid)")
   void testLastName(){
+    ActionEvent ae = new ActionEvent(ActionEvent.ACTION_PERFORMED, 0, "Hello");
+    searchCustomerTestObject.txtlastnameActionPerformed(ae);
     assertNotEquals("",searchCustomerTestObject.txtlastname.getSelectedText());
   }
 
@@ -107,6 +107,8 @@ class searchCustomerTest {
   @Test
   @DisplayName("Passport ID (valid/invalid)")
   void testPassportID(){
+    ActionEvent ae = new ActionEvent(ActionEvent.ACTION_PERFORMED, 0, "Hello");
+    searchCustomerTestObject.txtpassportActionPerformed(ae);
     assertNotEquals("",searchCustomerTestObject.txtpassport.getSelectedText());
   }
 
@@ -138,23 +140,4 @@ class searchCustomerTest {
     assertNotEquals(null, searchCustomerTestObject.txtphoto);
   }
 
-
-  public static boolean doesCustomerExist(String customerId) {
-    boolean returnVal = false;
-
-    try {
-      Connection connection = Database.getConnection();
-      PreparedStatement pst = connection.prepareStatement("select * from customer where id= ?");
-      pst.setString(1, customerId);
-
-      ResultSet rs = pst.executeQuery();
-
-      if (rs.next()) returnVal = true;
-
-    } catch (SQLException e) {
-      System.out.println("SQLException in isUsernameAvailable: " + e.getMessage());
-    }
-
-    return returnVal;
-  }
 }

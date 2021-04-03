@@ -25,7 +25,7 @@ class LoginTest {
      */
 
     @ParameterizedTest
-    @CsvSource({"error,error", "john,error", "error,123", "john,123"})
+    @CsvSource({",", "john,error", "error,123", "john,123"})
     public void loginTest(String username, String password) {
         loginTestObject.txtuser.setText(username);
         loginTestObject.txtpass.setText(password);
@@ -37,6 +37,12 @@ class LoginTest {
         else{
             assertFalse(false);
         }
+    }
+
+    @Test
+    @DisplayName("Main method")
+    void testMain(){
+        Login.main(new String[]{"arg1", "arg2", "arg3"});
     }
 
     @Test

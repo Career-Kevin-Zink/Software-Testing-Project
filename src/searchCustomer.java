@@ -45,7 +45,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
   @SuppressWarnings("unchecked")
 
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  private void initComponents() {
+  public void initComponents() {
 
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
@@ -513,17 +513,17 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     pack();
   } // </editor-fold>//GEN-END:initComponents
 
-  private void txtlastnameActionPerformed(
+  public void txtlastnameActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_txtlastnameActionPerformed
     // TODO add your handling code here:
   } // GEN-LAST:event_txtlastnameActionPerformed
 
-  private void txtpassportActionPerformed(
+  public void txtpassportActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_txtpassportActionPerformed
     // TODO add your handling code here:
   } // GEN-LAST:event_txtpassportActionPerformed
 
-  private void jButton1ActionPerformed(
+  public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
@@ -531,14 +531,16 @@ public class searchCustomer extends javax.swing.JInternalFrame {
       JFileChooser picchooser = new JFileChooser();
       picchooser.showOpenDialog(null);
       File pic = picchooser.getSelectedFile();
-      FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images", "png", "jpg");
+      FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images"
+          , "png", "jpg");
       picchooser.addChoosableFileFilter(filter);
       path = pic.getAbsolutePath();
       BufferedImage img;
       img = ImageIO.read(picchooser.getSelectedFile());
       ImageIcon imageIcon =
           new ImageIcon(
-              new ImageIcon(img).getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT));
+              new ImageIcon(img).getImage().getScaledInstance(250, 250
+                  , Image.SCALE_DEFAULT));
       txtphoto.setIcon(imageIcon);
 
       File image = new File(path);
@@ -555,7 +557,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton1ActionPerformed
 
-  private void jButton2ActionPerformed(
+  public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
 
@@ -569,7 +571,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
 
     // To be fixed! txtdob doesn't exist
-    String date = da.format("2020-07-15"); //txtdate.getDate()
+    String date = da.format(txtdate.getDate()); //txtdate.getDate()
     String Gender;
 
     if (r1.isSelected()) {
@@ -605,14 +607,14 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton2ActionPerformed
 
-  private void jButton3ActionPerformed(
+  public void jButton3ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton3ActionPerformed
     // TODO add your handling code here:
 
     this.hide();
   } // GEN-LAST:event_jButton3ActionPerformed
 
-  private void jButton4ActionPerformed(
+  public void jButton4ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton4ActionPerformed
     // TODO add your handling code here:
 
@@ -642,7 +644,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         ImageIcon image = new ImageIcon(_imagebytes);
         Image im = image.getImage();
         Image myImg =
-            im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
+            im.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
         ImageIcon newImage = new ImageIcon(myImg);
 
         if (gender.equals("Female")) {
@@ -675,31 +677,32 @@ public class searchCustomer extends javax.swing.JInternalFrame {
   } // GEN-LAST:event_jButton4ActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JButton jButton3;
-  private javax.swing.JButton jButton4;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel10;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
-  private javax.swing.JLabel jLabel6;
-  private javax.swing.JLabel jLabel8;
-  private javax.swing.JLabel jLabel9;
-  private javax.swing.JPanel jPanel1;
-  private javax.swing.JPanel jPanel2;
-  private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JRadioButton r1;
-  private javax.swing.JRadioButton r2;
-  private javax.swing.JTextArea txtaddress;
-  private javax.swing.JTextField txtcontact;
-  private javax.swing.JTextField txtcustid;
-  private javax.swing.JTextField txtfirstname;
-  private javax.swing.JTextField txtlastname;
-  private javax.swing.JTextField txtnic;
-  private javax.swing.JTextField txtpassport;
-  private javax.swing.JLabel txtphoto;
+  public javax.swing.JButton jButton1;
+  public javax.swing.JButton jButton2;
+  public javax.swing.JButton jButton3;
+  public javax.swing.JButton jButton4;
+  public javax.swing.JLabel jLabel1;
+  public javax.swing.JLabel jLabel10;
+  public javax.swing.JLabel jLabel2;
+  public javax.swing.JLabel jLabel3;
+  public javax.swing.JLabel jLabel4;
+  public javax.swing.JLabel jLabel5;
+  public javax.swing.JLabel jLabel6;
+  public javax.swing.JLabel jLabel8;
+  public javax.swing.JLabel jLabel9;
+  public javax.swing.JPanel jPanel1;
+  public javax.swing.JPanel jPanel2;
+  public javax.swing.JScrollPane jScrollPane1;
+  public javax.swing.JRadioButton r1;
+  public javax.swing.JRadioButton r2;
+  public javax.swing.JTextArea txtaddress;
+  public javax.swing.JTextField txtcontact;
+  public javax.swing.JTextField txtcustid;
+  public javax.swing.JTextField txtfirstname;
+  public javax.swing.JTextField txtlastname;
+  public javax.swing.JTextField txtnic;
+  public Date txtdate;
+  public javax.swing.JTextField txtpassport;
+  public javax.swing.JLabel txtphoto;
   // End of variables declaration//GEN-END:variables
 }

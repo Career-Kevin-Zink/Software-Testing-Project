@@ -26,7 +26,7 @@ public class Login extends javax.swing.JFrame {
    */
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  private void initComponents() {
+  public void initComponents() {
 
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
@@ -184,7 +184,7 @@ public class Login extends javax.swing.JFrame {
     setLocationRelativeTo(null);
   } // </editor-fold>//GEN-END:initComponents
 
-  private void jButton1ActionPerformed(
+  public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
@@ -263,12 +263,12 @@ public class Login extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JPanel jPanel1;
-  private javax.swing.JPasswordField txtpass;
-  private javax.swing.JTextField txtuser;
+  public javax.swing.JButton jButton1;
+  public javax.swing.JButton jButton2;
+  public javax.swing.JLabel jLabel1;
+  public javax.swing.JLabel jLabel2;
+  public javax.swing.JPanel jPanel1;
+  public javax.swing.JPasswordField txtpass;
+  public javax.swing.JTextField txtuser;
   // End of variables declaration//GEN-END:variables
 }

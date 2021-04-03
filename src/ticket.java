@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -802,9 +803,9 @@ public class ticket extends javax.swing.JInternalFrame {
     String price = txtprice.getText();
     String seats = txtseats.getValue().toString();
     DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-
+    String date = da.format(new Date());
     // To be fixed! txtdate doesn't exist
-    String date = da.format("2020-03-15"); // txtdate.getDate());
+    // txtdate.getDate());
 
     try {
       Database.getConnection();
@@ -875,6 +876,5 @@ public class ticket extends javax.swing.JInternalFrame {
   public javax.swing.JComboBox<String> txtsource;
   public javax.swing.JLabel txtticketno;
   public javax.swing.JLabel txttotal;
-
   // End of variables declaration//GEN-END:variables
 }

@@ -11,24 +11,7 @@ import java.sql.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ticketTest {
-    public static boolean doesFlightExist(String flightid) {
-        boolean returnVal = false;
 
-        try {
-            Connection connection = Database.getConnection();
-            PreparedStatement pst = connection.prepareStatement("select * from flight where id= ?");
-            pst.setString(1, flightid);
-
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) returnVal = true;
-
-        } catch (SQLException e) {
-            System.out.println("SQLException in isFlightAvailable: " + e.getMessage());
-        }
-
-        return returnVal;
-    }
     @BeforeEach
     @AfterEach
     public void initTicketTable() {
@@ -45,7 +28,11 @@ class ticketTest {
                   "  `seats` varchar(255) NOT NULL," +
                   "  `date` varchar(255) NOT NULL" +
                   ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-            s.execute("INSERT INTO `flights` (`id`, `flightid`, `custid, `flightclass`, `price`, `seats`, `dates`) VALUES" );
+            s.execute("INSERT INTO `ticket` (`id`, `flightid`, `custid, `flightclass`, `price`, `seats`, `dates`) VALUES" +
+                    "('TO001', 'CS001', 'Economy', '9000', '1', '2019-06-15')," +
+                    "('TO002', 'CS001', 'Economy', '9000', '2', '2019-06-15')," +
+                    "('TO003', 'CS003', 'Economy', '50000', '3', '2019-07-02');");
+
             // add table
         } catch (SQLException ignored){}
     }
@@ -91,20 +78,7 @@ class ticketTest {
             assertTrue(!date.isEmpty());
     }
 
-    @Test
-    void testAutoID() {
-        // Test for "MAX(id)") != null.
-        assertDoesNotThrow(() -> {
-            new ticket().autoID();
-        });
 
-        // Clear the database to trigger other branch.
-        wipeTicketTable();
-        // Test for "MAX(id)") == null.
-        assertDoesNotThrow(() -> {
-            new ticket().autoID();
-        });
-    }
     @Test
     void initComponents(){
         new ticket();
@@ -160,8 +134,6 @@ class ticketTest {
         ticket.txtclass.setSelectedItem("Economy");
         ticket.txtprice.setText("50000");
         ticket.txtseats.setValue(1);
-//        Date date = new Date();
-//        ticket.txtdate.setDate(date);
 
 
         ticket.jButton1.doClick();
@@ -173,5 +145,19 @@ class ticketTest {
 
         ticket.jButton2.doClick();
 
+    }
+    @Test
+    void testAutoID() {
+        // Test for "MAX(id)") != null.
+        assertDoesNotThrow(() -> {
+            new ticket().autoID();
+        });
+
+        // Clear the database to trigger other branch.
+        wipeTicketTable();
+        // Test for "MAX(id)") == null.
+        assertDoesNotThrow(() -> {
+            new ticket().autoID();
+        });
     }
 }

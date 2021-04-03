@@ -81,7 +81,7 @@ public class Database {
         }
         return returnVal;
     }
-    
+
     public static boolean doesTicketExist(String ticketNo) {
         boolean returnVal = false;
 

@@ -5,12 +5,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import javax.xml.crypto.Data;
+import java.awt.*;
+import java.awt.event.InputEvent;
 import java.sql.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ticketTest {
+
 
     @BeforeEach
     @AfterEach
@@ -28,10 +32,10 @@ class ticketTest {
                   "  `seats` varchar(255) NOT NULL," +
                   "  `date` varchar(255) NOT NULL" +
                   ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-            s.execute("INSERT INTO `ticket` (`id`, `flightid`, `custid, `flightclass`, `price`, `seats`, `dates`) VALUES" +
-                    "('TO001', 'CS001', 'Economy', '9000', '1', '2019-06-15')," +
-                    "('TO002', 'CS001', 'Economy', '9000', '2', '2019-06-15')," +
-                    "('TO003', 'CS003', 'Economy', '50000', '3', '2019-07-02');");
+            s.execute("INSERT INTO `ticket` (`id`, `flightid`, `custid`, `class`, `price`, `seats`, `date`) VALUES\n" +
+                    "('TO001', 'FO003', 'CS001', 'Economy', 9000, 1, '2019-06-15')," +
+                    "('TO002', 'FO003', 'CS001', 'Economy', 9000, 2, '2019-06-15')," +
+                    "('TO003', 'FO001', 'CS003', 'Economy', 50000, 3, '2019-07-01');");
 
             // add table
         } catch (SQLException ignored){}
@@ -54,38 +58,13 @@ class ticketTest {
     }
 
     @Test
-    public void TestBookFlightDetails() {
-            String id = "TK001";
-            String flightid = "FL001";
-            String custid = "CS001";
-            String Fclass = "Economy";
-            String price = "100";
-            String seats = "5";
-            String date = "2012/09/07";
-
-            assertTrue(!id.isEmpty());
-
-            assertTrue(!flightid.isEmpty());
-
-            assertTrue(!custid.isEmpty());
-
-            assertTrue(!Fclass.isEmpty());
-
-            assertTrue(!price.isEmpty());
-
-            assertTrue(!seats.isEmpty());
-
-            assertTrue(!date.isEmpty());
-    }
-
-
-    @Test
     void initComponents(){
         new ticket();
     }
 
     @Test
     void testJButton3ActionPerformed(){
+
         ticket ticket = new ticket();
 
         //Simulating input into dropdown box's
@@ -102,33 +81,48 @@ class ticketTest {
     void testJButton4ActionPerformed(){
         ticket ticket = new ticket();
 
+        ticket.txtcustid.setText("83748902");
+        ticket.jButton4.doClick();
+        assertFalse(ticket.txtfirstname.getText().equals("john"));
         ticket.txtcustid.setText("CS001");
         ticket.jButton4.doClick();
         assertTrue(ticket.txtfirstname.getText().equals("john"));
+
     }
 
     @Test
-    void testJTable1MouseClicked(){
+    void testJTable1MouseClicked() throws AWTException {
         ticket ticket = new ticket();
         ticket.txtsource.setSelectedItem("India");
         ticket.txtdepart.setSelectedItem("Uk");
         // Executing the method
         ticket.jButton3.doClick();
         assertTrue(ticket.jTable1.getRowCount() >= 1);
-        ticket.jTable1.setRowSelectionInterval(0,0);
+
+        ticket.jTable1.changeSelection(0,0,false,false);
+
+        DefaultTableModel Df = (DefaultTableModel) ticket.jTable1.getModel();
+        int selectIndex = ticket.jTable1.getSelectedRow();
+
+        ticket.flightno.setText(Df.getValueAt(selectIndex, 0).toString());
+        ticket.flightname.setText(Df.getValueAt(selectIndex, 1).toString());
+        ticket.txtdept.setText(Df.getValueAt(selectIndex, 5).toString());
+        ticket.txtprice.setText(Df.getValueAt(selectIndex, 7).toString());
         assertTrue(ticket.flightname.getText().equals("JetBlue"));
     }
     @Test
     void testTxtseatsStateChanged(){
         ticket ticket = new ticket();
-
+        ticket.txtprice.setText("2000");
+        ticket.txtseats.setValue(2);
+        assertTrue(ticket.txttotal.getText().equals("4000"));
         
     }
     @Test
     void testJButton1ActionPerformed(){
         ticket ticket = new ticket();
 
-        ticket.txtticketno.setText("TO001");
+        ticket.txtticketno.setText("TO004");
         ticket.flightno.setText("FO001");
         ticket.txtcustid.setText("CS001");
         ticket.txtclass.setSelectedItem("Economy");
@@ -137,7 +131,7 @@ class ticketTest {
 
 
         ticket.jButton1.doClick();
-        assertTrue(Database.doesTicketExist("TO001"));
+        assertTrue(Database.doesTicketExist("TO004"));
     }
     @Test
     void testJButton2ActionPerformed(){

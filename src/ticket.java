@@ -34,7 +34,10 @@ public class ticket extends javax.swing.JInternalFrame {
    */
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  private void initComponents() {
+
+  //TODO Should be set to "Private" Made public only for testing purposes
+
+  public void initComponents() {
 
     jPanel1 = new javax.swing.JPanel();
     txtsource = new javax.swing.JComboBox<>();
@@ -658,8 +661,8 @@ public class ticket extends javax.swing.JInternalFrame {
 
     pack();
   } // </editor-fold>//GEN-END:initComponents
-
-  private void jButton3ActionPerformed(
+//TODO Should be set to "Private" Made public only for testing purposes
+  public void jButton3ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton3ActionPerformed
     // TODO add your handling code here:
 
@@ -725,8 +728,9 @@ public class ticket extends javax.swing.JInternalFrame {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
+//TODO Should be set to "Private" Made public only for testing purposes
 
-  private void jButton4ActionPerformed(
+  public void jButton4ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton4ActionPerformed
     // TODO add your handling code here:
     String id = txtcustid.getText();
@@ -756,7 +760,8 @@ public class ticket extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton4ActionPerformed
 
-  private void jTable1MouseClicked(
+//TODO Should be set to "Private" Made public only for testing purposes
+  public void jTable1MouseClicked(
       java.awt.event.MouseEvent evt) { // GEN-FIRST:event_jTable1MouseClicked
     // TODO add your handling code here:
 
@@ -770,7 +775,9 @@ public class ticket extends javax.swing.JInternalFrame {
     txtprice.setText(Df.getValueAt(selectIndex, 7).toString());
   } // GEN-LAST:event_jTable1MouseClicked
 
-  private void txtseatsStateChanged(
+  //TODO Should be set to "Private" Made public only for testing purposes
+
+  public void txtseatsStateChanged(
       javax.swing.event.ChangeEvent evt) { // GEN-FIRST:event_txtseatsStateChanged
     // TODO add your handling code here:
 
@@ -782,7 +789,9 @@ public class ticket extends javax.swing.JInternalFrame {
     txttotal.setText(String.valueOf(tot));
   } // GEN-LAST:event_txtseatsStateChanged
 
-  private void jButton1ActionPerformed(
+  //TODO Should be set to "Private" Made public only for testing purposes
+
+  public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
@@ -819,7 +828,9 @@ public class ticket extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton1ActionPerformed
 
-  private void jButton2ActionPerformed(
+  //TODO Should be set to "Private" Made public only for testing purposes
+
+  public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
 
@@ -827,41 +838,43 @@ public class ticket extends javax.swing.JInternalFrame {
   } // GEN-LAST:event_jButton2ActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JLabel flightname;
-  private javax.swing.JLabel flightno;
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JButton jButton3;
-  private javax.swing.JButton jButton4;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel12;
-  private javax.swing.JLabel jLabel13;
-  private javax.swing.JLabel jLabel14;
-  private javax.swing.JLabel jLabel15;
-  private javax.swing.JLabel jLabel16;
-  private javax.swing.JLabel jLabel17;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel5;
-  private javax.swing.JLabel jLabel6;
-  private javax.swing.JLabel jLabel7;
-  private javax.swing.JLabel jLabel8;
-  private javax.swing.JPanel jPanel1;
-  private javax.swing.JPanel jPanel2;
-  private javax.swing.JPanel jPanel3;
-  private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JTable jTable1;
-  private javax.swing.JComboBox<String> txtclass;
-  private javax.swing.JTextField txtcustid;
-  private javax.swing.JComboBox<String> txtdepart;
-  private javax.swing.JLabel txtdept;
-  private javax.swing.JLabel txtfirstname;
-  private javax.swing.JLabel txtlastname;
-  private javax.swing.JLabel txtpassport;
-  private javax.swing.JTextField txtprice;
-  private javax.swing.JSpinner txtseats;
-  private javax.swing.JComboBox<String> txtsource;
-  private javax.swing.JLabel txtticketno;
-  private javax.swing.JLabel txttotal;
+  //TODO: These should be private
+  public javax.swing.JLabel flightname;
+  public javax.swing.JLabel flightno;
+  public javax.swing.JButton jButton1;
+  public javax.swing.JButton jButton2;
+  public javax.swing.JButton jButton3;
+  public javax.swing.JButton jButton4;
+  public javax.swing.JLabel jLabel1;
+  public javax.swing.JLabel jLabel12;
+  public javax.swing.JLabel jLabel13;
+  public javax.swing.JLabel jLabel14;
+  public javax.swing.JLabel jLabel15;
+  public javax.swing.JLabel jLabel16;
+  public javax.swing.JLabel jLabel17;
+  public javax.swing.JLabel jLabel2;
+  public javax.swing.JLabel jLabel3;
+  public javax.swing.JLabel jLabel5;
+  public javax.swing.JLabel jLabel6;
+  public javax.swing.JLabel jLabel7;
+  public javax.swing.JLabel jLabel8;
+  public javax.swing.JPanel jPanel1;
+  public javax.swing.JPanel jPanel2;
+  public javax.swing.JPanel jPanel3;
+  public javax.swing.JScrollPane jScrollPane1;
+  public javax.swing.JTable jTable1;
+  public javax.swing.JComboBox<String> txtclass;
+  public javax.swing.JTextField txtcustid;
+  public javax.swing.JComboBox<String> txtdepart;
+  public javax.swing.JLabel txtdept;
+  public javax.swing.JLabel txtfirstname;
+  public javax.swing.JLabel txtlastname;
+  public javax.swing.JLabel txtpassport;
+  public javax.swing.JTextField txtprice;
+  public javax.swing.JSpinner txtseats;
+  public javax.swing.JComboBox<String> txtsource;
+  public javax.swing.JLabel txtticketno;
+  public javax.swing.JLabel txttotal;
+
   // End of variables declaration//GEN-END:variables
 }

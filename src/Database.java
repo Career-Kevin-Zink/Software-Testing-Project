@@ -81,5 +81,24 @@ public class Database {
         }
         return returnVal;
     }
+    
+    public static boolean doesTicketExist(String ticketNo) {
+        boolean returnVal = false;
+
+        try {
+            Connection connection = getConnection();
+            PreparedStatement pst = connection.prepareStatement("select * from ticket where id= ?");
+            pst.setString(1, ticketNo);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) returnVal = true;
+
+        } catch (SQLException e) {
+            System.out.println("SQLException in doesTicketExist: " + e.getMessage());
+        }
+
+        return returnVal;
+    }
 
 }

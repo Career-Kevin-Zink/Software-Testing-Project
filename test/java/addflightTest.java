@@ -4,12 +4,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
+import java.awt.event.ActionEvent;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -68,10 +69,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
             // Test for "MAX(id)") == null.
             assertDoesNotThrow(() -> new addflight().autoID());
+
         }
 
         @Test
-        void testCreateCustomer() {
+        void testCreateFlight() {
             // Valid Flight information.
             String id = "FO005";
             String flightName = "Delta";
@@ -101,8 +103,11 @@ import static org.junit.jupiter.api.Assertions.*;
             }
         }
 
+        /**
+         * Testing passing values for the creation of a new flight.
+         */
         @Test
-        void jButton1ActionPerformed() {
+        void jButton1ActionPerformedPassValues() {
 
             addflight addFlight = new addflight();
 
@@ -121,6 +126,94 @@ import static org.junit.jupiter.api.Assertions.*;
             addFlight.jButton1.doClick();
 
             assertTrue(Database.doesFlightExist("FO107"));
+        }
+
+        @Test
+        void jButton1ActionPerformedFailDate() {
+
+            addflight addFlight = new addflight();
+
+            addFlight.txtflightid.setText("FO108");
+            addFlight.txtflightname.setText("Delta");
+            addFlight.txtsource.getItemAt(0);
+            addFlight.txtdepart.getItemAt(1);
+            Date date = new GregorianCalendar(2021, Calendar.JANUARY, 01).getTime();
+            addFlight.txtdate.setDate(date);
+            addFlight.txtdtime.setText("8.00AM");
+            addFlight.txtarrtime.setText("8.00PM");
+            addFlight.txtflightcharge.setText("700");
+
+            assertFalse(Database.doesFlightExist("FO108"));
+
+            addFlight.jButton1.doClick();
+
+            assertFalse(Database.doesFlightExist("FO108"));
+        }
+
+        @Test
+        void jButton1ActionPerformedFailDeptTime() {
+
+            addflight addFlight = new addflight();
+
+            addFlight.txtflightid.setText("FO109");
+            addFlight.txtflightname.setText("Delta");
+            addFlight.txtsource.getItemAt(0);
+            addFlight.txtdepart.getItemAt(1);
+            Date date = new Date();
+            addFlight.txtdate.setDate(date);
+            addFlight.txtdtime.setText("-8.00AM");
+            addFlight.txtarrtime.setText("8.00PM");
+            addFlight.txtflightcharge.setText("700");
+
+            assertFalse(Database.doesFlightExist("FO109"));
+
+            addFlight.jButton1.doClick();
+
+            assertFalse(Database.doesFlightExist("FO109"));
+        }
+
+        @Test
+        void jButton1ActionPerformedFailArrivalTime() {
+
+            addflight addFlight = new addflight();
+
+            addFlight.txtflightid.setText("FO110");
+            addFlight.txtflightname.setText("Delta");
+            addFlight.txtsource.getItemAt(0);
+            addFlight.txtdepart.getItemAt(1);
+            Date date = new Date();
+            addFlight.txtdate.setDate(date);
+            addFlight.txtdtime.setText("8.00AM");
+            addFlight.txtarrtime.setText("-8.00PM");
+            addFlight.txtflightcharge.setText("700");
+
+            assertFalse(Database.doesFlightExist("FO110"));
+
+            addFlight.jButton1.doClick();
+
+            assertFalse(Database.doesFlightExist("FO110"));
+        }
+
+        @Test
+        void jButton1ActionPerformedFailCharge() {
+
+            addflight addFlight = new addflight();
+
+            addFlight.txtflightid.setText("FO111");
+            addFlight.txtflightname.setText("Delta");
+            addFlight.txtsource.getItemAt(0);
+            addFlight.txtdepart.getItemAt(1);
+            Date date = new Date();
+            addFlight.txtdate.setDate(date);
+            addFlight.txtdtime.setText("8.00AM");
+            addFlight.txtarrtime.setText("8.00PM");
+            addFlight.txtflightcharge.setText("-700");
+
+            assertFalse(Database.doesFlightExist("FO111"));
+
+            addFlight.jButton1.doClick();
+
+            assertFalse(Database.doesFlightExist("FO111"));
 
         }
 
@@ -142,6 +235,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
             // Setup the GUI
             addFlight.initComponents();
+
+            assertTrue(true);
 
             // Execute the method.
             addFlight.jButton2.doClick();

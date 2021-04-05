@@ -1,8 +1,5 @@
 import java.awt.event.ActionEvent;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Date;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -149,15 +146,16 @@ class searchCustomerTest {
     boolean returnVal = false;
 
     try {
-      Connection connection = Database.getConnection();
-      PreparedStatement pst = connection.prepareStatement("select * from customer where id= ?");
+      Class.forName("com.mysql.jdbc.Driver");
+      Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      PreparedStatement pst = con.prepareStatement("select * from customer where id= ?");
       pst.setString(1, customerId);
 
       ResultSet rs = pst.executeQuery();
 
       if (rs.next()) returnVal = true;
 
-    } catch (SQLException e) {
+    } catch (SQLException | ClassNotFoundException e) {
       System.out.println("SQLException in isUsernameAvailable: " + e.getMessage());
     }
 

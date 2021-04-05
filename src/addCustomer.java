@@ -577,7 +577,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton1ActionPerformed
 
-  private void jButton2ActionPerformed(
+  public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
 
@@ -589,9 +589,6 @@ public class addCustomer extends javax.swing.JInternalFrame {
     String address = txtaddress.getText();
 
     DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-
-    // To be fixed! txtdob doesn't exist
-    // String date = da.format("2020-03-15");
     String date = da.format(txtdate.getDate());
     String Gender;
 
@@ -631,7 +628,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton2ActionPerformed
 
-  private void jButton3ActionPerformed(
+  public void jButton3ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton3ActionPerformed
     // TODO add your handling code here:
 
@@ -639,31 +636,31 @@ public class addCustomer extends javax.swing.JInternalFrame {
   } // GEN-LAST:event_jButton3ActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JButton jButton3;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel10;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JLabel jLabel3;
-  private javax.swing.JLabel jLabel4;
-  private javax.swing.JLabel jLabel5;
-  private javax.swing.JLabel jLabel6;
-  private javax.swing.JLabel jLabel8;
-  private javax.swing.JLabel jLabel9;
-  private javax.swing.JPanel jPanel1;
-  private javax.swing.JPanel jPanel2;
-  private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JRadioButton r1;
-  private javax.swing.JRadioButton r2;
-  private javax.swing.JTextArea txtaddress;
-  private javax.swing.JTextField txtcontact;
-  private javax.swing.JTextField txtfirstname;
-  private com.toedter.calendar.JDateChooser txtdate;
-  private javax.swing.JLabel txtid;
-  private javax.swing.JTextField txtlastname;
-  private javax.swing.JTextField txtnic;
-  private javax.swing.JTextField txtpassport;
-  private javax.swing.JLabel txtphoto;
+  public javax.swing.JButton jButton1;
+  public javax.swing.JButton jButton2;
+  public javax.swing.JButton jButton3;
+  public javax.swing.JLabel jLabel1;
+  public javax.swing.JLabel jLabel10;
+  public javax.swing.JLabel jLabel2;
+  public javax.swing.JLabel jLabel3;
+  public javax.swing.JLabel jLabel4;
+  public javax.swing.JLabel jLabel5;
+  public javax.swing.JLabel jLabel6;
+  public javax.swing.JLabel jLabel8;
+  public javax.swing.JLabel jLabel9;
+  public javax.swing.JPanel jPanel1;
+  public javax.swing.JPanel jPanel2;
+  public javax.swing.JScrollPane jScrollPane1;
+  public javax.swing.JRadioButton r1;
+  public javax.swing.JRadioButton r2;
+  public javax.swing.JTextArea txtaddress;
+  public javax.swing.JTextField txtcontact;
+  public javax.swing.JTextField txtfirstname;
+  public com.toedter.calendar.JDateChooser txtdate;
+  public javax.swing.JLabel txtid;
+  public javax.swing.JTextField txtlastname;
+  public javax.swing.JTextField txtnic;
+  public javax.swing.JTextField txtpassport;
+  public javax.swing.JLabel txtphoto;
   // End of variables declaration//GEN-END:variables
 }

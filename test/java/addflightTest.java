@@ -19,8 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
         public void initFlightTable() {
             // Set the database to the expected default state.
             try {
-                Database.getConnection();
-                Statement s = Database.connection.createStatement();
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+                Statement s = con.createStatement();
                 s.execute("DROP TABLE `flight`");
                 s.execute("CREATE TABLE `flight` (\n" +
                         "  `id` varchar(255) NOT NULL, \n" +
@@ -36,14 +37,15 @@ import static org.junit.jupiter.api.Assertions.*;
                         + "('FO001', 'JetBlue', 'India', 'Uk', '2019-06-14', '8.00AM', '10.00Pm', '50000'),"
                         + "('FO002', 'Delta', 'India', 'China', '2019-06-15', '8.00PM', '2.00AM0', '15000'),"
                         + "('FO003', 'American Airlines', 'India', 'Srilanka', '2019-06-15', '9.00AM', '10.00AM', '9000');");
-            } catch (SQLException ignored) {}
+            } catch (SQLException | ClassNotFoundException ignored) {}
         }
 
         public void wipeFlightTable() {
             // Wipe database to enter the null branch.
             try {
-                Database.getConnection();
-                Statement s = Database.connection.createStatement();
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+                Statement s = con.createStatement();
                 s.execute("DROP TABLE `flight`");
                 s.execute("CREATE TABLE `flight` (\n" +
                         "  `id` varchar(255) NOT NULL, \n" +
@@ -55,7 +57,7 @@ import static org.junit.jupiter.api.Assertions.*;
                         "  `arrtime` varchar(255) NOT NULL, \n" +
                         "  `flightcharge` varchar(255) NOT NULL\n" +
                         ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-            } catch (SQLException ignored) {}
+            } catch (SQLException | ClassNotFoundException ignored) {}
         }
 
         @Test
@@ -83,9 +85,11 @@ import static org.junit.jupiter.api.Assertions.*;
             String flightCharge = "700";
 
             try {
-                Database.getConnection();
+
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
                 PreparedStatement pst =
-                        Database.connection.prepareStatement(
+                        con.prepareStatement(
                                 "insert into flight(id,flightname,source,depart,date,deptime,arrtime,flightcharge)values(?,?,?,?,?,?,?,?)");
 
                 pst.setString(1, id);
@@ -244,8 +248,10 @@ import static org.junit.jupiter.api.Assertions.*;
             boolean returnVal = false;
 
             try {
-                Connection connection = Database.getConnection();
-                PreparedStatement pst = connection.prepareStatement("SELECT * FROM flight WHERE id = ?");
+
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+                PreparedStatement pst = con.prepareStatement("SELECT * FROM flight WHERE id = ?");
                 pst.setString(1, flightId);
 
 
@@ -253,7 +259,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
                 if (rs.next()) returnVal = true;
 
-            } catch (SQLException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 System.out.println("SQLException in doesFlightExist: " + e.getMessage());
                 e.printStackTrace();
             }

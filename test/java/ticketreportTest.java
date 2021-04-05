@@ -2,6 +2,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -13,8 +15,9 @@ class ticketreportTest {
     @AfterEach
     public void initTicketTable() {
         try {
-            Database.getConnection();
-            Statement s = Database.connection.createStatement();
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            Statement s = con.createStatement();
             s.execute("DROP TABLE `ticket`");
             s.execute("CREATE TABLE `ticket` (" +
                     "  `id` varchar(255) NOT NULL," +
@@ -31,7 +34,7 @@ class ticketreportTest {
                     "('TO003', 'FO001', 'CS003', 'Economy', 50000, 3, '2019-07-01');");
 
             // add table
-        } catch (SQLException ignored){}
+        } catch (SQLException | ClassNotFoundException ignored){}
     }
     @Test
     void initcomponents(){new ticketreport();}

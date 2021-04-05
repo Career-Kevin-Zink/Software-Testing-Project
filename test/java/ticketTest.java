@@ -20,8 +20,9 @@ class ticketTest {
     @AfterEach
     public void initTicketTable() {
         try {
-            Database.getConnection();
-            Statement s = Database.connection.createStatement();
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            Statement s = con.createStatement();
             s.execute("DROP TABLE `ticket`");
             s.execute("CREATE TABLE `ticket` (" +
                   "  `id` varchar(255) NOT NULL," +
@@ -38,12 +39,13 @@ class ticketTest {
                     "('TO003', 'FO001', 'CS003', 'Economy', 50000, 3, '2019-07-01');");
 
             // add table
-        } catch (SQLException ignored){}
+        } catch (SQLException | ClassNotFoundException ignored){}
     }
     public void wipeTicketTable() {
         try {
-            Database.getConnection();
-            Statement s = Database.connection.createStatement();
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            Statement s = con.createStatement();
             s.execute("DROP TABLE `ticket`");
             s.execute("CREATE TABLE `ticket` (\n" +
                     "  `id` varchar(255) NOT NULL,\n" +
@@ -54,7 +56,7 @@ class ticketTest {
                     "  `seats` varchar(255) NOT NULL,\n" +
                     "  `date` varchar(255) NOT NULL\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-        }catch (SQLException ignored) {}
+        }catch (SQLException | ClassNotFoundException ignored) {}
     }
 
     @Test
@@ -159,15 +161,16 @@ class ticketTest {
         boolean returnVal = false;
 
         try {
-            Connection connection = Database.getConnection();
-            PreparedStatement pst = connection.prepareStatement("select * from ticket where id= ?");
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            PreparedStatement pst = con.prepareStatement("select * from ticket where id= ?");
             pst.setString(1, ticketNo);
 
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) returnVal = true;
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             System.out.println("SQLException in doesTicketExist: " + e.getMessage());
         }
 

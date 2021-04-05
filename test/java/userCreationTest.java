@@ -11,7 +11,7 @@ class userCreationTest {
     @Test
     void initComponents() {
         long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-        new userCreation().initComponents();
+        new userCreation();
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
 
         // Testing the GUI initialization time is less than 5 seconds.
@@ -76,8 +76,9 @@ class userCreationTest {
     public void defaultUserTable() {
         // Set the database to the expected default state.
         try {
-            Database.getConnection();
-            Statement s = Database.connection.createStatement();
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            Statement s = con.createStatement();
             s.execute("DROP TABLE `user`");
             s.execute("CREATE TABLE `user` (" +
                     "  `id` varchar(255) NOT NULL," +
@@ -91,14 +92,15 @@ class userCreationTest {
                     "('UO002', 'nimal', 'raja', 'raja', '321')," +
                     "('UO003', 'Jim', 'Jones', 'jjones', '123')," +
                     "('UO004', 'Ravi', 'Kumar', 'rjumar', '123');");
-        } catch (SQLException ignored) {}
+        } catch (SQLException | ClassNotFoundException ignored) {}
     }
 
     public void emptyUserTable() {
         // Wipe database to enter the null branch.
         try {
-            Database.getConnection();
-            Statement s = Database.connection.createStatement();
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            Statement s = con.createStatement();
             s.execute("DROP TABLE `user`");
             s.execute("CREATE TABLE `user` (\n" +
                     "  `id` varchar(255) NOT NULL,\n" +
@@ -107,22 +109,23 @@ class userCreationTest {
                     "  `username` varchar(255) NOT NULL,\n" +
                     "  `password` varchar(255) NOT NULL\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-        } catch (SQLException ignored) {}
+        } catch (SQLException | ClassNotFoundException ignored) {}
     }
 
     public static boolean isUsernameAvailable(String username) {
         boolean returnVal = false;
 
         try {
-            Connection connection = Database.getConnection();
-            PreparedStatement pst = connection.prepareStatement("select * from user where username= ?");
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            PreparedStatement pst = con.prepareStatement("select * from user where username= ?");
             pst.setString(1, username);
 
             ResultSet rs = pst.executeQuery();
 
             if (!rs.next()) returnVal = true;
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             System.out.println("SQLException in isUsernameAvailable: " + e.getMessage());
         }
 

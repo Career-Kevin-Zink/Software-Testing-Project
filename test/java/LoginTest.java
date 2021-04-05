@@ -22,12 +22,11 @@ class LoginTest {
      *
      * Statement Coverage: 100%
      */
-
     Login loginTestObject = new Login();
 
     @ParameterizedTest
     @DisplayName("Valid Username and Password input + jBtn #1 ActionPerformed")
-    @CsvSource({",", "john,321", "%^@,123", "john,123"})
+    @CsvSource({",", "john,321", "%^@,123", "john,123", ",123", "john,"})
     public void loginTest(String username, String password) {
         loginTestObject.txtuser.setText(username);
         loginTestObject.txtpass.setText(password);

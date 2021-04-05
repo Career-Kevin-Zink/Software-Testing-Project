@@ -8,6 +8,7 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -597,7 +598,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
       pst.setString(10, id);
       pst.executeUpdate();
 
-      JOptionPane.showMessageDialog(null,"Registation Updateddddd.........");
+      JOptionPane.showMessageDialog(null,"Registration Updated.........");
     } catch (ClassNotFoundException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
@@ -640,10 +641,11 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
         Blob blob = rs.getBlob("photo");
         byte[] _imagebytes = blob.getBytes(1, (int) blob.length());
+        System.out.println(Arrays.toString(_imagebytes));
         ImageIcon image = new ImageIcon(_imagebytes);
         Image im = image.getImage();
         Image myImg =
-            im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
+            im.getScaledInstance(txtphoto.getWidth() == 0 ? 25 : txtphoto.getWidth(), txtphoto.getHeight() == 0 ? 25 : txtphoto.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon newImage = new ImageIcon(myImg);
 
         if (gender.equals("Female")) {

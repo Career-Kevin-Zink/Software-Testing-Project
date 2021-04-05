@@ -85,10 +85,10 @@ class ticketTest {
 
         ticket.txtcustid.setText("83748902");
         ticket.jButton4.doClick();
-        assertFalse(ticket.txtfirstname.getText().equals("john"));
+        assertFalse(ticket.txtfirstname.getText().equalsIgnoreCase("john"));
         ticket.txtcustid.setText("CS001");
         ticket.jButton4.doClick();
-        assertTrue(ticket.txtfirstname.getText().equals("john"));
+        assertTrue(ticket.txtfirstname.getText().equalsIgnoreCase("john"));
 
     }
 

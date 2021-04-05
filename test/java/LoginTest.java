@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoginTest {
-    Login loginTestObject = new Login();
+    //Login loginTestObject = new Login();
     /**
      * Requirement Description: The system shall allow users to log in by providing a user ID and a password at the log
      * in screen.
@@ -27,6 +27,7 @@ class LoginTest {
     @ParameterizedTest
     @CsvSource({",", "john,error", "error,123", "john,123"})
     public void loginTest(String username, String password) {
+        Login loginTestObject = new Login();
         loginTestObject.txtuser.setText(username);
         loginTestObject.txtpass.setText(password);
         loginTestObject.jButton1.doClick();
@@ -60,6 +61,7 @@ class LoginTest {
     @Test
     @DisplayName("jBtn #2 ActionPerformed")
     void jBtnTWOActionPerformed(){
+        Login loginTestObject = new Login();
         loginTestObject.jButton2.doClick();
     }
 

@@ -7,7 +7,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoginTest {
-    //Login loginTestObject = new Login();
     /**
      * Requirement Description: The system shall allow users to log in by providing a user ID and a password at the log
      * in screen.
@@ -24,15 +23,18 @@ class LoginTest {
      * Statement Coverage: 100%
      */
 
+    Login loginTestObject = new Login();
+
     @ParameterizedTest
-    @CsvSource({",", "john,error", "error,123", "john,123"})
+    @DisplayName("Valid Username and Password input + jBtn #1 ActionPerformed")
+    @CsvSource({",", "john,321", "%^@,123", "john,123"})
     public void loginTest(String username, String password) {
-        Login loginTestObject = new Login();
         loginTestObject.txtuser.setText(username);
         loginTestObject.txtpass.setText(password);
+        loginTestObject.setVisible(true);
         loginTestObject.jButton1.doClick();
 
-        if(loginTestObject.txtuser.getText().equals("john") || loginTestObject.txtpass.getText().equals("123")){
+        if(loginTestObject.txtuser.getText().equals("john") && loginTestObject.txtpass.getText().equals("123")){
             assertTrue(true);
         }
         else{
@@ -41,7 +43,7 @@ class LoginTest {
     }
 
     @Test
-    @DisplayName("Main method")
+    @DisplayName("Calling Login.main")
     void testMain(){
         Login.main(new String[]{"arg1", "arg2", "arg3"});
     }
@@ -59,7 +61,7 @@ class LoginTest {
     }
 
     @Test
-    @DisplayName("jBtn #2 ActionPerformed")
+    @DisplayName("jBtn #2 ActionPerformed (Button exists, actionPerformed method does not)")
     void jBtnTWOActionPerformed(){
         Login loginTestObject = new Login();
         loginTestObject.jButton2.doClick();

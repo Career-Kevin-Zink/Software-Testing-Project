@@ -4,10 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Blob;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,6 +30,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     initComponents();
   }
 
+  Connection con;
   PreparedStatement pst;
 
   String path = null;
@@ -583,10 +581,9 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     String contact = txtcontact.getText();
 
     try {
-      Database.getConnection();
-      pst =
-          Database.connection.prepareStatement(
-              "update customer set firstname = ?,lastname = ?,nic = ?,passport = ?,address= ?,dob = ?,gender = ?,contact = ?,photo = ? where id = ?");
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      pst = con.prepareStatement("update customer set firstname = ?,lastname = ?,nic = ?,passport = ?,address= ?,dob = ?,gender = ?,contact = ?,photo = ? where id = ?");
 
       pst.setString(1, firstname);
       pst.setString(2, lastname);
@@ -600,8 +597,9 @@ public class searchCustomer extends javax.swing.JInternalFrame {
       pst.setString(10, id);
       pst.executeUpdate();
 
-      JOptionPane.showMessageDialog(null, "Registration Updated.........");
-
+      JOptionPane.showMessageDialog(null,"Registation Updateddddd.........");
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -621,8 +619,9 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     String id = txtcustid.getText();
 
     try {
-      Database.getConnection();
-      pst = Database.connection.prepareStatement("select * from customer where id = ?");
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      pst = con.prepareStatement("select * from customer where id = ?");
       pst.setString(1, id);
       ResultSet rs = pst.executeQuery();
 
@@ -644,7 +643,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         ImageIcon image = new ImageIcon(_imagebytes);
         Image im = image.getImage();
         Image myImg =
-            im.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+            im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon newImage = new ImageIcon(myImg);
 
         if (gender.equals("Female")) {
@@ -669,6 +668,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         txtphoto.setIcon(newImage);
       }
 
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
     } catch (ParseException ex) {

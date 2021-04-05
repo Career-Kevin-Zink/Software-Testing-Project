@@ -1,7 +1,4 @@
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +18,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
     LoadData();
   }
 
+  Connection con;
   PreparedStatement pst;
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -115,8 +113,9 @@ public class ticketreport extends javax.swing.JInternalFrame {
 
   public void LoadData() {
     try {
-      Database.getConnection();
-      pst = Database.connection.prepareStatement("SELECT * from ticket");
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      pst = con.prepareStatement("SELECT * from ticket");
       ResultSet rs = pst.executeQuery();
 
       ResultSetMetaData rsm = rs.getMetaData();
@@ -142,6 +141,8 @@ public class ticketreport extends javax.swing.JInternalFrame {
         Df.addRow(v2);
       }
 
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
     }

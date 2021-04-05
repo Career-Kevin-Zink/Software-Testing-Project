@@ -1,6 +1,4 @@
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -18,6 +16,7 @@ public class Login extends javax.swing.JFrame {
     initComponents();
   }
 
+  Connection con;
   PreparedStatement pst;
 
   /**
@@ -195,28 +194,30 @@ public class Login extends javax.swing.JFrame {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
     } else {
       try {
-        Database.getConnection();
-        pst =
-            Database.connection.prepareStatement(
-                "select * from user where username = ? and password = ?");
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+        pst = con.prepareStatement("select * from user where username = ? and password = ?");
         pst.setString(1, username);
         pst.setString(2, password);
 
         ResultSet rs;
         rs = pst.executeQuery();
 
-        if (rs.next()) {
+        if(rs.next())
+        {
           Main m = new Main();
           this.hide();
           m.setVisible(true);
-
-        } else {
+        }
+        else
+        {
           JOptionPane.showMessageDialog(this, "UserName or Password do not Match");
           txtuser.setText("");
           txtpass.setText("");
           txtuser.requestFocus();
         }
-
+      } catch (ClassNotFoundException ex) {
+        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
       } catch (SQLException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
       }

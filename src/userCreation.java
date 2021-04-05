@@ -1,8 +1,5 @@
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -26,6 +23,7 @@ public class userCreation extends javax.swing.JInternalFrame {
     autoID();
   }
 
+  Connection con;
   PreparedStatement pst;
 
   /**
@@ -251,10 +249,9 @@ public class userCreation extends javax.swing.JInternalFrame {
     String password = txtpassword.getText();
 
     try {
-      Database.getConnection();
-      pst =
-          Database.connection.prepareStatement(
-              "insert into user(id,firstname,lastname,username,password)values(?,?,?,?,?)");
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      pst = con.prepareStatement("insert into user(id,firstname,lastname,username,password)values(?,?,?,?,?)");
 
       pst.setString(1, id);
       pst.setString(2, firstname);
@@ -266,6 +263,8 @@ public class userCreation extends javax.swing.JInternalFrame {
 
       JOptionPane.showMessageDialog(null, "User Created.........");
 
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -279,8 +278,9 @@ public class userCreation extends javax.swing.JInternalFrame {
 
   public void autoID() {
     try {
-      Database.getConnection();
-      Statement s = Database.connection.createStatement();
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      Statement s = con.createStatement();
       ResultSet rs = s.executeQuery("select MAX(id) from user");
       rs.next();
       rs.getString("MAX(id)");
@@ -293,8 +293,10 @@ public class userCreation extends javax.swing.JInternalFrame {
         txtuserid.setText("UO" + String.format("%03d", id));
       }
 
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
 

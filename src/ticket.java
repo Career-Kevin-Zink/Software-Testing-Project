@@ -1,9 +1,5 @@
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,6 +23,7 @@ public class ticket extends javax.swing.JInternalFrame {
     autoID();
   }
 
+  Connection con;
   PreparedStatement pst;
 
   /**
@@ -671,10 +668,9 @@ public class ticket extends javax.swing.JInternalFrame {
     String depart = txtdepart.getSelectedItem().toString().trim();
 
     try {
-      Database.getConnection();
-      pst =
-          Database.connection.prepareStatement(
-              "SELECT * from flight WHERE source = ? and depart = ?");
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      pst = con.prepareStatement("SELECT * from flight WHERE source = ? and depart = ?");
 
       pst.setString(1, source);
       pst.setString(2, depart);
@@ -704,6 +700,8 @@ public class ticket extends javax.swing.JInternalFrame {
         Df.addRow(v2);
       }
 
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -711,8 +709,9 @@ public class ticket extends javax.swing.JInternalFrame {
 
   public void autoID() {
     try {
-      Database.getConnection();
-      Statement s = Database.connection.createStatement();
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      Statement s = con.createStatement();
       ResultSet rs = s.executeQuery("select MAX(id) from ticket");
       rs.next();
       rs.getString("MAX(id)");
@@ -725,6 +724,8 @@ public class ticket extends javax.swing.JInternalFrame {
         txtticketno.setText("TO" + String.format("%03d", id));
       }
 
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -737,8 +738,9 @@ public class ticket extends javax.swing.JInternalFrame {
     String id = txtcustid.getText();
 
     try {
-      Database.getConnection();
-      pst = Database.connection.prepareStatement("select * from customer where id = ?");
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      pst = con.prepareStatement("select * from customer where id = ?");
       pst.setString(1, id);
       ResultSet rs = pst.executeQuery();
 
@@ -756,6 +758,8 @@ public class ticket extends javax.swing.JInternalFrame {
         txtpassport.setText(passport.trim());
       }
 
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -808,10 +812,9 @@ public class ticket extends javax.swing.JInternalFrame {
     // txtdate.getDate());
 
     try {
-      Database.getConnection();
-      pst =
-          Database.connection.prepareStatement(
-              "insert into ticket(id,flightid,custid,class,price,seats,date)values(?,?,?,?,?,?,?)");
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      pst = con.prepareStatement("insert into ticket(id,flightid,custid,class,price,seats,date)values(?,?,?,?,?,?,?)");
 
       pst.setString(1, ticketid);
       pst.setString(2, flightid);
@@ -824,6 +827,8 @@ public class ticket extends javax.swing.JInternalFrame {
       pst.executeUpdate();
 
       JOptionPane.showMessageDialog(null, "Ticket Booked.........");
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
     }

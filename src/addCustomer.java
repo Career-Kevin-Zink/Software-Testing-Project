@@ -4,10 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
@@ -30,6 +27,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
     autoID();
   }
 
+  Connection con;
   PreparedStatement pst;
 
   String path = null;
@@ -512,8 +510,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
   public void autoID() {
     try {
-      Database.getConnection();
-      Statement s = Database.connection.createStatement();
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      Statement s = con.createStatement();
       ResultSet rs = s.executeQuery("select MAX(id) from customer");
       rs.next();
       rs.getString("MAX(id)");
@@ -525,6 +524,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
         id++;
         txtid.setText("CS" + String.format("%03d", id));
       }
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -603,10 +604,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
     String contact = txtcontact.getText();
 
     try {
-      Database.getConnection();
-      pst =
-          Database.connection.prepareStatement(
-              "insert into customer(id,firstname,lastname,nic,passport,address,dob,gender,contact,photo)values(?,?,?,?,?,?,?,?,?,?)");
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      pst = con.prepareStatement("insert into customer(id,firstname,lastname,nic,passport,address,dob,gender,contact,photo)values(?,?,?,?,?,?,?,?,?,?)");
 
       pst.setString(1, id);
       pst.setString(2, firstname);
@@ -620,10 +620,12 @@ public class addCustomer extends javax.swing.JInternalFrame {
       pst.setBytes(10, userimage);
       pst.executeUpdate();
 
-      JOptionPane.showMessageDialog(null, "Registration Created.........");
 
-      autoID();
+      JOptionPane.showMessageDialog(null,"Registation Created.........");
 
+
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }

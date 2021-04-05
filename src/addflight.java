@@ -1,8 +1,5 @@
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,6 +24,7 @@ public class addflight extends javax.swing.JInternalFrame {
         autoID();
     }
 
+    Connection con;
     PreparedStatement pst;
 
     /**
@@ -371,8 +369,9 @@ public class addflight extends javax.swing.JInternalFrame {
 
     public void autoID() {
         try {
-            Database.getConnection();
-            Statement s = Database.connection.createStatement();
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            Statement s = con.createStatement();
             ResultSet rs = s.executeQuery("select MAX(id) from flight");
             rs.next();
             rs.getString("MAX(id)");
@@ -385,6 +384,8 @@ public class addflight extends javax.swing.JInternalFrame {
                 txtflightid.setText("FO" + String.format("%03d", id));
             }
 
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -429,10 +430,9 @@ public class addflight extends javax.swing.JInternalFrame {
 
                         if (!txtflightcharge.getText().startsWith("-")) {
 
-                            Database.getConnection();
-                            pst =
-                                    Database.connection.prepareStatement(
-                                            "insert into flight(id,flightname,source,depart,date,deptime,arrtime,flightcharge)values(?,?,?,?,?,?,?,?)");
+                            Class.forName("com.mysql.jdbc.Driver");
+                            con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+                            pst = con.prepareStatement("insert into flight(id,flightname,source,depart,date,deptime,arrtime,flightcharge)values(?,?,?,?,?,?,?,?)");
 
                             pst.setString(1, id);
                             pst.setString(2, flightname);
@@ -460,6 +460,8 @@ public class addflight extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Please add a date after the current date!");
             }
 
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -183,6 +183,10 @@ public class Login extends javax.swing.JFrame {
     setLocationRelativeTo(null);
   } // </editor-fold>//GEN-END:initComponents
 
+  private boolean validLoginStub(String username, String password) {
+    return username.equalsIgnoreCase("john") && password.equalsIgnoreCase("123");
+  }
+
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
@@ -190,7 +194,18 @@ public class Login extends javax.swing.JFrame {
     String username = txtuser.getText();
     String password = txtpass.getText();
 
-    if (username.isEmpty() || password.isEmpty()) {
+    if (validLoginStub(username, password)) {
+      Main m = new Main();
+      this.hide();
+      m.setVisible(true);
+    } else {
+      JOptionPane.showMessageDialog(this, "UserName or Password do not Match");
+      txtuser.setText("");
+      txtpass.setText("");
+      txtuser.requestFocus();
+    }
+
+    /*if (username.isEmpty() || password.isEmpty()) {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
     } else {
       try {
@@ -221,7 +236,7 @@ public class Login extends javax.swing.JFrame {
       } catch (SQLException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
       }
-    }
+    }*/
   } // GEN-LAST:event_jButton1ActionPerformed
 
   /** @param args the command line arguments */

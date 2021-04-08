@@ -184,7 +184,7 @@ public class Login extends javax.swing.JFrame {
   } // </editor-fold>//GEN-END:initComponents
 
   private boolean validLoginStub(String username, String password) {
-    return username.equalsIgnoreCase("john") && password.equalsIgnoreCase("123");
+    return !username.isEmpty() && !password.isEmpty();
   }
 
   public void jButton1ActionPerformed(

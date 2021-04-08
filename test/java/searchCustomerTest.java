@@ -1,14 +1,11 @@
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.awt.event.ActionEvent;
 import java.sql.*;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class searchCustomerTest {
   searchCustomer searchCustomerTestObject = new searchCustomer();
@@ -139,6 +136,18 @@ class searchCustomerTest {
     searchCustomerTestObject.txtcustid.setText("CS001");
 
     assertDoesNotThrow(() -> searchCustomerTestObject.jButton4.doClick());
+  }
+
+  @Test
+  @DisplayName("JBtn #4 Action Performed Integration Test")
+  void JButton4PerformedIT() {
+
+    searchCustomerTestObject.pack();
+    searchCustomerTestObject.setVisible(true);
+    searchCustomerTestObject.txtcustid.setText(null);
+    searchCustomerTestObject.jButton4.doClick();
+
+    assertFalse(searchCustomerTestObject.customerFound);
   }
 
   public static boolean doesCustomerExist(String customerId) {

@@ -26,6 +26,17 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class searchCustomer extends javax.swing.JInternalFrame {
 
+  // TODO: Remove this method after testing has been completed.
+  public boolean customerFound;
+
+  boolean isValidCustomerIdMock(String id) {
+
+    if (id != null && !id.isEmpty() && id.equalsIgnoreCase("CS001")) {
+      return true;
+    }
+    return false;
+  }
+
   /** Creates new form addCustomer */
   public searchCustomer() {
     initComponents();
@@ -619,7 +630,12 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     String id = txtcustid.getText();
 
+    customerFound = isValidCustomerIdMock(id);
+
+    // TODO: Commented out for integration testing.
+    /*
     try {
+
       Class.forName("com.mysql.jdbc.Driver");
       con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
       pst = con.prepareStatement("select * from customer where id = ?");
@@ -677,6 +693,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     } catch (ParseException ex) {
       Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
+     */
+
   } // GEN-LAST:event_jButton4ActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables

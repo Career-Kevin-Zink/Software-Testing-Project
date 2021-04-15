@@ -1,6 +1,13 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.doReturn;
 
 public class LoginIntegrationTest {
   Login loginTestObject = new Login();
@@ -29,5 +36,5 @@ public class LoginIntegrationTest {
     return userPass;
   }
 
-
+  
 }

@@ -524,9 +524,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         id++;
         txtid.setText("CS" + String.format("%03d", id));
       }
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
+    } catch (ClassNotFoundException | SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
@@ -621,9 +619,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
       JOptionPane.showMessageDialog(null,"Registation Created.........");
 
 
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
+    } catch (ClassNotFoundException | SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
   } // GEN-LAST:event_jButton2ActionPerformed

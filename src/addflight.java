@@ -384,9 +384,7 @@ public class addflight extends javax.swing.JInternalFrame {
                 txtflightid.setText("FO" + String.format("%03d", id));
             }
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -460,9 +458,7 @@ public class addflight extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Please add a date after the current date!");
             }
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
         }
     } // GEN-LAST:event_jButton1ActionPerformed

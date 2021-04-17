@@ -26,17 +26,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class searchCustomer extends javax.swing.JInternalFrame {
 
-  // TODO: Remove this method after testing has been completed.
-  public boolean customerFound;
-
-  boolean isValidCustomerIdMock(String id) {
-
-    if (id != null && !id.isEmpty() && id.equalsIgnoreCase("CS001")) {
-      return true;
-    }
-    return false;
-  }
-
   /** Creates new form addCustomer */
   public searchCustomer() {
     initComponents();
@@ -610,9 +599,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
       pst.executeUpdate();
 
       JOptionPane.showMessageDialog(null,"Registration Updated.........");
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
+    } catch (ClassNotFoundException | SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
   } // GEN-LAST:event_jButton2ActionPerformed
@@ -630,10 +617,6 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     String id = txtcustid.getText();
 
-    customerFound = isValidCustomerIdMock(id);
-
-    // TODO: Commented out for integration testing.
-    /*
     try {
 
       Class.forName("com.mysql.jdbc.Driver");
@@ -642,7 +625,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
       pst.setString(1, id);
       ResultSet rs = pst.executeQuery();
 
-      if (rs.next() == false) {
+      if (!rs.next()) {
         JOptionPane.showMessageDialog(this, "Record not Found");
       } else {
         String fname = rs.getString("firstname");
@@ -660,8 +643,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         System.out.println(Arrays.toString(_imagebytes));
         ImageIcon image = new ImageIcon(_imagebytes);
         Image im = image.getImage();
-        Image myImg =
-            im.getScaledInstance(txtphoto.getWidth() == 0 ? 25 : txtphoto.getWidth(), txtphoto.getHeight() == 0 ? 25 : txtphoto.getHeight(), Image.SCALE_SMOOTH);
+        Image myImg = im.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
         ImageIcon newImage = new ImageIcon(myImg);
 
         if (gender.equals("Female")) {
@@ -681,20 +663,12 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         txtaddress.setText(address.trim());
         txtcontact.setText(contact.trim());
 
-        // To be fixed! txtdob doesn't exist
-        // txtdob.setDate(date1);
         txtphoto.setIcon(newImage);
       }
 
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
-      Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (ParseException ex) {
+    } catch (ClassNotFoundException | SQLException | ParseException ex) {
       Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
-     */
-
   } // GEN-LAST:event_jButton4ActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -141,9 +141,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
         Df.addRow(v2);
       }
 
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
+    } catch (ClassNotFoundException | SQLException ex) {
       Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
     }
   }

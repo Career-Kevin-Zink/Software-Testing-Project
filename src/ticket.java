@@ -724,9 +724,7 @@ public class ticket extends javax.swing.JInternalFrame {
         txtticketno.setText("TO" + String.format("%03d", id));
       }
 
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
+    } catch (ClassNotFoundException | SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
@@ -758,9 +756,7 @@ public class ticket extends javax.swing.JInternalFrame {
         txtpassport.setText(passport.trim());
       }
 
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
+    } catch (ClassNotFoundException | SQLException ex) {
       Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
     }
   } // GEN-LAST:event_jButton4ActionPerformed
@@ -808,8 +804,6 @@ public class ticket extends javax.swing.JInternalFrame {
     String seats = txtseats.getValue().toString();
     DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
     String date = da.format(new Date());
-    // To be fixed! txtdate doesn't exist
-    // txtdate.getDate());
 
     try {
       Class.forName("com.mysql.jdbc.Driver");
@@ -827,9 +821,7 @@ public class ticket extends javax.swing.JInternalFrame {
       pst.executeUpdate();
 
       JOptionPane.showMessageDialog(null, "Ticket Booked.........");
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
+    } catch (ClassNotFoundException | SQLException ex) {
       Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
     }
   } // GEN-LAST:event_jButton1ActionPerformed

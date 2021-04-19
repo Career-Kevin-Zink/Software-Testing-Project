@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'idea'
+    id 'groovy'
 }
 
 group 'org.software.testing'
@@ -20,18 +22,24 @@ sourceSets {
         }
     }
 }
-test {
-    useJUnitPlatform()
-    testLogging {
-        events "passed", "skipped", "failed"
-    }
-}
 dependencies {
+    implementation 'junit:junit:4.13.1'
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.49'
     compile group: 'com.toedter', name: 'jcalendar', version: '1.4'
+
+    implementation(localGroovy())
     testImplementation(platform('org.junit:junit-bom:5.7.1'))
     testImplementation('org.junit.jupiter:junit-jupiter')
+
     testImplementation 'org.mockito:mockito-inline:3.7.7'
     testImplementation 'org.mockito:mockito-junit-jupiter:3.7.7'
+}
+test {
+    useJUnitPlatform {
+        excludeTags 'slow'
+        includeEngines 'junit-jupiter', 'junit-vintage'
+    }
+
+    failFast = true
 }
 

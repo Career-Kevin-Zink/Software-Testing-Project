@@ -1,14 +1,15 @@
+package unit;
+
 import java.awt.event.ActionEvent;
 import java.sql.*;
 import java.util.Date;
-import javax.swing.JFileChooser;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import app.searchCustomer;
+import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 class searchCustomerTest {
   searchCustomer searchCustomerTestObject = new searchCustomer();
@@ -31,7 +32,7 @@ class searchCustomerTest {
   void testCustomerID() {
     assertFalse(doesCustomerExist("001"));
     assertTrue(doesCustomerExist("CS001"));
-    assertNotEquals("", searchCustomerTestObject.txtcustid.getSelectedText());
+    Assertions.assertNotEquals("", searchCustomerTestObject.txtcustid.getSelectedText());
   }
 
   // The system shall allow users to UPDATE existing customers in the database.
@@ -40,7 +41,7 @@ class searchCustomerTest {
   void testFirstName() {
     assertFalse("Starfox332".chars().allMatch(Character::isLetter));
     assertTrue("john".chars().allMatch(Character::isLetter));
-    assertNotEquals("", searchCustomerTestObject.txtfirstname.getSelectedText());
+    Assertions.assertNotEquals("", searchCustomerTestObject.txtfirstname.getSelectedText());
   }
 
   @Test
@@ -51,27 +52,27 @@ class searchCustomerTest {
 
     searchCustomerTestObject.setVisible(true);
     searchCustomerTestObject.txtlastnameActionPerformed(e);
-    assertNotEquals("", searchCustomerTestObject.txtlastname.getSelectedText());
+    Assertions.assertNotEquals("", searchCustomerTestObject.txtlastname.getSelectedText());
   }
 
   @Test
   @DisplayName("Nic # (valid/invalid)")
   void testNicNum() {
-    assertNotEquals("", searchCustomerTestObject.txtnic.getSelectedText());
+    Assertions.assertNotEquals("", searchCustomerTestObject.txtnic.getSelectedText());
   }
 
   @Test
   @DisplayName("Passport ID (valid/invalid)")
   void testPassportID() {
     searchCustomerTestObject.txtpassportActionPerformed(e);
-    assertNotEquals("", searchCustomerTestObject.txtpassport.getSelectedText());
+    Assertions.assertNotEquals("", searchCustomerTestObject.txtpassport.getSelectedText());
   }
 
   @Test
   @DisplayName("DOB (valid/invalid)")
   void testDOB() {
     searchCustomerTestObject.txtdate = new Date();
-    assertNotEquals("", searchCustomerTestObject.txtdate.toString());
+    Assertions.assertNotEquals("", searchCustomerTestObject.txtdate.toString());
   }
 
   @Test
@@ -80,10 +81,10 @@ class searchCustomerTest {
 
     //Male
     searchCustomerTestObject.r1.setSelected(true);
-    assertTrue(searchCustomerTestObject.r1.isSelected());
+    Assertions.assertTrue(searchCustomerTestObject.r1.isSelected());
     //FeMale
     searchCustomerTestObject.r2.setSelected(true);
-    assertTrue(searchCustomerTestObject.r2.isSelected());
+    Assertions.assertTrue(searchCustomerTestObject.r2.isSelected());
   }
 
   @Test
@@ -93,26 +94,26 @@ class searchCustomerTest {
     assertFalse("111a".chars().allMatch(Character::isDigit));
     assertTrue("123456".chars().allMatch(Character::isDigit));
 
-    assertNotEquals("", searchCustomerTestObject.txtcustid.getSelectedText());
+    Assertions.assertNotEquals("", searchCustomerTestObject.txtcustid.getSelectedText());
   }
 
   @Test
   @DisplayName("Picture (valid/invalid)")
   void testPicture() {
-    assertNotEquals(null, searchCustomerTestObject.txtphoto);
+    Assertions.assertNotEquals(null, searchCustomerTestObject.txtphoto);
   }
 
   @Test
   @DisplayName("jBtn #1 ActionPerformed")
   void jBtnONEActionPerformed() {
-    assertDoesNotThrow(() -> searchCustomerTestObject.jButton1.doClick());
+    Assertions.assertDoesNotThrow(() -> searchCustomerTestObject.jButton1.doClick());
   }
 
 
   @Test
   @DisplayName("jBtn #2 ActionPerformed (UPDATE CUSTOMER) Male")
   void jBtnTwoActionPerformedMale() {
-    assertDoesNotThrow(
+    Assertions.assertDoesNotThrow(
         () -> {
           // r1 selected sets 'Gender' to "Male", r2 sets to "Female"
           searchCustomerTestObject.r1.setSelected(true);
@@ -129,7 +130,7 @@ class searchCustomerTest {
   @Test
   @DisplayName("jBtn #2 ActionPerformed (UPDATE CUSTOMER) Female")
   void jBtnTwoActionPerformedFemale() {
-    assertDoesNotThrow(
+    Assertions.assertDoesNotThrow(
             () -> {
               // r1 selected sets 'Gender' to "Male", r2 sets to "Female"
               searchCustomerTestObject.r2.setSelected(true);
@@ -146,7 +147,7 @@ class searchCustomerTest {
   @Test
   @DisplayName("jBtn #3 ActionPerformed")
   void jBtnTHREEActionPerformed() {
-    assertDoesNotThrow(() -> searchCustomerTestObject.jButton3.doClick());
+    Assertions.assertDoesNotThrow(() -> searchCustomerTestObject.jButton3.doClick());
   }
 
   @Test
@@ -157,7 +158,7 @@ class searchCustomerTest {
     searchCustomerTestObject.txtcustid.setText("CS001");
     searchCustomerTestObject.r1.setSelected(true);
 
-    assertDoesNotThrow(() -> searchCustomerTestObject.jButton4.doClick());
+    Assertions.assertDoesNotThrow(() -> searchCustomerTestObject.jButton4.doClick());
   }
 
   @Test
@@ -169,7 +170,7 @@ class searchCustomerTest {
     searchCustomerTestObject.txtcustid.setText("CS001");
     searchCustomerTestObject.r1.setSelected(true);
 
-    assertDoesNotThrow(() -> searchCustomerTestObject.jButton4.doClick());
+    Assertions.assertDoesNotThrow(() -> searchCustomerTestObject.jButton4.doClick());
   }
 
   @Test
@@ -180,7 +181,7 @@ class searchCustomerTest {
     searchCustomerTestObject.txtcustid.setText("CS004");
     searchCustomerTestObject.r2.setSelected(true);
 
-    assertDoesNotThrow(() -> searchCustomerTestObject.jButton4.doClick());
+    Assertions.assertDoesNotThrow(() -> searchCustomerTestObject.jButton4.doClick());
   }
 
   @Test
@@ -192,7 +193,7 @@ class searchCustomerTest {
     searchCustomerTestObject.txtcustid.setText("CS004");
     searchCustomerTestObject.r2.setSelected(true);
 
-    assertDoesNotThrow(() -> searchCustomerTestObject.jButton4.doClick());
+    Assertions.assertDoesNotThrow(() -> searchCustomerTestObject.jButton4.doClick());
   }
 
 

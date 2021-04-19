@@ -1,5 +1,9 @@
+package unit;
+
+import app.Main;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +12,8 @@ class MainTest {
     @Test
     void initComponents() {
 
-        assertDoesNotThrow(()->{Main main = new Main();
+        assertDoesNotThrow(()->{
+            Main main = new Main();
 
             long startTime = java.util.Calendar.getInstance().getTimeInMillis();
             main.initComponents();

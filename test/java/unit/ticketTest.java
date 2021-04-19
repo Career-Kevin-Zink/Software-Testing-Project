@@ -1,14 +1,14 @@
+package unit;
+
+import app.ticket;
+
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.params.provider.CsvSource;
 
-import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.xml.crypto.Data;
 import java.awt.*;
-import java.awt.event.InputEvent;
 import java.sql.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -85,10 +85,10 @@ class ticketTest {
 
         ticket.txtcustid.setText("83748902");
         ticket.jButton4.doClick();
-        assertFalse(ticket.txtfirstname.getText().equalsIgnoreCase("john"));
+        Assertions.assertFalse(ticket.txtfirstname.getText().equalsIgnoreCase("john"));
         ticket.txtcustid.setText("CS001");
         ticket.jButton4.doClick();
-        assertTrue(ticket.txtfirstname.getText().equalsIgnoreCase("john"));
+        Assertions.assertTrue(ticket.txtfirstname.getText().equalsIgnoreCase("john"));
 
     }
 
@@ -110,14 +110,14 @@ class ticketTest {
         ticket.flightname.setText(Df.getValueAt(selectIndex, 1).toString());
         ticket.txtdept.setText(Df.getValueAt(selectIndex, 5).toString());
         ticket.txtprice.setText(Df.getValueAt(selectIndex, 7).toString());
-        assertTrue(ticket.flightname.getText().equals("JetBlue"));
+        Assertions.assertTrue(ticket.flightname.getText().equals("JetBlue"));
     }
     @Test
     void testTxtseatsStateChanged(){
         ticket ticket = new ticket();
         ticket.txtprice.setText("2000");
         ticket.txtseats.setValue(2);
-        assertTrue(ticket.txttotal.getText().equals("4000"));
+        Assertions.assertTrue(ticket.txttotal.getText().equals("4000"));
         
     }
     @Test

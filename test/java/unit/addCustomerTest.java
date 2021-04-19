@@ -1,15 +1,12 @@
+package unit;
+
+import app.addCustomer;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.imageio.ImageIO;
-import java.awt.event.ActionEvent;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.sql.*;
-import java.util.Arrays;
 import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.*;

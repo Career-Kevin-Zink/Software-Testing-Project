@@ -14,7 +14,7 @@ import java.sql.Statement;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ticketreportTest {
+class ticketreportUT {
 
     @BeforeEach
     @AfterEach
@@ -41,9 +41,6 @@ class ticketreportTest {
             // add table
         } catch (SQLException | ClassNotFoundException ignored){}
     }
-    @Test
-    void initcomponents(){new ticketreport();}
-
 
     @Test
     void jButton1ActionPerformed() {

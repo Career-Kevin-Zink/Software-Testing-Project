@@ -13,7 +13,7 @@ import java.sql.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ticketTest {
+class ticketUT {
 
 
     @BeforeEach
@@ -57,11 +57,6 @@ class ticketTest {
                     "  `date` varchar(255) NOT NULL\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
         }catch (SQLException | ClassNotFoundException ignored) {}
-    }
-
-    @Test
-    void initComponents(){
-        new ticket();
     }
 
     @Test

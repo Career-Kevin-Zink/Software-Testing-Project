@@ -12,7 +12,7 @@ import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-    class addflightTest {
+    class addflightUT {
 
         @BeforeEach
         @AfterEach
@@ -217,17 +217,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
             assertFalse(doesFlightExist("FO111"));
 
-        }
-
-        @Test
-        void initComponents() {
-
-            long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-            new addflight().initComponents();
-            long endTime = java.util.Calendar.getInstance().getTimeInMillis();
-
-            // Testing the GUI initialization time is less than 5 seconds.
-            assertTrue(endTime - startTime <= 5000);
         }
 
         @Test

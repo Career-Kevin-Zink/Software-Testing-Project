@@ -7,21 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MainTest {
-
-    @Test
-    void initComponents() {
-
-        assertDoesNotThrow(()->{
-            Main main = new Main();
-
-            long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-            main.initComponents();
-            long endTime = java.util.Calendar.getInstance().getTimeInMillis();
-
-            // Testing the GUI initialization time is less than 5 seconds.
-            assertTrue(endTime - startTime <= 5000);});
-    }
+class MainUT {
 
     @Test
     void JMenuItem1ActionPerformed() {

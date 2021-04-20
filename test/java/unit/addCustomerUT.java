@@ -11,7 +11,7 @@ import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class addCustomerTest {
+class addCustomerUT {
 
     @BeforeEach
     @AfterEach
@@ -105,17 +105,6 @@ class addCustomerTest {
 
         // Test for "MAX(id)") == null.
         assertDoesNotThrow(() -> new addCustomer().autoID());
-    }
-
-
-    @Test
-    void initComponents() {
-        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-        new addCustomer();
-        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
-
-        // Testing the GUI initialization time is less than 5 seconds.
-        assertTrue(endTime - startTime <= 5000);
     }
 
     @Test

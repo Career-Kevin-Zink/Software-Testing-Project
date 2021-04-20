@@ -11,20 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-class searchCustomerTest {
+class searchCustomerUT {
   searchCustomer searchCustomerTestObject = new searchCustomer();
   ActionEvent e = new ActionEvent(ActionEvent.ACTION_PERFORMED, 0, "test");
-
-  //Each page on the system shall populate with all relevant data in less than five seconds.
-  @Test
-  @DisplayName("Initialize UI in less than 5 seconds")
-  void initComponents() {
-    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    new searchCustomer().initComponents();
-    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
-
-    assertTrue(endTime - startTime <= 5000);
-  }
 
   // The system shall allow users to SEARCH existing customers in the database.
   @Test

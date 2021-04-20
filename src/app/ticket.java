@@ -85,11 +85,11 @@ public class ticket extends javax.swing.JInternalFrame {
 
     txtsource.setModel(
         new javax.swing.DefaultComboBoxModel<>(
-            new String[] {"India", "Srilanka", "Uk", "Usa", "Canada", "China"}));
+            new String[] {"India", "Sri Lanka", "Uk", "Usa", "Canada", "China"}));
 
     txtdepart.setModel(
         new javax.swing.DefaultComboBoxModel<>(
-            new String[] {"India\t", "Srilanka", "Uk", "Usa", "Canada", "China"}));
+            new String[] {"India\t", "Sri Lanka", "Uk", "Usa", "Canada", "China"}));
 
     jLabel1.setText("Source");
 

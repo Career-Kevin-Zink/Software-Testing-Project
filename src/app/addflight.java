@@ -111,11 +111,11 @@ public class addflight extends javax.swing.JInternalFrame {
 
         txtsource.setModel(
                 new javax.swing.DefaultComboBoxModel<>(
-                        new String[]{"India\t", "Srilanka", "Uk", "Usa", "Canada", "Chinna"}));
+                        new String[]{"India", "Sri Lanka", "Uk", "Usa", "Canada", "China"}));
 
         txtdepart.setModel(
                 new javax.swing.DefaultComboBoxModel<>(
-                        new String[]{"India\t", "Srilanka", "Uk", "Usa", "Canada", "Chinna"}));
+                        new String[]{"India", "Sri Lanka", "Uk", "Usa", "Canada", "China"}));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

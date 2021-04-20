@@ -618,7 +618,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
       pst.executeUpdate();
 
 
-      JOptionPane.showMessageDialog(null,"Registation Created.........");
+      JOptionPane.showMessageDialog(null,"Registration Created.........");
 
 
     } catch (ClassNotFoundException | SQLException ex) {

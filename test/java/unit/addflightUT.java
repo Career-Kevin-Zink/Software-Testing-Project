@@ -36,7 +36,7 @@ import static org.junit.jupiter.api.Assertions.*;
                 s.execute("INSERT INTO `flight` (`id`, `flightname`, `source`, `depart`, `date`, `deptime`, `arrtime`, `flightcharge`) VALUES "
                         + "('FO001', 'JetBlue', 'India', 'Uk', '2019-06-14', '8.00AM', '10.00Pm', '50000'),"
                         + "('FO002', 'Delta', 'India', 'China', '2019-06-15', '8.00PM', '2.00AM0', '15000'),"
-                        + "('FO003', 'American Airlines', 'India', 'Srilanka', '2019-06-15', '9.00AM', '10.00AM', '9000');");
+                        + "('FO003', 'American Airlines', 'India', 'Sri Lanka', '2019-06-15', '9.00AM', '10.00AM', '9000');");
             } catch (SQLException | ClassNotFoundException ignored) {}
         }
 

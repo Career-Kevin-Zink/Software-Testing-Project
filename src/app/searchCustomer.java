@@ -652,7 +652,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     String id = txtcustid.getText();
 
-    try {
+    /*try {
 
       Class.forName("com.mysql.jdbc.Driver");
       con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
@@ -703,8 +703,141 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     } catch (ClassNotFoundException | SQLException | ParseException ex) {
       Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }*/
   } // GEN-LAST:event_jButton4ActionPerformed
+
+  public void search(){
+    try {
+
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      pst = con.prepareStatement("select * from customer where id = ?");
+      pst.setString(1, "CS001");
+      ResultSet rs = pst.executeQuery();
+
+      if (!rs.next()) {
+        JOptionPane.showMessageDialog(this, "Record not Found");
+      } else {
+        String fname = rs.getString("firstname");
+        String lname = rs.getString("lastname");
+        String nic = rs.getString("nic");
+        String passport = rs.getString("passport");
+
+        String address = rs.getString("address");
+        String dob = rs.getString("dob");
+        Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(dob);
+        String gender = rs.getString("gender");
+
+        Blob blob = rs.getBlob("photo");
+        byte[] _imagebytes = blob.getBytes(1, (int) blob.length());
+        System.out.println(Arrays.toString(_imagebytes));
+        ImageIcon image = new ImageIcon(_imagebytes);
+        Image im = image.getImage();
+        Image myImg = im.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+        ImageIcon newImage = new ImageIcon(myImg);
+
+        if (gender.equals("Female")) {
+          r1.setSelected(false);
+          r2.setSelected(true);
+
+        } else {
+          r1.setSelected(true);
+          r2.setSelected(false);
+        }
+        String contact = rs.getString("contact");
+
+        txtfirstname.setText(fname.trim());
+        txtlastname.setText(lname.trim());
+        txtnic.setText(nic.trim());
+        txtpassport.setText(passport.trim());
+        txtaddress.setText(address.trim());
+        txtcontact.setText(contact.trim());
+
+        txtphoto.setIcon(newImage);
+      }
+
+    } catch (ClassNotFoundException | SQLException | ParseException ex) {
+      Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
+
+  public class Customer {
+    String firstName;
+    String lastName;
+    String nicNo;
+    String passport;
+    String address;
+
+    public Customer(String firstName, String lastName, String nicNo, String passport,
+        String address, String contact, byte[] image) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.nicNo = nicNo;
+      this.passport = passport;
+      this.address = address;
+      this.contact = contact;
+      this.image = image;
+    }
+
+    public String getFirstName() {
+      return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+      this.firstName = firstName;
+    }
+
+    public String getLastName() {
+      return lastName;
+    }
+
+    public void setLastName(String lastName) {
+      this.lastName = lastName;
+    }
+
+    public String getNicNo() {
+      return nicNo;
+    }
+
+    public void setNicNo(String nicNo) {
+      this.nicNo = nicNo;
+    }
+
+    public String getPassport() {
+      return passport;
+    }
+
+    public void setPassport(String passport) {
+      this.passport = passport;
+    }
+
+    public String getAddress() {
+      return address;
+    }
+
+    public void setAddress(String address) {
+      this.address = address;
+    }
+
+    public String getContact() {
+      return contact;
+    }
+
+    public void setContact(String contact) {
+      this.contact = contact;
+    }
+
+    public byte[] getImage() {
+      return image;
+    }
+
+    public void setImage(byte[] image) {
+      this.image = image;
+    }
+
+    String contact;
+    byte[] image;
+  }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   public javax.swing.JButton jButton1;

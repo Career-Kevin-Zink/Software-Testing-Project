@@ -52,6 +52,10 @@ public class Login extends javax.swing.JFrame {
 
     jLabel2.setText("Password");
 
+    txtuser.setName("txtuser");
+
+    txtpass.setName("txtpass");
+
     jButton1.setText("Login");
     jButton1.addActionListener(
         new java.awt.event.ActionListener() {

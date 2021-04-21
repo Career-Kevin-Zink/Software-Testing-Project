@@ -1,5 +1,6 @@
 package performance;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import app.Login;
@@ -30,46 +31,6 @@ public class LoginPT {
   }
 
   @Test
-  @DisplayName("Query Username & Password in less than 5 seconds")
-  public void search() {
-    try {
-      startTime = java.util.Calendar.getInstance().getTimeInMillis();
-
-      Class.forName("com.mysql.jdbc.Driver");
-      Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
-      PreparedStatement pst =
-          con.prepareStatement("select * from user where username = ? and password = ?");
-      pst.setString(1, "john");
-      pst.setString(2, "123");
-
-      ResultSet rs;
-      rs = pst.executeQuery();
-      if (rs.next()) {
-        endTime = java.util.Calendar.getInstance().getTimeInMillis();
-        assertTrue(endTime - startTime <= 5000);
-      }
-
-    } catch (ClassNotFoundException | SQLException ex) {
-      Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-    }
-  }
-
-  @Test
-  @DisplayName("")
-  @Disabled
-  public void doTheWholeThing() {
-    startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    Login l = new Login();
-    l.txtuser.setText("john");
-    l.txtpass.setText("123");
-    l.setVisible(true);
-    l.jButton1.doClick();
-    l.hide();
-    endTime = java.util.Calendar.getInstance().getTimeInMillis();
-    assertTrue(endTime - startTime <= 5000);
-  }
-
-  @Test
   @DisplayName("Calling Login.main")
   void testMainTime() {
 
@@ -80,30 +41,66 @@ public class LoginPT {
   }
 
   @Test
-  @DisplayName("Query Username & Password 1000 times and time it")
-  public void searchEndurance() {
-    try {
-      Class.forName("com.mysql.jdbc.Driver");
-      Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
-      PreparedStatement pst =
-          con.prepareStatement("select * from user where username = ? and password = ?");
-      pst.setString(1, "john");
-      pst.setString(2, "123");
+  @DisplayName("Query Username & Password 10 times. Should last less than 10 seconds.")
+  public void searchInvalidUsernameEndurance() {
+    Login login = new Login();
+    login.txtuser.setText("");
+    login.txtpass.setText("123");
 
-      ResultSet rs = null;
-      startTime = java.util.Calendar.getInstance().getTimeInMillis();
-      for (int i = 0; i < 100000; i++) {
-        rs = pst.executeQuery();
-
-        if (rs.next()) {
-          System.out.println(rs);
-        }
-      }
-
-    } catch (ClassNotFoundException | SQLException ex) {
-      Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+    startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    for (int i = 0; i < 10; i++) {
+      login.jButton1.doClick();
     }
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
-    assertTrue(endTime - startTime <= 5000);
+    assertTrue(endTime - startTime <= 50000);
+  }
+
+  @Test
+  @DisplayName("Query Username & Password 10 times. Should last less than 10 seconds.")
+  public void searchInvalidPasswordEndurance() {
+    Login login = new Login();
+    login.txtuser.setText("john");
+    login.txtpass.setText("");
+
+    startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    for (int i = 0; i < 10; i++) {
+      login.jButton1.doClick();
+    }
+    endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 50000);
+  }
+
+  @Test
+  @DisplayName("Query Username & Password 10 times. Should last less than 10 seconds.")
+  public void searchValidLoginEndurance() {
+    Login login = new Login();
+    login.txtuser.setText("john");
+    login.txtpass.setText("123");
+
+    startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    for (int i = 0; i < 10; i++) {
+      login.jButton1.doClick();
+      login.main.dispose();
+    }
+    endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 50000);
+  }
+
+  @Test
+  @DisplayName("Query Invalid Username & Password 10 times. Should not crash the app.")
+  public void searchInvalidLoginEndurance() {
+    Login login = new Login();
+    login.txtuser.setText("invalid");
+    login.txtpass.setText("customer");
+
+    for (int i = 0; i < 10; i++) {
+      assertDoesNotThrow(() -> login.jButton1.doClick());
+    }
+  }
+
+  @Test
+  @DisplayName("Calling Login.main. Should not crash the app.")
+  void testMain(){
+    assertDoesNotThrow(() -> Login.main(new String[]{"arg1", "arg2", "arg3"}));
   }
 }

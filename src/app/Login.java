@@ -20,6 +20,7 @@ public class Login extends javax.swing.JFrame {
 
   public Connection con;
   public PreparedStatement pst;
+  public Main main;
 
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -207,9 +208,9 @@ public class Login extends javax.swing.JFrame {
 
         if(rs.next())
         {
-          Main m = new Main();
+          main = new Main();
           this.hide();
-          m.setVisible(true);
+          main.setVisible(true);
         }
         else
         {

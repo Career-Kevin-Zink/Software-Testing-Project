@@ -527,38 +527,6 @@ public class searchCustomer extends javax.swing.JInternalFrame {
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
-      imageChooser();
-    /*try {
-      JFileChooser picchooser = new JFileChooser();
-      picchooser.showOpenDialog(null);
-      File pic = picchooser.getSelectedFile();
-      FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images"
-          , "png", "jpg");
-      picchooser.addChoosableFileFilter(filter);
-      path = pic.getAbsolutePath();
-      BufferedImage img;
-      img = ImageIO.read(picchooser.getSelectedFile());
-      ImageIcon imageIcon =
-          new ImageIcon(
-              new ImageIcon(img).getImage().getScaledInstance(250, 250
-                  , Image.SCALE_DEFAULT));
-      txtphoto.setIcon(imageIcon);
-
-      File image = new File(path);
-      FileInputStream fis = new FileInputStream(image);
-      ByteArrayOutputStream baos = new ByteArrayOutputStream();
-      byte[] buff = new byte[1024];
-      for (int readNum; (readNum = fis.read(buff)) != -1; ) {
-        baos.write(buff, 0, readNum);
-      }
-      userimage = baos.toByteArray();
-
-    } catch (IOException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
-    }*/
-  } // GEN-LAST:event_jButton1ActionPerformed
-
-  public byte[] imageChooser(){ // TODO testing image chooser
     try {
       JFileChooser picchooser = new JFileChooser();
       picchooser.showOpenDialog(null);
@@ -583,13 +551,11 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         baos.write(buff, 0, readNum);
       }
       userimage = baos.toByteArray();
-      return userimage;
 
     } catch (IOException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
-    return new byte[0];
-  } // TODO delete me after testing
+  } // GEN-LAST:event_jButton1ActionPerformed
 
   public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed

@@ -18,8 +18,8 @@ public class Login extends javax.swing.JFrame {
     initComponents();
   }
 
-  Connection con;
-  PreparedStatement pst;
+  public Connection con;
+  public PreparedStatement pst;
 
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -191,41 +191,7 @@ public class Login extends javax.swing.JFrame {
 
     String username = txtuser.getText();
     String password = txtpass.getText();
-    login(username, password);
 
-    /*if (username.isEmpty() || password.isEmpty()) {
-      JOptionPane.showMessageDialog(this, "UserName or Password Blank");
-    } else {
-      try {
-        Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
-        pst = con.prepareStatement("select * from user where username = ? and password = ?");
-        pst.setString(1, username);
-        pst.setString(2, password);
-
-        ResultSet rs;
-        rs = pst.executeQuery();
-
-        if(rs.next())
-        {
-          Main m = new Main();
-          this.hide();
-          m.setVisible(true);
-        }
-        else
-        {
-          JOptionPane.showMessageDialog(this, "UserName or Password do not Match");
-          txtuser.setText("");
-          txtpass.setText("");
-          txtuser.requestFocus();
-        }
-      } catch (ClassNotFoundException | SQLException ex) {
-        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-      }
-    }*/
-  } // GEN-LAST:event_jButton1ActionPerformed TODO end testing
-
-  public String login(String username, String password){ // Added for testing jButton1 actions
     if (username.isEmpty() || password.isEmpty()) {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
     } else {
@@ -244,7 +210,6 @@ public class Login extends javax.swing.JFrame {
           Main m = new Main();
           this.hide();
           m.setVisible(true);
-          return username + "," + password;
         }
         else
         {
@@ -252,16 +217,12 @@ public class Login extends javax.swing.JFrame {
           txtuser.setText("");
           txtpass.setText("");
           txtuser.requestFocus();
-          return "UserName or Password do not Match";
         }
       } catch (ClassNotFoundException | SQLException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-      } catch (NullPointerException e) {
-        return "Username or Password field is NULL.";
       }
     }
-    return  "UserName or Password Blank";
-  } // remove me back to my old state after testing is done
+  } // GEN-LAST:event_jButton1ActionPerformed
 
   /** @param args the command line arguments */
   public static void main(String args[]) {

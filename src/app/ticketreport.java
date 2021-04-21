@@ -144,7 +144,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
       }
 
     } catch (ClassNotFoundException | SQLException ex) {
-      Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(ticketreport.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
 

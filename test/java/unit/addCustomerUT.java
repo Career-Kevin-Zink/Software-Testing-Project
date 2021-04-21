@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.awt.event.ActionEvent;
 import java.sql.*;
 import java.util.Calendar;
 
@@ -109,13 +110,24 @@ class addCustomerUT {
 
     @Test
     void txtlastnameActionPerformed() {
-        // Method does nothing.
+
+        ActionEvent ae = new ActionEvent(ActionEvent.ACTION_PERFORMED,1, null);
+
+        assertDoesNotThrow(()->{
+           new addCustomer().txtlastnameActionPerformed(ae);
+        });
     }
 
     @Test
     void txtpassportActionPerformed() {
-        // Method does nothing.
+
+        ActionEvent ae = new ActionEvent(ActionEvent.ACTION_PERFORMED,1, null);
+
+        assertDoesNotThrow(()-> {
+            new addCustomer().txtpassportActionPerformed(ae);
+        });
     }
+
 
     @Test
     void jButton1ActionPerformed() {
@@ -123,6 +135,7 @@ class addCustomerUT {
         addCustomer.jButton1.doClick();
         assertNotNull(addCustomer.userimage);
     }
+
     @Test
     void jButton2ActionPerformed() {
         addCustomer addCustomer = new addCustomer();
@@ -161,6 +174,9 @@ class addCustomerUT {
 
     @Test
     void jButton3ActionPerformed() {
-        new addCustomer().jButton3.doClick();
+        assertDoesNotThrow(()->{
+            new addCustomer().jButton3.doClick();
+        });
+
     }
 }

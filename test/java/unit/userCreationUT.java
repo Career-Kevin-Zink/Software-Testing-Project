@@ -105,7 +105,7 @@ class userCreationUT {
                     ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
         } catch (SQLException | ClassNotFoundException ignored) {}
     }
-
+// simple function to check and see if the username is already in the database or not.
     public static boolean isUsernameAvailable(String username) {
         boolean returnVal = false;
 

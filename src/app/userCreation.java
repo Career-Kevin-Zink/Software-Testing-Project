@@ -265,7 +265,7 @@ public class userCreation extends javax.swing.JInternalFrame {
       JOptionPane.showMessageDialog(null, "User Created.........");
 
     } catch (ClassNotFoundException | SQLException ex) {
-      Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(userCreation.class.getName()).log(Level.SEVERE, null, ex);
     }
   } // GEN-LAST:event_jButton1ActionPerformed
 
@@ -293,7 +293,7 @@ public class userCreation extends javax.swing.JInternalFrame {
       }
 
     } catch (ClassNotFoundException | SQLException ex) {
-      Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(userCreation.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
 

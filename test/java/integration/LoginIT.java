@@ -16,30 +16,33 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LoginIT {
-  @Mock
-  Login loginMock;
 
   @Mock
   Main mainMock;
 
   @Test
   @DisplayName("Verify Login fields arent null")
-  public void successfulLogin() {
-    loginMock = mock(Login.class);
-    when(loginMock.login(anyString(),anyString())).thenReturn("Valid User", "Valid Pass");
-    when(loginMock.getMain()).thenReturn(mock(Main.class));
+  public void successfulLogin(){
+    Login login = new Login();
+    login.txtuser.setText("john");
+    login.txtpass.setText("123");
+    verify(login).txtuser.setText(anyString());
+    verify(login).txtpass.setText(anyString());
 
     //Simulate user logging in successfully
-    loginMock.login("Valid User", "Valid Pass");
+    login.jButton1.doClick(); // login
+    login.jButton2.doClick(); // hide window
 
     // i dont think we need to test main tbh
-    mainMock = loginMock.getMain();
+    mainMock = login.getMain();
     mainMock.setVisible(true);
 
     //Check Main is loaded
     verify(mainMock).setVisible(true);
     //Check Login success
-    verify(loginMock).login("Valid User", "Valid Pass");
+
   }
+
+
 
 }

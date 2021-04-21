@@ -554,7 +554,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
       userimage = baos.toByteArray();
 
     } catch (IOException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }*/
   } // GEN-LAST:event_jButton1ActionPerformed
 
@@ -586,7 +586,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
       return userimage;
 
     } catch (IOException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
     return new byte[0];
   } // TODO delete me after testing
@@ -635,7 +635,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
       JOptionPane.showMessageDialog(null,"Registration Updated.........");
     } catch (ClassNotFoundException | SQLException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
   } // GEN-LAST:event_jButton2ActionPerformed
 

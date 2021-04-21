@@ -16,8 +16,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class ticketreportIT {
   @Mock
-  ticket ticketMock;
-  @Mock
   Main mainMock;
   @Mock
   ticketreport ticketreportMock;
@@ -26,8 +24,6 @@ public class ticketreportIT {
   @DisplayName("Verify JTable values not null")
   public void checkJtable(){
     ticketreportMock = mock(ticketreport.class);
-    ticketMock = mock(ticket.class);
-    when(ticketreportMock.)
 
 
 

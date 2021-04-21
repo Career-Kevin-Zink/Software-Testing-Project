@@ -87,7 +87,7 @@ class ticketUT {
     }
 
     @Test
-    void testJTable1MouseClicked() throws AWTException {
+    void testJTable1MouseClicked() {
         ticket ticket = new ticket();
         ticket.txtsource.setSelectedItem("India");
         ticket.txtdepart.setSelectedItem("Uk");
@@ -112,7 +112,7 @@ class ticketUT {
         ticket.txtprice.setText("2000");
         ticket.txtseats.setValue(2);
         Assertions.assertTrue(ticket.txttotal.getText().equals("4000"));
-        
+
     }
     @Test
     void testJButton1ActionPerformed(){

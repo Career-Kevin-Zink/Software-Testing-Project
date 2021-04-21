@@ -146,41 +146,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
       Logger.getLogger(ticketreport.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
-  public String LoadTable() {
-//    try {
-//      Class.forName("com.mysql.jdbc.Driver");
-//      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
-//      pst = con.prepareStatement("SELECT * from ticket");
-//      ResultSet rs = pst.executeQuery();
-//
-//      ResultSetMetaData rsm = rs.getMetaData();
-//      int c;
-//      c = rsm.getColumnCount();
-//
-//      DefaultTableModel Df = (DefaultTableModel) jTable1.getModel();
-//      Df.setRowCount(0);
-//
-//      while (rs.next()) {
-//        Vector v2 = new Vector();
-//
-//        for (int i = 1; i <= c; i++) {
-//          v2.add(rs.getString("id"));
-//          v2.add(rs.getString("flightid"));
-//          v2.add(rs.getString("custid"));
-//          v2.add(rs.getString("class"));
-//          v2.add(rs.getString("price"));
-//          v2.add(rs.getString("seats"));
-//          v2.add(rs.getString("date"));
-//        }
-//
-//        Df.addRow(v2);
-//      }
-//
-//    } catch (ClassNotFoundException | SQLException ex) {
-//      Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
-//   }
-    return "helpme";
-  }
+
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   //todo set these back to private after testing

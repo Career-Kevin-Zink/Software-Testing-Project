@@ -37,7 +37,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
   PreparedStatement pst;
 
   String path = null;
-  byte[] userimage = null;
+  public byte[] userimage = null;
 
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT

@@ -726,7 +726,7 @@ public class ticket extends javax.swing.JInternalFrame {
       }
 
     } catch (ClassNotFoundException | SQLException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
 //TODO Should be set to "Private" Made public only for testing purposes
@@ -823,7 +823,7 @@ public class ticket extends javax.swing.JInternalFrame {
 
       JOptionPane.showMessageDialog(null, "Ticket Booked.........");
     } catch (ClassNotFoundException | SQLException ex) {
-      Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
     }
   } // GEN-LAST:event_jButton1ActionPerformed
 

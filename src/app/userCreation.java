@@ -259,23 +259,28 @@ public class userCreation extends javax.swing.JInternalFrame {
     String username = txtusername.getText();
     String password = txtpassword.getText();
 
-    try {
-      Class.forName("com.mysql.jdbc.Driver");
-      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
-      pst = con.prepareStatement("insert into user(id,firstname,lastname,username,password)values(?,?,?,?,?)");
+    if (id.isEmpty() || firstname.isEmpty() || lastname.isEmpty() || username.isEmpty() || password.isEmpty()) {
+      JOptionPane.showMessageDialog(null, "All fields are required!");
+    } else {
 
-      pst.setString(1, id);
-      pst.setString(2, firstname);
-      pst.setString(3, lastname);
-      pst.setString(4, username);
-      pst.setString(5, password);
+      try {
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
+        pst = con.prepareStatement("insert into user(id,firstname,lastname,username,password)values(?,?,?,?,?)");
 
-      pst.executeUpdate();
+        pst.setString(1, id);
+        pst.setString(2, firstname);
+        pst.setString(3, lastname);
+        pst.setString(4, username);
+        pst.setString(5, password);
 
-      JOptionPane.showMessageDialog(null, "User Created.........");
+        pst.executeUpdate();
 
-    } catch (ClassNotFoundException | SQLException ex) {
-      Logger.getLogger(userCreation.class.getName()).log(Level.SEVERE, null, ex);
+        JOptionPane.showMessageDialog(null, "User Created.........");
+
+      } catch (ClassNotFoundException | SQLException ex) {
+        Logger.getLogger(userCreation.class.getName()).log(Level.SEVERE, null, ex);
+      }
     }
   } // GEN-LAST:event_jButton1ActionPerformed
 

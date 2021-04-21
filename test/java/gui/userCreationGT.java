@@ -7,6 +7,8 @@ import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.fixture.JPanelFixture;
 import org.junit.jupiter.api.*;
 
+import java.awt.*;
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class userCreationGT {
     private FrameFixture window;
@@ -48,7 +50,7 @@ public class userCreationGT {
 
         // Try to add the user, checking if the error dialog opens.
         window.button("AddUserButton").click();
-        window.dialog().requireVisible();
+        window.optionPane().requireMessage("All fields are required!");
     }
 
     @Test
@@ -62,7 +64,7 @@ public class userCreationGT {
 
         // Try to add the user, checking if the error dialog opens.
         window.button("AddUserButton").click();
-        window.dialog().requireVisible();
+        window.optionPane().requireMessage("All fields are required!");
     }
 
     @Test
@@ -76,7 +78,7 @@ public class userCreationGT {
 
         // Try to add the user, checking if the error dialog opens.
         window.button("AddUserButton").click();
-        window.dialog().requireVisible();
+        window.optionPane().requireMessage("All fields are required!");
     }
 
     @Test
@@ -90,11 +92,12 @@ public class userCreationGT {
 
         // Try to add the user, checking if the error dialog opens.
         window.button("AddUserButton").click();
-        window.dialog().requireVisible();
+        window.optionPane().requireMessage("All fields are required!");
     }
 
     @Test
     @Order(6)
+    @DisplayName("Does the Add User button work correctly?")
     public void addValidUser() {
         // Fill in the other fields so we know the first name text entry caused the dialog.
         window.textBox("txtFirstName").setText("Leeroy");
@@ -104,6 +107,7 @@ public class userCreationGT {
 
         // Try to add the user, checking if the error dialog opens.
         window.button("AddUserButton").click();
+        window.optionPane().requireMessage("User Created.........");
     }
 
     @Test

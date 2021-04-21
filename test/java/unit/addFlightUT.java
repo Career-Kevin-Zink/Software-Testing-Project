@@ -12,7 +12,7 @@ import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-    class addflightUT {
+    class addFlightUT {
 
         @BeforeEach
         @AfterEach

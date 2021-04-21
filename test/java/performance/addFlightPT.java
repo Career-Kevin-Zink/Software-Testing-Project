@@ -6,7 +6,7 @@ import app.addflight;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class addflightPT {
+public class addFlightPT {
   @Test
   @DisplayName("Initialize addflight UI in less than 5 seconds")
   void initComponents() {

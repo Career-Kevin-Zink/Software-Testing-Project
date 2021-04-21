@@ -65,6 +65,7 @@ public class userCreationPT {
 
     assertTrue(endTime - startTime <= 5000);
   }
+
   @Test
   void jButton1ActionPerformed() {
     long startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -89,6 +90,7 @@ public class userCreationPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
+
   @Test
   void jButton2ActionPerformed() {
     long startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -102,6 +104,7 @@ public class userCreationPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
+
   @Test
   void testAutoID() {
     long startTime = java.util.Calendar.getInstance().getTimeInMillis();

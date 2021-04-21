@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -55,6 +56,7 @@ public class LoginPT {
 
   @Test
   @DisplayName("")
+  @Disabled
   public void doTheWholeThing() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
     Login l = new Login();
@@ -77,31 +79,31 @@ public class LoginPT {
     assertTrue(endTime - startTime <= 5000);
   }
 
-//  @Test
-//  @DisplayName("Query Username & Password 1000 times and time it")
-//  public void searchEndurance() {
-//    try {
-//      Class.forName("com.mysql.jdbc.Driver");
-//      Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
-//      PreparedStatement pst =
-//          con.prepareStatement("select * from user where username = ? and password = ?");
-//      pst.setString(1, "john");
-//      pst.setString(2, "123");
-//
-//      ResultSet rs = null;
-//      startTime = java.util.Calendar.getInstance().getTimeInMillis();
-//      for (int i = 0; i < 100000; i++) {
-//        rs = pst.executeQuery();
-//
-//        if (rs.next()) {
-//          System.out.println(rs);
-//        }
-//      }
-//
-//    } catch (ClassNotFoundException | SQLException ex) {
-//      Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-//    }
-//    endTime = java.util.Calendar.getInstance().getTimeInMillis();
-//    assertTrue(endTime - startTime <= 5000);
-//  }
+  @Test
+  @DisplayName("Query Username & Password 1000 times and time it")
+  public void searchEndurance() {
+    try {
+      Class.forName("com.mysql.jdbc.Driver");
+      Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
+      PreparedStatement pst =
+          con.prepareStatement("select * from user where username = ? and password = ?");
+      pst.setString(1, "john");
+      pst.setString(2, "123");
+
+      ResultSet rs = null;
+      startTime = java.util.Calendar.getInstance().getTimeInMillis();
+      for (int i = 0; i < 100000; i++) {
+        rs = pst.executeQuery();
+
+        if (rs.next()) {
+          System.out.println(rs);
+        }
+      }
+
+    } catch (ClassNotFoundException | SQLException ex) {
+      Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
 }

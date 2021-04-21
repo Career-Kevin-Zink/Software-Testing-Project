@@ -27,7 +27,7 @@ public class LoginGT {
   }
 
   @Test
-  @DisplayName("Are the components visible.")
+  @DisplayName("Are the components visible?")
   public void shouldBeVisible() {
     window.textBox("txtuser").requireVisible();
     window.textBox("txtpass").requireVisible();
@@ -36,14 +36,14 @@ public class LoginGT {
   }
 
   @Test
-  @DisplayName("Are the components editable.")
+  @DisplayName("Are the components editable?")
   public void shouldBeUsable() {
     window.textBox("txtuser").requireEditable();
     window.textBox("txtpass").requireEditable();
   }
 
   @Test
-  @DisplayName("Does input work after clicking button.")
+  @DisplayName("Does input work after clicking button?")
   public void shouldEnterText() {
     window.textBox("txtuser").enterText("john");
     window.textBox("txtpass").enterText("123");

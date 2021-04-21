@@ -58,37 +58,37 @@ public class addCustomerPT {
     assertTrue(endTime - startTime <= 5000);
   }
 
-  @Test
-  @DisplayName("Adding 100 customers")
-  // @Disabled("Takes a Long time, dont run for demo")
-  void addCustomerEndurance() {
-    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    for (int i = 0; i < 100; i++) {
-      addCustomer addCustomer = new addCustomer();
-      addCustomer.txtid.setText("CS00" + i);
-      addCustomer.txtfirstname.setText("John");
-      addCustomer.txtlastname.setText("Doe");
-      addCustomer.txtnic.setText("NIC00" + i);
-      addCustomer.txtpassport.setText("MyPassport" + i);
-      addCustomer.txtaddress.setText(i + " Hello Ave");
-      addCustomer.txtdate.setDate(new Date());
-      addCustomer.r1.setSelected(true);
-      addCustomer.txtcontact.setText("239" + i * 6 + 4 * 20);
-      addCustomer.userimage =
-          new byte[] {
-            -119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5,
-            8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0,
-            0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0,
-            0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87,
-            99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56,
-            38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126
-          };
-      addCustomer.jButton2.doClick();
-      addCustomer.hide();
-    }
-    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
-    assertTrue(endTime - startTime <= 10000);
-  }
+//  @Test
+//  @DisplayName("Adding 100 customers")
+//  // @Disabled("Takes a Long time, dont run for demo")
+//  void addCustomerEndurance() {
+//    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+//    for (int i = 0; i < 100; i++) {
+//      addCustomer addCustomer = new addCustomer();
+//      addCustomer.txtid.setText("CS00" + i);
+//      addCustomer.txtfirstname.setText("John");
+//      addCustomer.txtlastname.setText("Doe");
+//      addCustomer.txtnic.setText("NIC00" + i);
+//      addCustomer.txtpassport.setText("MyPassport" + i);
+//      addCustomer.txtaddress.setText(i + " Hello Ave");
+//      addCustomer.txtdate.setDate(new Date());
+//      addCustomer.r1.setSelected(true);
+//      addCustomer.txtcontact.setText("239" + i * 6 + 4 * 20);
+//      addCustomer.userimage =
+//          new byte[] {
+//            -119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5,
+//            8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0,
+//            0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0,
+//            0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87,
+//            99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56,
+//            38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126
+//          };
+//      addCustomer.jButton2.doClick();
+//      addCustomer.hide();
+//    }
+//    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+//    assertTrue(endTime - startTime <= 10000);
+//  }
 
   @BeforeEach
   public void initUserTable() {

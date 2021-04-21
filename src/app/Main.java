@@ -53,7 +53,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(0, 279, Short.MAX_VALUE));
 
         jMenu1.setText("Customer");
-
+        jMenuItem1.setName("Add Customer");
         jMenuItem1.setText("Add Customer");
         jMenuItem1.addActionListener(
                 new java.awt.event.ActionListener() {
@@ -63,7 +63,7 @@ public class Main extends javax.swing.JFrame {
                 });
 
         jMenu1.add(jMenuItem1);
-
+        jMenuItem2.setName("Search Customer");
         jMenuItem2.setText("Search Customer");
         jMenuItem2.addActionListener(
                 new java.awt.event.ActionListener() {
@@ -76,7 +76,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Tickets");
-
+        jMenuItem3.setName("Add Ticket");
         jMenuItem3.setText("Book Ticket");
         jMenuItem3.addActionListener(
                 new java.awt.event.ActionListener() {
@@ -85,7 +85,7 @@ public class Main extends javax.swing.JFrame {
                     }
                 });
         jMenu2.add(jMenuItem3);
-
+        jMenuItem6.setName("Ticket Report");
         jMenuItem6.setText("Ticket Report");
         jMenuItem6.addActionListener(
                 new java.awt.event.ActionListener() {
@@ -98,7 +98,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Flight");
-
+        jMenuItem4.setName("Add Flight");
         jMenuItem4.setText("Add Flight");
         jMenuItem4.addActionListener(
                 new java.awt.event.ActionListener() {
@@ -111,7 +111,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("User");
-
+        jMenuItem5.setName("User Creation");
         jMenuItem5.setText("User Creation");
         jMenuItem5.addActionListener(
                 new java.awt.event.ActionListener() {

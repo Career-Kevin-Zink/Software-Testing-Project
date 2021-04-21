@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class LoginGT {
+public class LoginGT {
   private FrameFixture window;
 
   @BeforeEach
@@ -36,12 +36,10 @@ class LoginGT {
   }
 
   @Test
-  @DisplayName("Are the components editable and pressable.")
+  @DisplayName("Are the components editable.")
   public void shouldBeUsable() {
     window.textBox("txtuser").requireEditable();
     window.textBox("txtpass").requireEditable();
-    window.button(JButtonMatcher.withText("Login")).requireEnabled();
-    window.button(JButtonMatcher.withText("Cancel")).requireEnabled();
   }
 
   @Test

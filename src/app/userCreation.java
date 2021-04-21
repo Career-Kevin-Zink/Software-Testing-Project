@@ -76,6 +76,16 @@ public class userCreation extends javax.swing.JInternalFrame {
     jButton2.setText("Cancel");
     jButton2.addActionListener(this::jButton2ActionPerformed);
 
+    // Setup component names.
+    jPanel1.setName("UserCreationPanel");
+    jButton1.setName("AddUserButton");
+    jButton2.setName("CancelButton");
+    txtuserid.setName("txtUserId");
+    txtfirstname.setName("txtFirstName");
+    txtlastname.setName("txtLastName");
+    txtusername.setName("txtUserName");
+    txtpassword.setName("txtPassword");
+
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(

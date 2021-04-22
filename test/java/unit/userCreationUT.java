@@ -26,7 +26,7 @@ class userCreationUT {
      * Statement Coverage: 95%
      * Branch Coverage: 50%
      */
-    //@Test
+    @Test
     void userCreationValidDetails() {
         userCreation userCreation = new userCreation();
 
@@ -59,7 +59,7 @@ class userCreationUT {
      * Statement Coverage: 89%
      * Branch Coverage: 16%
      */
-    //@Test
+    @Test
     void userCreationInvalidId() {
         userCreation userCreation = new userCreation();
 
@@ -92,7 +92,7 @@ class userCreationUT {
      * Statement Coverage: 89%
      * Branch Coverage: 33%
      */
-    //@Test
+    @Test
     void userCreationInvalidFirstName() {
         userCreation userCreation = new userCreation();
 
@@ -125,7 +125,7 @@ class userCreationUT {
      * Statement Coverage: 89%
      * Branch Coverage: 33%
      */
-    //@Test
+    @Test
     void userCreationInvalidLastName() {
         userCreation userCreation = new userCreation();
 
@@ -158,7 +158,7 @@ class userCreationUT {
      * Statement Coverage: 89%
      * Branch Coverage: 41%
      */
-    //@Test
+    @Test
     void userCreationInvalidUsername() {
         userCreation userCreation = new userCreation();
 
@@ -225,7 +225,7 @@ class userCreationUT {
      * Statement Coverage: 85%
      * Branch Coverage: 8%
      */
-    //@Test
+    @Test
     void jButton2ActionPerformed() {
         userCreation userCreation = new userCreation();
 
@@ -245,7 +245,7 @@ class userCreationUT {
      * Statement Coverage: 85%
      * Branch Coverage: 16%
      */
-    //@Test
+    @Test
     void testAutoID() {
         // Test for "MAX(id)") != null.
         assertDoesNotThrow(() -> {

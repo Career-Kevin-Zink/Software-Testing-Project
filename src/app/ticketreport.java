@@ -35,6 +35,9 @@ public class ticketreport extends javax.swing.JInternalFrame {
     jTable1 = new javax.swing.JTable();
     jButton1 = new javax.swing.JButton();
 
+    jScrollPane1.setName("ticketReportPane");
+    jButton1.setName("CancelButton");
+
     jTable1.setModel(
         new javax.swing.table.DefaultTableModel(
             new Object[][] {},

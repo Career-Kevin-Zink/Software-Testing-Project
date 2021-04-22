@@ -94,6 +94,23 @@ public class addCustomer extends javax.swing.JInternalFrame {
     jLabel5.setForeground(new java.awt.Color(255, 255, 255));
     jLabel5.setText("Address");
 
+    // Set the component names.
+    jPanel1.setName("leftPanel");
+    txtlastname.setName("txtLastName");
+    txtfirstname.setName("txtFirstName");
+    txtnic.setName("txtNic");
+    txtpassport.setName("txtPassport");
+    txtaddress.setName("txtAddress");
+    txtdate.setName("txtDate");
+    jPanel2.setName("middlePanel");
+    r1.setName("maleRadialButton");
+    r2.setName("femaleRadialButton");
+    txtcontact.setName("txtContact");
+    txtphoto.setName("txtPhoto");
+    jButton1.setName("BrowseBtn");
+    jButton2.setName("AddBtn");
+    jButton3.setName("CancelBtn");
+
     txtlastname.addActionListener(
         new java.awt.event.ActionListener() {
           public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,8 +268,10 @@ public class addCustomer extends javax.swing.JInternalFrame {
     jLabel10.setText("Contact");
 
     r1.setText("Male");
+    r1.setSelected(true);
 
     r2.setText("Female");
+    r2.setSelected(false);
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
@@ -581,48 +600,59 @@ public class addCustomer extends javax.swing.JInternalFrame {
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
 
-    String id = txtid.getText();
-    String firstname = txtfirstname.getText();
-    String lastname = txtlastname.getText();
-    String nic = txtnic.getText();
-    String passport = txtpassport.getText();
-    String address = txtaddress.getText();
-
-    DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-    String date = da.format(txtdate.getDate());
-    String Gender;
-
-    if (r1.isSelected()) {
-      Gender = "Male";
+    if (txtfirstname.getText().isEmpty() || txtlastname.getText().isEmpty() || txtnic.getText().isEmpty()
+            || txtpassport.getText().isEmpty() || txtaddress.getText().isEmpty() || txtcontact.getText().isEmpty()
+            || userimage == null) {
+      JOptionPane.showMessageDialog(null, "All fields are required!");
     } else {
-      Gender = "FeMale";
-    }
+      String id = txtid.getText();
+      String firstname = txtfirstname.getText();
+      String lastname = txtlastname.getText();
+      String nic = txtnic.getText();
+      String passport = txtpassport.getText();
+      String address = txtaddress.getText();
 
-    String contact = txtcontact.getText();
+      DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+      String date;
+      if (txtdate.getDate() != null)  date = da.format(txtdate.getDate());
+      else date = da.format(new java.util.Date());
 
-    try {
-      Class.forName("com.mysql.jdbc.Driver");
-      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
-      pst = con.prepareStatement("insert into customer(id,firstname,lastname,nic,passport,address,dob,gender,contact,photo)values(?,?,?,?,?,?,?,?,?,?)");
+      String Gender;
 
-      pst.setString(1, id);
-      pst.setString(2, firstname);
-      pst.setString(3, lastname);
-      pst.setString(4, nic);
-      pst.setString(5, passport);
-      pst.setString(6, address);
-      pst.setString(7, date);
-      pst.setString(8, Gender);
-      pst.setString(9, contact);
-      pst.setBytes(10, userimage);
-      pst.executeUpdate();
+      if (r1.isSelected()) {
+        Gender = "Male";
+      } else {
+        Gender = "FeMale";
+      }
+
+      try {
+        int contact = Integer.parseInt(txtcontact.getText());
+
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
+        pst = con.prepareStatement("insert into customer(id,firstname,lastname,nic,passport,address,dob,gender,contact,photo)values(?,?,?,?,?,?,?,?,?,?)");
+
+        pst.setString(1, id);
+        pst.setString(2, firstname);
+        pst.setString(3, lastname);
+        pst.setString(4, nic);
+        pst.setString(5, passport);
+        pst.setString(6, address);
+        pst.setString(7, date);
+        pst.setString(8, Gender);
+        pst.setInt(9, contact);
+        pst.setBytes(10, userimage);
+        pst.executeUpdate();
 
 
-      JOptionPane.showMessageDialog(null,"Registration Created.........");
+        JOptionPane.showMessageDialog(null, "Registration Created.........");
 
 
-    } catch (ClassNotFoundException | SQLException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+      } catch (NumberFormatException nfe) {
+        JOptionPane.showMessageDialog(null, "Contact must be a number!");
+      } catch (ClassNotFoundException | SQLException ex) {
+        Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+      }
     }
   } // GEN-LAST:event_jButton2ActionPerformed
 

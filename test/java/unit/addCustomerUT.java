@@ -77,6 +77,18 @@ class addCustomerUT {
             pst.setString(9, "324324324");
             pst.setBytes(10, smallphoto);
             pst.executeUpdate();
+
+            pst.setString(1, "CS004");
+            pst.setString(2, "Lily");
+            pst.setString(3, "Tester");
+            pst.setString(4, "232423423B");
+            pst.setString(5, "48734");
+            pst.setString(6, "USA");
+            pst.setString(7, "2007-06-02");
+            pst.setString(8, "Female");
+            pst.setString(9, "324324328");
+            pst.setBytes(10, smallphoto);
+            pst.executeUpdate();
         } catch (SQLException | ClassNotFoundException ignored) {}
     }
 

@@ -614,7 +614,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
       DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
       String date;
-      if (txtdate.getDate() != null)  date = da.format(txtdate.getDate());
+      if (txtdate.getDate() != null) date = da.format(txtdate.getDate());
       else date = da.format(new java.util.Date());
 
       String Gender;

@@ -102,7 +102,7 @@ public class ticketGT {
   public void searchingCustomerByIdPopulation() {
     window.textBox("txtcustid").setText("CS001");
     window.button("Search Customer Button").click();
-    window.label("txtfirstname").requireText("john");
+    window.label("txtfirstname").requireText("John");
     window.label("txtlastname").requireText("Alex");
     window.label("txtpassport").requireText("3443");
   }

@@ -74,150 +74,176 @@ public class addFlightUT {
 
     }
 
-    @Test
-    void testCreateFlight() {
-        // Valid Flight information.
-        String id = "FO005";
-        String flightName = "Delta";
-        String source = "USA";
-        String depart = "China";
-        String date = "2021-03-26";
-        String depTime = "8.00AM";
-        String arrTime = "8.00PM";
-        String flightCharge = "700";
-
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
-            PreparedStatement pst =
-                    con.prepareStatement(
-                            "insert into flight(id,flightname,source,depart,date,deptime,arrtime,flightcharge)values(?,?,?,?,?,?,?,?)");
-
-            pst.setString(1, id);
-            pst.setString(2, flightName);
-            pst.setString(3, source);
-            pst.setString(4, depart);
-            pst.setString(5, date);
-            pst.setString(6, depTime);
-            pst.setString(7, arrTime);
-            pst.setString(8, flightCharge);
-            pst.executeUpdate();
-        } catch (Exception ignored) {
-        }
-    }
-
     /**
      * Testing passing values for the creation of a new flight.
      */
     @Test
-    void jButton1ActionPerformedPassValues() {
-        addflight addFlight = new addflight();
+    void testCreateFlightValidInput() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
-        addFlight.txtflightid.setText("FO107");
-        addFlight.txtflightname.setText("Delta");
-        addFlight.txtsource.setSelectedItem("India");
-        addFlight.txtdepart.setSelectedItem("Uk");
-        Date date = new Date();
-        addFlight.txtdate.setDate(date);
-        addFlight.txtdtime.setText("8.00AM");
-        addFlight.txtarrtime.setText("8.00PM");
-        addFlight.txtflightcharge.setText("700");
-
-        assertFalse(doesFlightExist("FO107"));
-
-        addFlight.jButton1.doClick();
-
-        assertTrue(doesFlightExist("FO107"));
+        assertFalse(doesFlightExist("FO105"));
+        addflight.jButton1.doClick();
+        assertTrue(doesFlightExist("FO105"));
     }
 
     @Test
-    void jButton1ActionPerformedFailDate() {
+    void testCreateFlightEmptyName() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
-        addflight addFlight = new addflight();
-
-        addFlight.txtflightid.setText("FO108");
-        addFlight.txtflightname.setText("Delta");
-        addFlight.txtsource.getItemAt(0);
-        addFlight.txtdepart.getItemAt(1);
-        Date date = new GregorianCalendar(2021, Calendar.JANUARY, 01).getTime();
-        addFlight.txtdate.setDate(date);
-        addFlight.txtdtime.setText("8.00AM");
-        addFlight.txtarrtime.setText("8.00PM");
-        addFlight.txtflightcharge.setText("700");
-
-        assertFalse(doesFlightExist("FO108"));
-
-        addFlight.jButton1.doClick();
-
-        assertFalse(doesFlightExist("FO108"));
+        assertFalse(doesFlightExist("FO105"));
+        addflight.jButton1.doClick();
+        assertFalse(doesFlightExist("FO105"));
     }
 
     @Test
-    void jButton1ActionPerformedFailDeptTime() {
+    void testCreateFlightInvalidSource() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem(null);
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
-        addflight addFlight = new addflight();
-
-        addFlight.txtflightid.setText("FO109");
-        addFlight.txtflightname.setText("Delta");
-        addFlight.txtsource.getItemAt(0);
-        addFlight.txtdepart.getItemAt(1);
-        Date date = new Date();
-        addFlight.txtdate.setDate(date);
-        addFlight.txtdtime.setText("-8.00AM");
-        addFlight.txtarrtime.setText("8.00PM");
-        addFlight.txtflightcharge.setText("700");
-
-        assertFalse(doesFlightExist("FO109"));
-
-        addFlight.jButton1.doClick();
-
-        assertFalse(doesFlightExist("FO109"));
+        assertFalse(doesFlightExist("FO105"));
+        addflight.jButton1.doClick();
+        assertFalse(doesFlightExist("FO105"));
     }
 
     @Test
-    void jButton1ActionPerformedFailArrivalTime() {
+    void testCreateFlightInvalidDepart() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem(null);
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
-        addflight addFlight = new addflight();
-
-        addFlight.txtflightid.setText("FO110");
-        addFlight.txtflightname.setText("Delta");
-        addFlight.txtsource.getItemAt(0);
-        addFlight.txtdepart.getItemAt(1);
-        Date date = new Date();
-        addFlight.txtdate.setDate(date);
-        addFlight.txtdtime.setText("8.00AM");
-        addFlight.txtarrtime.setText("-8.00PM");
-        addFlight.txtflightcharge.setText("700");
-
-        assertFalse(doesFlightExist("FO110"));
-
-        addFlight.jButton1.doClick();
-
-        assertFalse(doesFlightExist("FO110"));
+        assertFalse(doesFlightExist("FO105"));
+        addflight.jButton1.doClick();
+        assertFalse(doesFlightExist("FO105"));
     }
 
     @Test
-    void jButton1ActionPerformedFailCharge() {
+    void testCreateFlightSourceEqualsDepart() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("USA");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
-        addflight addFlight = new addflight();
+        assertFalse(doesFlightExist("FO105"));
+        addflight.jButton1.doClick();
+        assertFalse(doesFlightExist("FO105"));
+    }
 
-        addFlight.txtflightid.setText("FO111");
-        addFlight.txtflightname.setText("Delta");
-        addFlight.txtsource.getItemAt(0);
-        addFlight.txtdepart.getItemAt(1);
-        Date date = new Date();
-        addFlight.txtdate.setDate(date);
-        addFlight.txtdtime.setText("8.00AM");
-        addFlight.txtarrtime.setText("8.00PM");
-        addFlight.txtflightcharge.setText("-700");
+    @Test
+    void testCreateFlightInvalidDate() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
-        assertFalse(doesFlightExist("FO111"));
+        assertFalse(doesFlightExist("FO105"));
+        addflight.jButton1.doClick();
+        assertFalse(doesFlightExist("FO105"));
+    }
 
-        addFlight.jButton1.doClick();
+    @Test
+    void testCreateFlightEmptyDepartureTime() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
-        assertFalse(doesFlightExist("FO111"));
+        assertFalse(doesFlightExist("FO105"));
+        addflight.jButton1.doClick();
+        assertFalse(doesFlightExist("FO105"));
+    }
 
+    @Test
+    void testCreateFlightEmptyArrivalTime() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("");
+        addflight.txtflightcharge.setText("700");
+
+        assertFalse(doesFlightExist("FO105"));
+        addflight.jButton1.doClick();
+        assertFalse(doesFlightExist("FO105"));
+    }
+
+    @Test
+    void testCreateFlightInvalidPrice() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("-700");
+
+        assertFalse(doesFlightExist("FO105"));
+        addflight.jButton1.doClick();
+        assertFalse(doesFlightExist("FO105"));
+    }
+
+    @Test
+    void testCreateFlightEmptyPrice() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("");
+
+        assertFalse(doesFlightExist("FO105"));
+        addflight.jButton1.doClick();
+        assertFalse(doesFlightExist("FO105"));
     }
 
     @Test

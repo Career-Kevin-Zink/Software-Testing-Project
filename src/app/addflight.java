@@ -416,7 +416,7 @@ public class addflight extends javax.swing.JInternalFrame {
         String arrtime;
         String flightcharge;
 
-        if (txtflightname.getText() != null && !txtflightname.getText().isEmpty()) flightname = txtflightname.getText();
+        if (!txtflightname.getText().isEmpty()) flightname = txtflightname.getText();
         else {
             JOptionPane.showMessageDialog(null, "Please enter a valid flight name!");
             return;
@@ -434,7 +434,7 @@ public class addflight extends javax.swing.JInternalFrame {
             return;
         }
 
-        if (depart.equals(source))  {
+        if (depart.equals(source)) {
             JOptionPane.showMessageDialog(null, "Flight source cannot be the same as the destination!");
             return;
         }
@@ -444,32 +444,25 @@ public class addflight extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Please enter a valid flight date!");
             return;
         }
-        //else date = da.format(new Date());
 
-        if (txtdtime.getText() != null && !txtdtime.getText().isEmpty()) departtime = txtdtime.getText();
+        if (!txtdtime.getText().isEmpty()) departtime = txtdtime.getText();
         else {
             JOptionPane.showMessageDialog(null, "Please enter a valid departure time!");
             return;
         }
 
-        if (txtarrtime.getText() != null && !txtarrtime.getText().isEmpty()) arrtime = txtarrtime.getText();
+        if (!txtarrtime.getText().isEmpty()) arrtime = txtarrtime.getText();
         else {
             JOptionPane.showMessageDialog(null, "Please enter a valid arrival time!");
             return;
         }
 
         try {
-            if (txtflightcharge.getText() != null) {
-                int charge = Integer.parseInt(txtflightcharge.getText());
-                if (charge < 0) {
-                    JOptionPane.showMessageDialog(null, "Please enter a valid flight charge!");
-                    return;
-                }
-                else flightcharge = String.valueOf(charge);
-            } else {
+            int charge = Integer.parseInt(txtflightcharge.getText());
+            if (charge < 0) {
                 JOptionPane.showMessageDialog(null, "Please enter a valid flight charge!");
                 return;
-            }
+            } else flightcharge = String.valueOf(charge);
         } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(null, "Please enter a valid flight charge!");
             return;

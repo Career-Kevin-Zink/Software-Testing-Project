@@ -73,7 +73,7 @@ public class addFlightUT {
      * Statement Coverage: 78%
      * Branch Coverage: 11%
      */
-    //@Test
+    @Test
     void testAutoID() {
         // Test for "MAX(id)") != null.
         assertDoesNotThrow(() -> new addflight().autoID());
@@ -97,7 +97,7 @@ public class addFlightUT {
      * Statement Coverage: 89%
      * Branch Coverage: 50%
      */
-    //@Test
+    @Test
     void testCreateFlightValidInput() {
         addflight addflight = new addflight();
         addflight.txtflightid.setText("FO105");
@@ -125,7 +125,7 @@ public class addFlightUT {
      * Statement Coverage: 80%
      * Branch Coverage: 11%
      */
-    //@Test
+    @Test
     void testCreateFlightEmptyName() {
         addflight addflight = new addflight();
         addflight.txtflightid.setText("FO105");
@@ -151,8 +151,8 @@ public class addFlightUT {
      * Dependencies: Database
      * Expected Output: False, False
      * Actual Output: False, False
-     * Statement Coverage: 89%
-     * Branch Coverage: 50%
+     * Statement Coverage: 81%
+     * Branch Coverage: 16%
      */
     @Test
     void testCreateFlightInvalidSource() {
@@ -170,8 +170,20 @@ public class addFlightUT {
         addflight.jButton1.doClick();
         assertFalse(doesFlightExist("FO105"));
     }
-
-    //@Test
+    /**
+     * Requirement:The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
+     * <p>
+     * Input:String"F0105",String"Delta",String"USA",String"",String"08:00",String"09:00",String"700"
+     * Description:Testing Invalid values for the creation of a new flight.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: False, False
+     * Actual Output: False, False
+     * Statement Coverage: 81%
+     * Branch Coverage: 22%
+     */
+    @Test
     void testCreateFlightInvalidDepart() {
         addflight addflight = new addflight();
         addflight.txtflightid.setText("FO105");
@@ -187,8 +199,20 @@ public class addFlightUT {
         addflight.jButton1.doClick();
         assertFalse(doesFlightExist("FO105"));
     }
-
-    //@Test
+    /**
+     * Requirement:The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
+     * <p>
+     * Input:String"F0105",String"Delta",String"USA",String"USA",String"08:00",String"09:00",String"700"
+     * Description:Testing Invalid values for the creation of a new flight.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: False, False
+     * Actual Output: False, False
+     * Statement Coverage: 81%
+     * Branch Coverage: 27%
+     */
+    @Test
     void testCreateFlightSourceEqualsDepart() {
         addflight addflight = new addflight();
         addflight.txtflightid.setText("FO105");
@@ -204,8 +228,20 @@ public class addFlightUT {
         addflight.jButton1.doClick();
         assertFalse(doesFlightExist("FO105"));
     }
-
-    //@Test
+    /**
+     * Requirement:The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
+     * <p>
+     * Input:String"F0105",String"Delta",String"USA",String"China",String"08:00",String"09:00",String"700"
+     * Description:Testing Invalid values for the creation of a new flight.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: False, False
+     * Actual Output: False, False
+     * Statement Coverage: 82%
+     * Branch Coverage: 33%
+     */
+    @Test
     void testCreateFlightInvalidDate() {
         addflight addflight = new addflight();
         addflight.txtflightid.setText("FO105");
@@ -220,8 +256,20 @@ public class addFlightUT {
         addflight.jButton1.doClick();
         assertFalse(doesFlightExist("FO105"));
     }
-
-    //@Test
+    /**
+     * Requirement:The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
+     * <p>
+     * Input:String"F0105",String"Delta",String"USA",String"China",String"",String"09:00",String"700"
+     * Description:Testing Invalid values for the creation of a new flight.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: False, False
+     * Actual Output: False, False
+     * Statement Coverage: 82%
+     * Branch Coverage: 38%
+     */
+    @Test
     void testCreateFlightEmptyDepartureTime() {
         addflight addflight = new addflight();
         addflight.txtflightid.setText("FO105");
@@ -237,8 +285,20 @@ public class addFlightUT {
         addflight.jButton1.doClick();
         assertFalse(doesFlightExist("FO105"));
     }
-
-    //@Test
+    /**
+     * Requirement:The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
+     * <p>
+     * Input:String"F0105",String"Delta",String"USA",String"China",String"08:00",String"",String"700"
+     * Description:Testing Invalid values for the creation of a new flight.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: False, False
+     * Actual Output: False, False
+     * Statement Coverage: 82%
+     * Branch Coverage: 44%
+     */
+    @Test
     void testCreateFlightEmptyArrivalTime() {
         addflight addflight = new addflight();
         addflight.txtflightid.setText("FO105");
@@ -254,8 +314,20 @@ public class addFlightUT {
         addflight.jButton1.doClick();
         assertFalse(doesFlightExist("FO105"));
     }
-
-    //@Test
+    /**
+     * Requirement:The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
+     * <p>
+     * Input:String"F0105",String"Delta",String"USA",String"China",String"08:00",String"09:00",String"-700"
+     * Description:Testing Invalid values for the creation of a new flight.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: False, False
+     * Actual Output: False, False
+     * Statement Coverage: 83%
+     * Branch Coverage: 50%
+     */
+    @Test
     void testCreateFlightInvalidPrice() {
         addflight addflight = new addflight();
         addflight.txtflightid.setText("FO105");
@@ -271,8 +343,20 @@ public class addFlightUT {
         addflight.jButton1.doClick();
         assertFalse(doesFlightExist("FO105"));
     }
-
-    //@Test
+    /**
+     * Requirement:The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
+     * <p>
+     * Input:String"F0105",String"Delta",String"USA",String"China",String"08:00",String"09:00",String"-"
+     * Description:Testing Invalid values for the creation of a new flight.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: False, False
+     * Actual Output: False, False
+     * Statement Coverage: 83%
+     * Branch Coverage: 44%
+     */
+    @Test
     void testCreateFlightEmptyPrice() {
         addflight addflight = new addflight();
         addflight.txtflightid.setText("FO105");
@@ -288,8 +372,20 @@ public class addFlightUT {
         addflight.jButton1.doClick();
         assertFalse(doesFlightExist("FO105"));
     }
-
-    //@Test
+    /**
+     * Requirement:The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
+     * <p>
+     * Input:String"F0105",String"Delta",String"USA",String"China",String"08:00",String"09:00",String"-700"
+     * Description:Testing Invalid values for the creation of a new flight.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 79%
+     * Branch Coverage: 5%
+     */
+    @Test
     void jButton2ActionPerformed() {
 
         addflight addFlight = new addflight();

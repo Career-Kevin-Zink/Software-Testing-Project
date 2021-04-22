@@ -115,8 +115,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
             addFlight.txtflightid.setText("FO107");
             addFlight.txtflightname.setText("Delta");
-            addFlight.txtsource.getItemAt(0);
-            addFlight.txtdepart.getItemAt(1);
+            addFlight.txtsource.setSelectedItem("India");
+            addFlight.txtdepart.setSelectedItem("Uk");
             Date date = new Date();
             addFlight.txtdate.setDate(date);
             addFlight.txtdtime.setText("8.00AM");

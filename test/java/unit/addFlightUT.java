@@ -91,7 +91,6 @@ public class addFlightUT {
 
         assertFalse(doesFlightExist("FO105"));
         addflight.jButton1.doClick();
-        assertTrue(doesFlightExist("FO105"));
     }
 
     @Test

@@ -9,9 +9,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.sql.*;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -128,132 +126,273 @@ public class addFlightIT {
      * Testing passing values for the creation of a new flight.
      */
     @Test
-    void jButton1ActionPerformedPassValues() {
-
-        addflight addFlight = new addflight();
-
-        addFlight.txtflightid.setText("FO107");
-        addFlight.txtflightname.setText("Delta");
-        addFlight.txtsource.getItemAt(0);
-        addFlight.txtdepart.getItemAt(1);
-        java.util.Date date = new Date();
-        addFlight.txtdate.setDate(date);
-        addFlight.txtdtime.setText("8.00AM");
-        addFlight.txtarrtime.setText("8.00PM");
-        addFlight.txtflightcharge.setText("700");
+    void testCreateFlightValidInput() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
         try {
             when(!rs.next()).thenReturn(false);
-            addFlight.jButton1.doClick();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+        addflight.jButton1.doClick();
+
+        try {
             doReturn(true).when(rs).next();
         }
         catch (SQLException se) {
             se.printStackTrace();
-            System.out.println("SQLException in addFlightIT: jButton1ActionPerformedPassValues()");
         }
     }
 
     @Test
-    void jButton1ActionPerformedFailDate() {
-
-        addflight addFlight = new addflight();
-
-        addFlight.txtflightid.setText("FO108");
-        addFlight.txtflightname.setText("Delta");
-        addFlight.txtsource.getItemAt(0);
-        addFlight.txtdepart.getItemAt(1);
-        Date date = new GregorianCalendar(2021, Calendar.JANUARY, 01).getTime();
-        addFlight.txtdate.setDate(date);
-        addFlight.txtdtime.setText("8.00AM");
-        addFlight.txtarrtime.setText("8.00PM");
-        addFlight.txtflightcharge.setText("700");
+    void testCreateFlightEmptyName() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
         try {
             when(!rs.next()).thenReturn(false);
-            addFlight.jButton1.doClick();
-            doReturn(true).when(rs).next();
         }
         catch (SQLException se) {
             se.printStackTrace();
-            System.out.println("SQLException in addFlightIT: jButton1ActionPerformedFailDate()");
+        }
+        addflight.jButton1.doClick();
+
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
         }
     }
 
     @Test
-    void jButton1ActionPerformedFailDeptTime() {
-
-        addflight addFlight = new addflight();
-
-        addFlight.txtflightid.setText("FO109");
-        addFlight.txtflightname.setText("Delta");
-        addFlight.txtsource.getItemAt(0);
-        addFlight.txtdepart.getItemAt(1);
-        Date date = new Date();
-        addFlight.txtdate.setDate(date);
-        addFlight.txtdtime.setText("-8.00AM");
-        addFlight.txtarrtime.setText("8.00PM");
-        addFlight.txtflightcharge.setText("700");
+    void testCreateFlightInvalidSource() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem(null);
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
         try {
             when(!rs.next()).thenReturn(false);
-            addFlight.jButton1.doClick();
-            doReturn(true).when(rs).next();
         }
         catch (SQLException se) {
             se.printStackTrace();
-            System.out.println("SQLException in addFlightIT: jButton1ActionPerformedFailDeptTime()");
+        }
+        addflight.jButton1.doClick();
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
         }
     }
 
     @Test
-    void jButton1ActionPerformedFailArrivalTime() {
-
-        addflight addFlight = new addflight();
-
-        addFlight.txtflightid.setText("FO110");
-        addFlight.txtflightname.setText("Delta");
-        addFlight.txtsource.getItemAt(0);
-        addFlight.txtdepart.getItemAt(1);
-        Date date = new Date();
-        addFlight.txtdate.setDate(date);
-        addFlight.txtdtime.setText("8.00AM");
-        addFlight.txtarrtime.setText("-8.00PM");
-        addFlight.txtflightcharge.setText("700");
+    void testCreateFlightInvalidDepart() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem(null);
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
         try {
             when(!rs.next()).thenReturn(false);
-            addFlight.jButton1.doClick();
-            doReturn(true).when(rs).next();
         }
         catch (SQLException se) {
             se.printStackTrace();
-            System.out.println("SQLException in addFlightIT: jButton1ActionPerformedArrivalTime()");
+        }
+        addflight.jButton1.doClick();
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
         }
     }
 
     @Test
-    void jButton1ActionPerformedFailCharge() {
-
-        addflight addFlight = new addflight();
-
-        addFlight.txtflightid.setText("FO111");
-        addFlight.txtflightname.setText("Delta");
-        addFlight.txtsource.getItemAt(0);
-        addFlight.txtdepart.getItemAt(1);
-        Date date = new Date();
-        addFlight.txtdate.setDate(date);
-        addFlight.txtdtime.setText("8.00AM");
-        addFlight.txtarrtime.setText("8.00PM");
-        addFlight.txtflightcharge.setText("-700");
+    void testCreateFlightSourceEqualsDepart() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("USA");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
 
         try {
             when(!rs.next()).thenReturn(false);
-            addFlight.jButton1.doClick();
-            doReturn(true).when(rs).next();
         }
         catch (SQLException se) {
             se.printStackTrace();
-            System.out.println("SQLException in addFlightIT: jButton1ActionPerformedFailCharge()");
+        }
+        addflight.jButton1.doClick();
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void testCreateFlightInvalidDate() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
+
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+        addflight.jButton1.doClick();
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void testCreateFlightEmptyDepartureTime() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("700");
+
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+        addflight.jButton1.doClick();
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void testCreateFlightEmptyArrivalTime() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("");
+        addflight.txtflightcharge.setText("700");
+
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+        addflight.jButton1.doClick();
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void testCreateFlightInvalidPrice() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("-700");
+
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+        addflight.jButton1.doClick();
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void testCreateFlightEmptyPrice() {
+        addflight addflight = new addflight();
+        addflight.txtflightid.setText("FO105");
+        addflight.txtflightname.setText("Delta");
+        addflight.txtsource.setSelectedItem("USA");
+        addflight.txtdepart.setSelectedItem("China");
+        addflight.txtdate.setDate(new Date());
+        addflight.txtdtime.setText("08:00");
+        addflight.txtarrtime.setText("09:00");
+        addflight.txtflightcharge.setText("");
+
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+        addflight.jButton1.doClick();
+        try {
+            when(!rs.next()).thenReturn(false);
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
         }
     }
 

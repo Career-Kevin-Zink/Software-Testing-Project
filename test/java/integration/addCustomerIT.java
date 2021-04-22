@@ -246,6 +246,295 @@ public class addCustomerIT {
     }
 
     @Test
+    void addCustomerValidMale() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Male customer
+        addCustomer.txtid.setText("CS004");
+        addCustomer.txtfirstname.setText("John");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JohnnyPassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new Date(2020, Calendar.JANUARY, 1));
+        addCustomer.r1.setSelected(true);
+        addCustomer.r2.setSelected(false);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        addCustomer.jButton2.doClick();
+
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+}
+
+    @Test
+    void addCustomerValidFemale() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        addCustomer.jButton2.doClick();
+
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void addCustomerInvalidFirstName() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        addCustomer.jButton2.doClick();
+
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void addCustomerInvalidLastName() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        addCustomer.jButton2.doClick();
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void addCustomerInvalidNicNumber() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        addCustomer.jButton2.doClick();
+
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void addCustomerInvalidPassport() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        addCustomer.jButton2.doClick();
+
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void addCustomerInvalidAddress() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtdate.setDate(new Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        addCustomer.jButton2.doClick();
+
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void addCustomerInvalidDate() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        //addCustomer.txtdate.setDate(null);
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        addCustomer.jButton2.doClick();
+
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void addCustomerEmptyContact() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        addCustomer.jButton2.doClick();
+
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void addCustomerInvalidContact() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("hello");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        addCustomer.jButton2.doClick();
+
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void addCustomerInvalidUserImage() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+
+        addCustomer.jButton2.doClick();
+
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
     void jButton3ActionPerformed() {
         new addCustomer().jButton3.doClick();
         assertNotNull(conn);

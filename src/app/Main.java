@@ -203,7 +203,7 @@ public class Main extends javax.swing.JFrame {
 //
         SwingUtilities.invokeLater(()->{
             try {
-                UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+                UIManager.setLookAndFeel("javax.swing.platform.nimbus.NimbusLookAndFeel");
             } catch (Exception e) {
                 // If Nimbus is not available, you can set the GUI to another look and feel.
             }

@@ -46,8 +46,8 @@ class ticketreportUT {
     void jButton1ActionPerformed() {
     ticketreport TR = new ticketreport();
     TR.jButton1.doClick();
-
     }
+
     @Test
     void loadData() {
         ticketreport TR = new ticketreport();

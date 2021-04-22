@@ -35,27 +35,29 @@ public class LoginIT {
   }
 
   @ParameterizedTest
-  @DisplayName("Valid Username and Password input passed + jBtn #1 ActionPerformed")
-  @CsvSource({",", "john,321", "%^@,123,", "john,123", ",123", "john, "})
-  void loginTestSuccessful(String username, String password) {
-
+  @DisplayName("Valid Username and Password input + jBtn #1 ActionPerformed")
+  @CsvSource({",", "john,321", "%^@,123", "john,123", ",123", "john,"})
+  public void loginTest(String username, String password) {
     Login login = new Login();
+
     login.txtuser.setText(username);
     login.txtpass.setText(password);
     login.setVisible(true);
     login.jButton1.doClick();
 
-    try {
-
-        if (rs.next()) {
-          doReturn(true).when(rs).next();
-        }
-      else if (rs != null){
-        when(!rs.next()).thenReturn(false);
+    if(login.txtuser.getText().equals("john") && login.txtpass.getText().equals("123")){
+      try {
+        doReturn(true).when(rs).next();
       }
-    } catch (SQLException se) {
+      catch (SQLException se) {
+        se.printStackTrace();
+      }
+    }
+    try {
+      when(!rs.next()).thenReturn(false);
+    }
+    catch (SQLException se) {
       se.printStackTrace();
-      System.out.println("SQLException in LoginIT: loginTestSuccessful()");
     }
   }
 

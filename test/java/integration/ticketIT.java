@@ -3,12 +3,9 @@ package integration;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import app.Login;
 import app.ticket;
-import app.Main;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -148,13 +145,14 @@ public class ticketIT {
     }
 
     @Test
-    void testJTable1MouseClicked() {
+    void jTable1MouseClickedTest() {
+
         ticket ticket = new ticket();
         ticket.txtsource.setSelectedItem("India");
         ticket.txtdepart.setSelectedItem("Uk");
         // Executing the method
         ticket.jButton3.doClick();
-        assertTrue(ticket.jTable1.getRowCount() >= 1);
+        assertNotNull(conn);
 
         ticket.jTable1.changeSelection(0,0,false,false);
 
@@ -165,7 +163,52 @@ public class ticketIT {
         ticket.flightname.setText(Df.getValueAt(selectIndex, 1).toString());
         ticket.txtdept.setText(Df.getValueAt(selectIndex, 5).toString());
         ticket.txtprice.setText(Df.getValueAt(selectIndex, 7).toString());
-        Assertions.assertTrue(ticket.flightname.getText().equals("JetBlue"));
+        ticket.jButton3.doClick();
+        assertNotNull(conn);
+    }
+
+    @Test
+    void testTxtseatsStateChanged() {
+        ticket ticket = new ticket();
+        ticket.txtprice.setText("2000");
+        ticket.txtseats.setValue(2);
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+        assertNotNull(conn);
+    }
+
+    @Test
+    void testJButton1ActionPerformed() {
+        ticket ticket = new ticket();
+
+        ticket.txtticketno.setText("TO004");
+        ticket.flightno.setText("FO001");
+        ticket.txtcustid.setText("CS001");
+        ticket.txtclass.setSelectedItem("Economy");
+        ticket.txtprice.setText("50000");
+        ticket.txtseats.setValue(1);
+
+
+        ticket.jButton1.doClick();
+        try {
+            doReturn(true).when(rs).next();
+        }
+        catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+
+    @Test
+    void testJButton2ActionPerformed() {
+        ticket ticket = new ticket();
+
+        ticket.jButton2.doClick();
+        assertNotNull(conn);
     }
 
 }

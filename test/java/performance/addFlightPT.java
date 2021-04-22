@@ -122,106 +122,186 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-  /**
-   * Testing passing values for the creation of a new flight.
-   */
-  @Test   //testing to see if jButton1 passes values and finishes in less than 5 seconds
-  void jButton1ActionPerformedPassValues() {
-    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    addflight addFlight = new addflight();
 
-    addFlight.txtflightid.setText("FO107");
-    addFlight.txtflightname.setText("Delta");
-    addFlight.txtsource.getItemAt(0);
-    addFlight.txtdepart.getItemAt(1);
-    java.util.Date date = new Date();
-    addFlight.txtdate.setDate(date);
-    addFlight.txtdtime.setText("8.00AM");
-    addFlight.txtarrtime.setText("8.00PM");
-    addFlight.txtflightcharge.setText("700");
-    addFlight.jButton1.doClick();
-
-    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
-    assertTrue(endTime - startTime <= 5000);
-  }
   @Test
-  void jButton1ActionPerformedFailDate() {
-    //testing to see if the wrong information error pops up in less than 5 seconds
+  void testCreateFlightValidInput() {
+    addflight addflight = new addflight();
+    addflight.txtflightid.setText("FO105");
+    addflight.txtflightname.setText("Delta");
+    addflight.txtsource.setSelectedItem("USA");
+    addflight.txtdepart.setSelectedItem("China");
+    addflight.txtdate.setDate(new Date());
+    addflight.txtdtime.setText("08:00");
+    addflight.txtarrtime.setText("09:00");
+    addflight.txtflightcharge.setText("700");
+
     long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    addflight addFlight = new addflight();
-
-    addFlight.txtflightid.setText("FO108");
-    addFlight.txtflightname.setText("Delta");
-    addFlight.txtsource.getItemAt(0);
-    addFlight.txtdepart.getItemAt(1);
-    Date date = new GregorianCalendar(2021, Calendar.JANUARY, 01).getTime();
-    addFlight.txtdate.setDate(date);
-    addFlight.txtdtime.setText("8.00AM");
-    addFlight.txtarrtime.setText("8.00PM");
-    addFlight.txtflightcharge.setText("700");
-
-
-    addFlight.jButton1.doClick();
+    addflight.jButton1.doClick();
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
 
-  @Test  //testing to see if the wrong information error pops up in less than 5 seconds
-  void jButton1ActionPerformedFailDeptTime() {
-
-    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    addflight addFlight = new addflight();
-    addFlight.txtflightid.setText("FO109");
-    addFlight.txtflightname.setText("Delta");
-    addFlight.txtsource.getItemAt(0);
-    addFlight.txtdepart.getItemAt(1);
-    Date date = new Date();
-    addFlight.txtdate.setDate(date);
-    addFlight.txtdtime.setText("-8.00AM");
-    addFlight.txtarrtime.setText("8.00PM");
-    addFlight.txtflightcharge.setText("700");
-    addFlight.jButton1.doClick();
-    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
-    assertTrue(endTime - startTime <= 5000);
-  }
   @Test
-  void jButton1ActionPerformedFailArrivalTime() {
-    //testing to see if the wrong information error pops up in less than 5 seconds
+  void testCreateFlightEmptyName() {
+    addflight addflight = new addflight();
+    addflight.txtflightid.setText("FO105");
+    addflight.txtflightname.setText("");
+    addflight.txtsource.setSelectedItem("USA");
+    addflight.txtdepart.setSelectedItem("China");
+    addflight.txtdate.setDate(new Date());
+    addflight.txtdtime.setText("08:00");
+    addflight.txtarrtime.setText("09:00");
+    addflight.txtflightcharge.setText("700");
+
     long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    addflight addFlight = new addflight();
-    addFlight.txtflightid.setText("FO110");
-    addFlight.txtflightname.setText("Delta");
-    addFlight.txtsource.getItemAt(0);
-    addFlight.txtdepart.getItemAt(1);
-    Date date = new Date();
-    addFlight.txtdate.setDate(date);
-    addFlight.txtdtime.setText("8.00AM");
-    addFlight.txtarrtime.setText("-8.00PM");
-    addFlight.txtflightcharge.setText("700");
-    addFlight.jButton1.doClick();
+    addflight.jButton1.doClick();
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
+
   @Test
-  void jButton1ActionPerformedFailCharge() {
+  void testCreateFlightInvalidSource() {
+    addflight addflight = new addflight();
+    addflight.txtflightid.setText("FO105");
+    addflight.txtflightname.setText("Delta");
+    addflight.txtsource.setSelectedItem(null);
+    addflight.txtdepart.setSelectedItem("China");
+    addflight.txtdate.setDate(new Date());
+    addflight.txtdtime.setText("08:00");
+    addflight.txtarrtime.setText("09:00");
+    addflight.txtflightcharge.setText("700");
 
     long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-
-    addflight addFlight = new addflight();
-    addFlight.txtflightid.setText("FO111");
-    addFlight.txtflightname.setText("Delta");
-    addFlight.txtsource.getItemAt(0);
-    addFlight.txtdepart.getItemAt(1);
-    Date date = new Date();
-    addFlight.txtdate.setDate(date);
-    addFlight.txtdtime.setText("8.00AM");
-    addFlight.txtarrtime.setText("8.00PM");
-    addFlight.txtflightcharge.setText("-700");
-    addFlight.jButton1.doClick();
-
+    addflight.jButton1.doClick();
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
+
+  @Test
+  void testCreateFlightInvalidDepart() {
+    addflight addflight = new addflight();
+    addflight.txtflightid.setText("FO105");
+    addflight.txtflightname.setText("Delta");
+    addflight.txtsource.setSelectedItem("USA");
+    addflight.txtdepart.setSelectedItem(null);
+    addflight.txtdate.setDate(new Date());
+    addflight.txtdtime.setText("08:00");
+    addflight.txtarrtime.setText("09:00");
+    addflight.txtflightcharge.setText("700");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    addflight.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
+
+  @Test
+  void testCreateFlightSourceEqualsDepart() {
+    addflight addflight = new addflight();
+    addflight.txtflightid.setText("FO105");
+    addflight.txtflightname.setText("Delta");
+    addflight.txtsource.setSelectedItem("USA");
+    addflight.txtdepart.setSelectedItem("USA");
+    addflight.txtdate.setDate(new Date());
+    addflight.txtdtime.setText("08:00");
+    addflight.txtarrtime.setText("09:00");
+    addflight.txtflightcharge.setText("700");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    addflight.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
+
+  @Test
+  void testCreateFlightInvalidDate() {
+    addflight addflight = new addflight();
+    addflight.txtflightid.setText("FO105");
+    addflight.txtflightname.setText("Delta");
+    addflight.txtsource.setSelectedItem("USA");
+    addflight.txtdepart.setSelectedItem("China");
+    addflight.txtdtime.setText("08:00");
+    addflight.txtarrtime.setText("09:00");
+    addflight.txtflightcharge.setText("700");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    addflight.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
+
+  @Test
+  void testCreateFlightEmptyDepartureTime() {
+    addflight addflight = new addflight();
+    addflight.txtflightid.setText("FO105");
+    addflight.txtflightname.setText("Delta");
+    addflight.txtsource.setSelectedItem("USA");
+    addflight.txtdepart.setSelectedItem("China");
+    addflight.txtdate.setDate(new Date());
+    addflight.txtdtime.setText("");
+    addflight.txtarrtime.setText("09:00");
+    addflight.txtflightcharge.setText("700");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    addflight.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
+
+  @Test
+  void testCreateFlightEmptyArrivalTime() {
+    addflight addflight = new addflight();
+    addflight.txtflightid.setText("FO105");
+    addflight.txtflightname.setText("Delta");
+    addflight.txtsource.setSelectedItem("USA");
+    addflight.txtdepart.setSelectedItem("China");
+    addflight.txtdate.setDate(new Date());
+    addflight.txtdtime.setText("08:00");
+    addflight.txtarrtime.setText("");
+    addflight.txtflightcharge.setText("700");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    addflight.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
+
+  @Test
+  void testCreateFlightInvalidPrice() {
+    addflight addflight = new addflight();
+    addflight.txtflightid.setText("FO105");
+    addflight.txtflightname.setText("Delta");
+    addflight.txtsource.setSelectedItem("USA");
+    addflight.txtdepart.setSelectedItem("China");
+    addflight.txtdate.setDate(new Date());
+    addflight.txtdtime.setText("08:00");
+    addflight.txtarrtime.setText("09:00");
+    addflight.txtflightcharge.setText("-700");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    addflight.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
+
+  @Test
+  void testCreateFlightEmptyPrice() {
+    addflight addflight = new addflight();
+    addflight.txtflightid.setText("FO105");
+    addflight.txtflightname.setText("Delta");
+    addflight.txtsource.setSelectedItem("USA");
+    addflight.txtdepart.setSelectedItem("China");
+    addflight.txtdate.setDate(new Date());
+    addflight.txtdtime.setText("08:00");
+    addflight.txtarrtime.setText("09:00");
+    addflight.txtflightcharge.setText("");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    addflight.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
+
   @Test
   void jButton2ActionPerformed() {
     //Testing to see if the button will close the window in less than 5 seconds

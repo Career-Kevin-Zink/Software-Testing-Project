@@ -67,16 +67,8 @@ public class userCreationPT {
   }
 
   @Test
-  void jButton1ActionPerformed() {
-    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-
+  void userCreationValidDetails() {
     userCreation userCreation = new userCreation();
-
-    // Ensure the user does not already exist.
-
-    // Setup the GUI
-    userCreation.initComponents();
-
     // Provide test inputs.
     userCreation.txtuserid.setText("UO005");
     userCreation.txtfirstname.setText("John");
@@ -84,9 +76,91 @@ public class userCreationPT {
     userCreation.txtusername.setText("jdoe69");
     userCreation.txtpassword.setText("ABC123");
 
-    // Execute the method.
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
     userCreation.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
 
+  @Test
+  void userCreationInvalidId() {
+    userCreation userCreation = new userCreation();
+    // Provide test inputs.
+    userCreation.txtuserid.setText("");
+    userCreation.txtfirstname.setText("John");
+    userCreation.txtlastname.setText("Doe");
+    userCreation.txtusername.setText("jdoe69");
+    userCreation.txtpassword.setText("ABC123");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    userCreation.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
+
+  @Test
+  void userCreationInvalidFirstName() {
+    userCreation userCreation = new userCreation();
+
+    // Provide test inputs.
+    userCreation.txtuserid.setText("UO005");
+    userCreation.txtfirstname.setText("");
+    userCreation.txtlastname.setText("Doe");
+    userCreation.txtusername.setText("jdoe69");
+    userCreation.txtpassword.setText("ABC123");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    userCreation.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
+
+  @Test
+  void userCreationInvalidLastName() {
+    userCreation userCreation = new userCreation();
+
+    // Provide test inputs.
+    userCreation.txtuserid.setText("UO005");
+    userCreation.txtfirstname.setText("John");
+    userCreation.txtlastname.setText("");
+    userCreation.txtusername.setText("jdoe69");
+    userCreation.txtpassword.setText("ABC123");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    userCreation.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
+
+  @Test
+  void userCreationInvalidUsername() {
+    userCreation userCreation = new userCreation();
+
+    // Provide test inputs.
+    userCreation.txtuserid.setText("UO005");
+    userCreation.txtfirstname.setText("John");
+    userCreation.txtlastname.setText("Doe");
+    userCreation.txtusername.setText("");
+    userCreation.txtpassword.setText("ABC123");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    userCreation.jButton1.doClick();
+    long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 5000);
+  }
+
+  @Test
+  void userCreationInvalidPassword() {
+    userCreation userCreation = new userCreation();
+    // Provide test inputs.
+    userCreation.txtuserid.setText("UO005");
+    userCreation.txtfirstname.setText("John");
+    userCreation.txtlastname.setText("Doe");
+    userCreation.txtusername.setText("jdoe69");
+    userCreation.txtpassword.setText("");
+
+    long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    userCreation.jButton1.doClick();
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }

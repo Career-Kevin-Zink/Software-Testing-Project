@@ -15,6 +15,7 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class addCustomerPT {
     @BeforeEach
     @AfterEach
@@ -102,6 +103,7 @@ public class addCustomerPT {
     }
 
     @Test
+    @Order(1)
     @DisplayName("Initialize addCustomer UI in less than 5 seconds")
     void initComponents() {
         long startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -112,6 +114,7 @@ public class addCustomerPT {
     }
 
     @Test
+    @Order(2)
     @DisplayName("Test autoID with empty table.")
     void autoIdEmptyTest() {
         wipeCustomerTable();
@@ -119,6 +122,7 @@ public class addCustomerPT {
     }
 
     @Test
+    @Order(3)
     @DisplayName("Adding a customer to the database in less than 5 seconds.")
     void addACustomer() {
         addCustomer addCustomer = new addCustomer();
@@ -150,6 +154,7 @@ public class addCustomerPT {
     }
 
     @Test
+    @Order(4)
     @DisplayName("Adding 100 customers")
     @Disabled("Takes a Long time, dont run for demo")
     void addCustomerEndurance() {
@@ -182,6 +187,7 @@ public class addCustomerPT {
     }
 
     @Test
+    @Order(5)
     void jButton1ActionPerformed() {
         long startTime = java.util.Calendar.getInstance().getTimeInMillis();
         addCustomer addCustomer = new addCustomer();
@@ -191,7 +197,9 @@ public class addCustomerPT {
     }
 
     @Test
-    void jButton2ActionPerformed() {
+    @Order(6)
+    @DisplayName("Check that adding a valid female customer takes less than 5 seconds.")
+    void addCustomerValidMale() {
         addCustomer addCustomer = new addCustomer();
 
         // Male customer
@@ -205,15 +213,21 @@ public class addCustomerPT {
         addCustomer.r1.setSelected(true);
         addCustomer.r2.setSelected(false);
         addCustomer.txtcontact.setText("123456");
-        addCustomer.userimage = new byte[]{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
 
         long startTime = java.util.Calendar.getInstance().getTimeInMillis();
         addCustomer.jButton2.doClick();
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
+    }
+
+    @Test
+    @Order(7)
+    @DisplayName("Check that adding a valid female customer takes less than 5 seconds.")
+    void addCustomerValidFemale() {
+        addCustomer addCustomer = new addCustomer();
 
         // Female customer
-        addCustomer = new addCustomer();
         addCustomer.txtid.setText("CS005");
         addCustomer.txtfirstname.setText("Jane");
         addCustomer.txtlastname.setText("Doe");
@@ -224,23 +238,244 @@ public class addCustomerPT {
         addCustomer.r1.setSelected(false);
         addCustomer.r2.setSelected(true);
         addCustomer.txtcontact.setText("123456");
-        addCustomer.userimage = new byte[]{-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
 
-        startTime = java.util.Calendar.getInstance().getTimeInMillis();
-        addCustomer.jButton2.doClick();
-        endTime = java.util.Calendar.getInstance().getTimeInMillis();
-        assertTrue(endTime - startTime <= 5000);
-    }
-
-    @Test
-    void jButton3ActionPerformed() {
         long startTime = java.util.Calendar.getInstance().getTimeInMillis();
-        new addCustomer().jButton3.doClick();
+        addCustomer.jButton2.doClick();
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
 
     @Test
+    @Order(8)
+    @DisplayName("Check that an invalid first name shows an error dialog in less than 5 seconds.")
+    void addCustomerInvalidFirstName() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new java.sql.Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+        addCustomer.jButton2.doClick();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+        assertTrue(endTime - startTime <= 5000);
+    }
+
+    @Test
+    @Order(9)
+    @DisplayName("Check that an invalid last name shows an error dialog in less than 5 seconds.")
+    void addCustomerInvalidLastName() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new java.sql.Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+        addCustomer.jButton2.doClick();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+        assertTrue(endTime - startTime <= 5000);
+    }
+
+    @Test
+    @Order(10)
+    @DisplayName("Check that an invalid nicno shows an error dialog in less than 5 seconds.")
+    void addCustomerInvalidNicNumber() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new java.sql.Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+        addCustomer.jButton2.doClick();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+        assertTrue(endTime - startTime <= 5000);
+    }
+
+    @Test
+    @Order(11)
+    @DisplayName("Check that an invalid passport shows an error dialog in less than 5 seconds.")
+    void addCustomerInvalidPassport() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new java.sql.Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+        addCustomer.jButton2.doClick();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+        assertTrue(endTime - startTime <= 5000);
+    }
+
+    @Test
+    @Order(12)
+    @DisplayName("Check that an invalid address shows an error dialog in less than 5 seconds.")
+    void addCustomerInvalidAddress() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtdate.setDate(new java.sql.Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+        addCustomer.jButton2.doClick();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+        assertTrue(endTime - startTime <= 5000);
+    }
+
+    @Test
+    @Order(13)
+    @DisplayName("Check that an invalid date shows an error dialog in less than 5 seconds.")
+    void addCustomerInvalidDate() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        //addCustomer.txtdate.setDate(null);
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+        addCustomer.jButton2.doClick();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+        assertTrue(endTime - startTime <= 5000);
+    }
+
+    @Test
+    @Order(14)
+    @DisplayName("Check that an empty contact shows an error dialog in less than 5 seconds.")
+    void addCustomerEmptyContact() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new java.sql.Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+        addCustomer.jButton2.doClick();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+        assertTrue(endTime - startTime <= 5000);
+    }
+
+    @Test
+    @Order(15)
+    @DisplayName("Check that an invalid contact shows an error dialog in less than 5 seconds.")
+    void addCustomerInvalidContact() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new java.sql.Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("hello");
+        addCustomer.userimage = new byte[] {-119, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 5, 0, 0, 0, 5, 8, 2, 0, 0, 0, 2, 13, -79, -78, 0, 0, 0, 1, 115, 82, 71, 66, 0, -82, -50, 28, -23, 0, 0, 0, 4, 103, 65, 77, 65, 0, 0, -79, -113, 11, -4, 97, 5, 0, 0, 0, 9, 112, 72, 89, 115, 0, 0, 14, -61, 0, 0, 14, -61, 1, -57, 111, -88, 100, 0, 0, 0, 23, 73, 68, 65, 84, 24, 87, 99, -8, -1, -1, 63, 3, 3, 18, 9, -60, -56, -128, 52, -7, -1, -1, 1, -33, -32, 56, -56, 38, 25, 19, 55, 0, 0, 0, 0, 73, 69, 78, 68, -82, 66, 96, -126};
+
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+        addCustomer.jButton2.doClick();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+        assertTrue(endTime - startTime <= 5000);
+    }
+
+    @Test
+    @Order(16)
+    @DisplayName("Check that an invalid user image shows an error dialog in less than 5 seconds.")
+    void addCustomerInvalidUserImage() {
+        addCustomer addCustomer = new addCustomer();
+
+        // Female customer
+        addCustomer.txtid.setText("CS005");
+        addCustomer.txtfirstname.setText("Jane");
+        addCustomer.txtlastname.setText("Doe");
+        addCustomer.txtnic.setText("ABC123");
+        addCustomer.txtpassport.setText("JanePassport");
+        addCustomer.txtaddress.setText("123 Apple street");
+        addCustomer.txtdate.setDate(new java.sql.Date(2020, Calendar.SEPTEMBER, 2));
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
+        addCustomer.txtcontact.setText("123456");
+
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+        addCustomer.jButton2.doClick();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+        assertTrue(endTime - startTime <= 5000);
+    }
+
+    @Test
+    @Order(17)
+    @DisplayName("Check that the window is hidden in less than 2 seconds.")
+    void jButton3ActionPerformed() {
+        long startTime = java.util.Calendar.getInstance().getTimeInMillis();
+        new addCustomer().jButton3.doClick();
+        long endTime = java.util.Calendar.getInstance().getTimeInMillis();
+        assertTrue(endTime - startTime <= 2000);
+    }
+
+    @Test
+    @Order(18)
     @DisplayName("Test txtlastnameActionPerformed")
     void txtlastnameActionPerformed() {
         ActionEvent ae = new ActionEvent(ActionEvent.ACTION_PERFORMED, 1, null);
@@ -248,6 +483,7 @@ public class addCustomerPT {
     }
 
     @Test
+    @Order(19)
     @DisplayName("Test txtpassportActionPerformed")
     void txtpassportActionPerformed() {
         ActionEvent ae = new ActionEvent(ActionEvent.ACTION_PERFORMED, 1, null);

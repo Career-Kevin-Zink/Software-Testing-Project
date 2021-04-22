@@ -11,15 +11,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.api.*;
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoginPT {
   long startTime = java.util.Calendar.getInstance().getTimeInMillis();
   long endTime = java.util.Calendar.getInstance().getTimeInMillis();
 
   @Test
+  @Order(1)
   @DisplayName("Initialize Login UI in less than 5 seconds")
   public void initComponents() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -31,9 +32,9 @@ public class LoginPT {
   }
 
   @Test
+  @Order(2)
   @DisplayName("Calling Login.main")
   void testMainTime() {
-
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
     Login.main(new String[] {"arg1", "arg2", "arg3"});
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -41,6 +42,63 @@ public class LoginPT {
   }
 
   @Test
+  @Order(3)
+  @DisplayName("Checking a valid username and password should take less than 3 seconds.")
+  public void checkValidLoginTime() {
+    Login login = new Login();
+    login.txtuser.setText("john");
+    login.txtpass.setText("123");
+
+    startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    login.jButton1.doClick();
+    endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 3000);
+  }
+
+  @Test
+  @Order(4)
+  @DisplayName("Checking an invalid username and password should take less than 3 seconds.")
+  public void checkInvalidLoginTime() {
+    Login login = new Login();
+    login.txtuser.setText("hi");
+    login.txtpass.setText("mom");
+
+    startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    login.jButton1.doClick();
+    endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 3000);
+  }
+
+  @Test
+  @Order(5)
+  @DisplayName("Checking an invalid username should take less than 3 seconds.")
+  public void checkInvalidUsernameTime() {
+    Login login = new Login();
+    login.txtuser.setText("");
+    login.txtpass.setText("123");
+
+    startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    login.jButton1.doClick();
+    endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 3000);
+  }
+
+  @Test
+  @Order(6)
+  @DisplayName("Checking an invalid password should take less than 3 seconds.")
+  public void checkInvalidPasswordTime() {
+    Login login = new Login();
+    login.txtuser.setText("john");
+    login.txtpass.setText("");
+
+    startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    login.jButton1.doClick();
+    endTime = java.util.Calendar.getInstance().getTimeInMillis();
+    assertTrue(endTime - startTime <= 3000);
+  }
+
+  @Test
+  @Order(7)
   @DisplayName("Query Username & Password 10 times. Should last less than 10 seconds.")
   @Disabled("Takes a Long time, dont run for demo")
   public void searchInvalidUsernameEndurance() {
@@ -57,6 +115,7 @@ public class LoginPT {
   }
 
   @Test
+  @Order(8)
   @DisplayName("Query Username & Password 10 times. Should last less than 10 seconds.")
   @Disabled("Takes a Long time, dont run for demo")
   public void searchInvalidPasswordEndurance() {
@@ -73,6 +132,7 @@ public class LoginPT {
   }
 
   @Test
+  @Order(9)
   @DisplayName("Query Username & Password 10 times. Should last less than 10 seconds.")
   @Disabled("Takes a Long time, dont run for demo")
   public void searchValidLoginEndurance() {
@@ -90,6 +150,7 @@ public class LoginPT {
   }
 
   @Test
+  @Order(10)
   @DisplayName("Query Invalid Username & Password 10 times. Should not crash the app.")
   @Disabled("Takes a Long time, dont run for demo")
   public void searchInvalidLoginEndurance() {
@@ -103,6 +164,7 @@ public class LoginPT {
   }
 
   @Test
+  @Order(11)
   @DisplayName("Calling Login.main. Should not crash the app.")
   void testMain(){
     assertDoesNotThrow(() -> Login.main(new String[]{"arg1", "arg2", "arg3"}));

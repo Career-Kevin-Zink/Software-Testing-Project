@@ -14,7 +14,8 @@ class userCreationUT {
 
 
     /**
-     * Requirement: None
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
      * Input: String"UO005", String"John", String"Doe", String "jdoe69", String"ABC123"
      * Description: Assert that creating a user will create the user in the database.
@@ -25,7 +26,7 @@ class userCreationUT {
      * Statement Coverage: 95%
      * Branch Coverage: 50%
      */
-    @Test
+    //@Test
     void userCreationValidDetails() {
         userCreation userCreation = new userCreation();
 
@@ -45,8 +46,20 @@ class userCreationUT {
         // Ensure the user was successfully created.
         assertFalse(isUsernameAvailable("jdoe69"));
     }
-
-    @Test
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: String"", String"John", String"Doe", String "jdoe69", String"ABC123"
+     * Description: checking to see if a false entry correctly stops the entry from going to the database.
+     *
+     * Dependencies: database
+     * Expected Output: true, True
+     * Actual Output: true, True
+     * Statement Coverage: 89%
+     * Branch Coverage: 16%
+     */
+    //@Test
     void userCreationInvalidId() {
         userCreation userCreation = new userCreation();
 
@@ -66,8 +79,20 @@ class userCreationUT {
         // Ensure the user was not created.
         assertTrue(isUsernameAvailable("jdoe69"));
     }
-
-    @Test
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: String"UO005", String"", String"Doe", String "jdoe69", String"ABC123"
+     * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+     *
+     * Dependencies: database
+     * Expected Output: true, True
+     * Actual Output: true, True
+     * Statement Coverage: 89%
+     * Branch Coverage: 33%
+     */
+    //@Test
     void userCreationInvalidFirstName() {
         userCreation userCreation = new userCreation();
 
@@ -87,8 +112,20 @@ class userCreationUT {
         // Ensure the user was not created.
         assertTrue(isUsernameAvailable("jdoe69"));
     }
-
-    @Test
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: String"UO005", String"John", String"", String "jdoe69", String"ABC123"
+     * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+     *
+     * Dependencies: database
+     * Expected Output: true, True
+     * Actual Output: true, True
+     * Statement Coverage: 89%
+     * Branch Coverage: 33%
+     */
+    //@Test
     void userCreationInvalidLastName() {
         userCreation userCreation = new userCreation();
 
@@ -108,8 +145,20 @@ class userCreationUT {
         // Ensure the user was not created.
         assertTrue(isUsernameAvailable("jdoe69"));
     }
-
-    @Test
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: String"UO005", String"John", String"Doe", String "", String"ABC123"
+     * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+     *
+     * Dependencies: database
+     * Expected Output: true, True
+     * Actual Output: true, True
+     * Statement Coverage: 89%
+     * Branch Coverage: 41%
+     */
+    //@Test
     void userCreationInvalidUsername() {
         userCreation userCreation = new userCreation();
 
@@ -129,7 +178,19 @@ class userCreationUT {
         // Ensure the user was not created.
         assertTrue(isUsernameAvailable("jdoe69"));
     }
-
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: String"UO005", String"John", String"Doe", String "jdoe69", String""
+     * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+     *
+     * Dependencies: database
+     * Expected Output: true, True
+     * Actual Output: true, True
+     * Statement Coverage: 89%
+     * Branch Coverage: 50%
+     */
     @Test
     void userCreationInvalidPassword() {
         userCreation userCreation = new userCreation();
@@ -152,18 +213,19 @@ class userCreationUT {
     }
 
     /**
-     * Requirement: None
+     * Requirement:The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
      * Input: none
      * Description: Assert that creating a user will create the user in the database.
      *
-     * Dependencies: None
+     * Dependencies: Database
      * Expected Output: none
      * Actual Output: none
      * Statement Coverage: 85%
      * Branch Coverage: 8%
      */
-    @Test
+    //@Test
     void jButton2ActionPerformed() {
         userCreation userCreation = new userCreation();
 
@@ -171,7 +233,8 @@ class userCreationUT {
         userCreation.jButton2.doClick();
     }
     /**
-     * Requirement: None
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
      * Input: none
      * Description: Makes sure that they can pull the next ID from the database
@@ -182,7 +245,7 @@ class userCreationUT {
      * Statement Coverage: 85%
      * Branch Coverage: 16%
      */
-    @Test
+    //@Test
     void testAutoID() {
         // Test for "MAX(id)") != null.
         assertDoesNotThrow(() -> {

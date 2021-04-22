@@ -15,6 +15,18 @@ import org.junit.jupiter.params.provider.CsvSource;
 class LoginUT {
     Login loginTestObject = new Login();
 
+    /**
+     * Requirement:A user will log into the system by providing their username and password
+     * <p>
+     * Input:String "john,321", String "%^@,123", String "john,123", String ",123", String "john, String"John,123",
+     * Description:Checks valid and invalid username/passwords
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True, False
+     * Actual Output: True, False
+     * Statement Coverage: 93%
+     * Branch Coverage: 100%
+     */
     @ParameterizedTest
     @DisplayName("Valid Username and Password input + jBtn #1 ActionPerformed")
     @CsvSource({",", "john,321", "%^@,123", "john,123", ",123", "john,"})
@@ -31,7 +43,18 @@ class LoginUT {
             assertFalse(false);
         }
     }
-
+    /**
+     * Requirement:A user will log into the system by providing their username and password
+     * <p>
+     * Input:String "john,321", String "%^@,123", String "john,123", String ",123", String "john, String"John,123",
+     * Description:Checks valid and invalid username/passwords
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True, False
+     * Actual Output: True, False
+     * Statement Coverage: 77%
+     * Branch Coverage: 0%
+     */
     @Test
     @DisplayName("Calling Login.main")
     void testMain(){

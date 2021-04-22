@@ -8,7 +8,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainUT {
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem1ActionPerformed() {
 
@@ -18,7 +29,18 @@ class MainUT {
             assertNotNull(main.jDesktopPane1);
         });
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem2ActionPerformed() {
 
@@ -28,7 +50,18 @@ class MainUT {
             assertNotNull(main.jDesktopPane1);
         });
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem3ActionPerformed() {
 
@@ -38,7 +71,18 @@ class MainUT {
             assertNotNull(main.jDesktopPane1);
         });
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem4ActionPerformed() {
 
@@ -48,7 +92,18 @@ class MainUT {
             assertNotNull(main.jDesktopPane1);
         });
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem5ActionPerformed() {
 
@@ -58,7 +113,18 @@ class MainUT {
             assertNotNull(main.jDesktopPane1);
         });
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem6ActionPerformed() {
         assertDoesNotThrow(()->{
@@ -66,8 +132,19 @@ class MainUT {
             main.jMenuItem6.doClick();
         });
     }
-
-    @Test
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if calling main.main works correctly.
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 4%
+     * Branch Coverage: 100%
+     */
+   @Test
     @DisplayName("Calling Main.main")
     void testMain(){
         Main.main(new String[]{"arg1", "arg2", "arg3"});

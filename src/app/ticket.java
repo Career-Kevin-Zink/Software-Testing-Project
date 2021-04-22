@@ -75,6 +75,45 @@ public class ticket extends javax.swing.JInternalFrame {
     jButton2 = new javax.swing.JButton();
     txttotal = new javax.swing.JLabel();
 
+    flightname.setName("Flight Name");
+    flightno.setName("Flight Number");
+    jButton1.setName("Book Flight Button");
+    jButton2.setName("Hide Button");
+    jButton3.setName("Search Flight Button");
+    jButton4.setName("Search Customer Button");
+
+    jLabel1.setName("Source Label");
+    jLabel12.setName("Flight Number Label");
+    jLabel13.setName("Flight Name Label");
+    jLabel14.setName("Depart Time Label");
+    jLabel15.setName("Class Label");
+    jLabel16.setName("Price Label");
+    jLabel17.setName("Seats Label");
+    jLabel2.setName("Departure Label");
+    jLabel3.setName("Ticket Number Label");
+    jLabel5.setName("Customer ID Label");
+    jLabel6.setName("First Name Label");
+    jLabel7.setName("Last Name Label");
+    jLabel8.setName("Passport Number Label");
+    jPanel1.setName("first panel");
+    jPanel2.setName("second panel");
+    jPanel3.setName("third panel");
+    jScrollPane1.setName("Scroll Pane");
+    jTable1.setName("first table");
+
+    txtclass.setName("txtclass");
+    txtcustid.setName("txtcustid");
+    txtdepart.setName("txtdepart");
+    txtdept.setName("txtdept");
+    txtfirstname.setName("txtfirstname");
+    txtlastname.setName("txtlastname");
+    txtpassport.setName("txtpassport");
+    txtprice.setName("txtprice");
+    txtseats.setName("txtseats");
+    txtsource.setName("txtsource");
+    txtticketno.setName("txtticketno");
+    txttotal.setName("txttotal");
+
     jPanel1.setBorder(
         javax.swing.BorderFactory.createTitledBorder(
             null,
@@ -314,7 +353,7 @@ public class ticket extends javax.swing.JInternalFrame {
 
     jLabel12.setText("Flight no");
 
-    jLabel13.setText("Filght Name");
+    jLabel13.setText("Flight Name");
 
     jLabel14.setText("Depart Time");
 

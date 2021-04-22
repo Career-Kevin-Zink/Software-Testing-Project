@@ -42,7 +42,7 @@ public class LoginGT {
 
   @Test
   @Order(2)
-  @DisplayName("Are the components editable?")
+  @DisplayName("Are the input components editable?")
   public void shouldBeUsable() {
     window.textBox("txtuser").requireEditable();
     window.textBox("txtpass").requireEditable();
@@ -50,7 +50,7 @@ public class LoginGT {
 
   @Test
   @Order(3)
-  @DisplayName("Does input work after clicking button?")
+  @DisplayName("Does Login button work with valid input?")
   public void shouldEnterText() {
     window.textBox("txtuser").enterText("john");
     window.textBox("txtpass").enterText("123");

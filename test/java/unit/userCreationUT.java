@@ -12,6 +12,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class userCreationUT {
 
+
+    /**
+     * Requirement: None
+     *
+     * Input: String"UO005", String"John", String"Doe", String "jdoe69", String"ABC123"
+     * Description: Assert that creating a user will create the user in the database.
+     *
+     * Dependencies: None
+     * Expected Output: true, false
+     * Actual Output: true, false
+     * Statement Coverage: 95%
+     * Branch Coverage: 50%
+     */
     @Test
     void jButton1ActionPerformed() {
         userCreation userCreation = new userCreation();
@@ -35,7 +48,18 @@ class userCreationUT {
         // Ensure the user was successfully created.
         assertFalse(isUsernameAvailable("jdoe69"));
     }
-
+    /**
+     * Requirement: None
+     *
+     * Input: none
+     * Description: Assert that creating a user will create the user in the database.
+     *
+     * Dependencies: None
+     * Expected Output: none
+     * Actual Output: none
+     * Statement Coverage: 85%
+     * Branch Coverage: 8%
+     */
     @Test
     void jButton2ActionPerformed() {
         userCreation userCreation = new userCreation();
@@ -46,7 +70,18 @@ class userCreationUT {
         // Execute the method.
         userCreation.jButton2.doClick();
     }
-
+    /**
+     * Requirement: None
+     *
+     * Input: none
+     * Description: Makes sure that they can pull the next ID from the database
+     *
+     * Dependencies: Database
+     * Expected Output: true, true
+     * Actual Output: true, true
+     * Statement Coverage: 85%
+     * Branch Coverage: 16%
+     */
     @Test
     void testAutoID() {
         // Test for "MAX(id)") != null.

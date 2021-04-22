@@ -58,6 +58,18 @@ class ticketUT {
         }catch (SQLException | ClassNotFoundException ignored) {}
     }
 
+    /**
+     * Requirement: None
+     *
+     * Input: String"India", String"Uk",
+     * Description: Assert that inputting a destination and source will fill the jtable.
+     *
+     * Dependencies: None
+     * Expected Output: true,
+     * Actual Output: true,
+     * Statement Coverage: 84$s%
+     * Branch Coverage: 52%
+     */
     @Test
     void testJButton3ActionPerformed(){
 
@@ -73,7 +85,7 @@ class ticketUT {
 
     }
 
-    @Test
+   // @Test
     void testJButton4ActionPerformed(){
         ticket ticket = new ticket();
 
@@ -86,7 +98,7 @@ class ticketUT {
 
     }
 
-    @Test
+   // @Test
     void testJTable1MouseClicked() {
         ticket ticket = new ticket();
         ticket.txtsource.setSelectedItem("India");
@@ -106,7 +118,7 @@ class ticketUT {
         ticket.txtprice.setText(Df.getValueAt(selectIndex, 7).toString());
         Assertions.assertTrue(ticket.flightname.getText().equals("JetBlue"));
     }
-    @Test
+  //  @Test
     void testTxtseatsStateChanged(){
         ticket ticket = new ticket();
         ticket.txtprice.setText("2000");
@@ -114,7 +126,7 @@ class ticketUT {
         Assertions.assertTrue(ticket.txttotal.getText().equals("4000"));
 
     }
-    @Test
+  //  @Test
     void testJButton1ActionPerformed(){
         ticket ticket = new ticket();
 
@@ -129,14 +141,14 @@ class ticketUT {
         ticket.jButton1.doClick();
         assertTrue(doesTicketExist("TO004"));
     }
-    @Test
+  //  @Test
     void testJButton2ActionPerformed(){
         ticket ticket = new ticket();
 
         ticket.jButton2.doClick();
 
     }
-    @Test
+   // @Test
     void testAutoID() {
         // Test for "MAX(id)") != null.
         assertDoesNotThrow(() -> {

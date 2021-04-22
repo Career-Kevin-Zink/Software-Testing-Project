@@ -74,7 +74,7 @@ public class ticketreportPT {
     ticketreport TR = new ticketreport();
     TR.jButton1.doClick();
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
-    assertTrue(endTime - startTime <= 1000);
+    assertTrue(endTime - startTime <= 5000);
 
 
   }

@@ -134,7 +134,7 @@ public class addCustomerIT {
             }
         } catch (SQLException se) {
             se.printStackTrace();
-            System.out.println("SQLException in addCustomerIT: autoID()");
+            System.out.println("SQLException in addCustomerIT: autoIDPassed()");
         }
     }
 
@@ -155,7 +155,7 @@ public class addCustomerIT {
             }
         } catch (SQLException se) {
             se.printStackTrace();
-            System.out.println("SQLException in addCustomerIT: autoID()");
+            System.out.println("SQLException in addCustomerIT: autoIDFailed()");
         }
     }
 
@@ -212,7 +212,7 @@ public class addCustomerIT {
             }
         } catch (SQLException se) {
             se.printStackTrace();
-            System.out.println("SQLException in addCustomerIT: autoID()");
+            System.out.println("SQLException in addCustomerIT: jButton2ActionPerformed()");
         }
 
         // Female customer
@@ -241,7 +241,7 @@ public class addCustomerIT {
             }
         } catch (SQLException se) {
             se.printStackTrace();
-            System.out.println("SQLException in addCustomerIT: autoID()");
+            System.out.println("SQLException in addCustomerIT: jButton2ActionPerformed()");
         }
     }
 

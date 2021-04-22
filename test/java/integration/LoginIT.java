@@ -34,8 +34,6 @@ public class LoginIT {
     pst = mock(PreparedStatement.class);
   }
 
-
-
   @ParameterizedTest
   @DisplayName("Valid Username and Password input passed + jBtn #1 ActionPerformed")
   @CsvSource({",", "john,321", "%^@,123,", "john,123", ",123", "john, "})

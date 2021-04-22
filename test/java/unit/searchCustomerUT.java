@@ -175,7 +175,7 @@ class searchCustomerUT {
 
   @Test
   @DisplayName("jBtn #4 ActionPerformed (QUERY CUSTOMER) Failed Female")
-  void jBtnFOURActionPerformedFailedFemale() {
+  void jBtnFourActionPerformedFailedFemale() {
     wipeCustomerTable();
     searchCustomerTestObject.pack();
     searchCustomerTestObject.setVisible(true);

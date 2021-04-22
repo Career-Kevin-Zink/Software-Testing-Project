@@ -26,7 +26,7 @@ class addCustomerUT {
             Statement s = con.createStatement();
 
             // Drop the table and recreate.
-            s.execute("DROP TABLE `customer`");
+            s.execute("DROP TABLE IF EXISTS `customer`");
             s.execute("CREATE TABLE `customer` (\n" +
                     "  `id` varchar(255) NOT NULL,\n" +
                     "  `firstname` varchar(255) NOT NULL,\n" +

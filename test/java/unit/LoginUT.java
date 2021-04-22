@@ -38,11 +38,4 @@ class LoginUT {
     void testMain(){
         Login.main(new String[]{"arg1", "arg2", "arg3"});
     }
-
-/*    @Test
-    @DisplayName("jBtn #2 ActionPerformed")
-    void jBtnTWOActionPerformed(){
-        Login loginTestObject = new Login();
-        loginTestObject.jButton2.doClick();
-    }*/
 }

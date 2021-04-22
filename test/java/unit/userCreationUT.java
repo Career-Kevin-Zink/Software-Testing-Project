@@ -108,7 +108,7 @@ class userCreationUT {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
             Statement s = con.createStatement();
-            s.execute("DROP TABLE `user`");
+            s.execute("DROP TABLE IF EXISTS `user`");
             s.execute("CREATE TABLE `user` (" +
                     "  `id` varchar(255) NOT NULL," +
                     "  `firstname` varchar(255) NOT NULL," +
@@ -130,7 +130,7 @@ class userCreationUT {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
             Statement s = con.createStatement();
-            s.execute("DROP TABLE `user`");
+            s.execute("DROP TABLE IF EXISTS `user`");
             s.execute("CREATE TABLE `user` (\n" +
                     "  `id` varchar(255) NOT NULL,\n" +
                     "  `firstname` varchar(255) NOT NULL,\n" +

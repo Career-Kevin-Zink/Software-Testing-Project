@@ -23,7 +23,7 @@ class ticketreportUT {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
             Statement s = con.createStatement();
-            s.execute("DROP TABLE `ticket`");
+            s.execute("DROP TABLE IF EXISTS `ticket`");
             s.execute("CREATE TABLE `ticket` (" +
                     "  `id` varchar(255) NOT NULL," +
                     "  `flightid` varchar(255) NOT NULL," +

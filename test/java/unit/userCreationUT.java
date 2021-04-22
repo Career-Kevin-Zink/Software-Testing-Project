@@ -26,14 +26,11 @@ class userCreationUT {
      * Branch Coverage: 50%
      */
     @Test
-    void jButton1ActionPerformed() {
+    void userCreationValidDetails() {
         userCreation userCreation = new userCreation();
 
         // Ensure the user does not already exist.
         assertTrue(isUsernameAvailable("jdoe69"));
-
-        // Setup the GUI
-        userCreation.initComponents();
 
         // Provide test inputs.
         userCreation.txtuserid.setText("UO005");
@@ -48,6 +45,112 @@ class userCreationUT {
         // Ensure the user was successfully created.
         assertFalse(isUsernameAvailable("jdoe69"));
     }
+
+    @Test
+    void userCreationInvalidId() {
+        userCreation userCreation = new userCreation();
+
+        // Ensure the user does not already exist.
+        assertTrue(isUsernameAvailable("jdoe69"));
+
+        // Provide test inputs.
+        userCreation.txtuserid.setText("");
+        userCreation.txtfirstname.setText("John");
+        userCreation.txtlastname.setText("Doe");
+        userCreation.txtusername.setText("jdoe69");
+        userCreation.txtpassword.setText("ABC123");
+
+        // Execute the method.
+        userCreation.jButton1.doClick();
+
+        // Ensure the user was not created.
+        assertTrue(isUsernameAvailable("jdoe69"));
+    }
+
+    @Test
+    void userCreationInvalidFirstName() {
+        userCreation userCreation = new userCreation();
+
+        // Ensure the user does not already exist.
+        assertTrue(isUsernameAvailable("jdoe69"));
+
+        // Provide test inputs.
+        userCreation.txtuserid.setText("UO005");
+        userCreation.txtfirstname.setText("");
+        userCreation.txtlastname.setText("Doe");
+        userCreation.txtusername.setText("jdoe69");
+        userCreation.txtpassword.setText("ABC123");
+
+        // Execute the method.
+        userCreation.jButton1.doClick();
+
+        // Ensure the user was not created.
+        assertTrue(isUsernameAvailable("jdoe69"));
+    }
+
+    @Test
+    void userCreationInvalidLastName() {
+        userCreation userCreation = new userCreation();
+
+        // Ensure the user does not already exist.
+        assertTrue(isUsernameAvailable("jdoe69"));
+
+        // Provide test inputs.
+        userCreation.txtuserid.setText("UO005");
+        userCreation.txtfirstname.setText("John");
+        userCreation.txtlastname.setText("");
+        userCreation.txtusername.setText("jdoe69");
+        userCreation.txtpassword.setText("ABC123");
+
+        // Execute the method.
+        userCreation.jButton1.doClick();
+
+        // Ensure the user was not created.
+        assertTrue(isUsernameAvailable("jdoe69"));
+    }
+
+    @Test
+    void userCreationInvalidUsername() {
+        userCreation userCreation = new userCreation();
+
+        // Ensure the user does not already exist.
+        assertTrue(isUsernameAvailable("jdoe69"));
+
+        // Provide test inputs.
+        userCreation.txtuserid.setText("UO005");
+        userCreation.txtfirstname.setText("John");
+        userCreation.txtlastname.setText("Doe");
+        userCreation.txtusername.setText("");
+        userCreation.txtpassword.setText("ABC123");
+
+        // Execute the method.
+        userCreation.jButton1.doClick();
+
+        // Ensure the user was not created.
+        assertTrue(isUsernameAvailable("jdoe69"));
+    }
+
+    @Test
+    void userCreationInvalidPassword() {
+        userCreation userCreation = new userCreation();
+
+        // Ensure the user does not already exist.
+        assertTrue(isUsernameAvailable("jdoe69"));
+
+        // Provide test inputs.
+        userCreation.txtuserid.setText("UO005");
+        userCreation.txtfirstname.setText("John");
+        userCreation.txtlastname.setText("Doe");
+        userCreation.txtusername.setText("jdoe69");
+        userCreation.txtpassword.setText("");
+
+        // Execute the method.
+        userCreation.jButton1.doClick();
+
+        // Ensure the user was not created.
+        assertTrue(isUsernameAvailable("jdoe69"));
+    }
+
     /**
      * Requirement: None
      *
@@ -63,9 +166,6 @@ class userCreationUT {
     @Test
     void jButton2ActionPerformed() {
         userCreation userCreation = new userCreation();
-
-        // Setup the GUI
-        userCreation.initComponents();
 
         // Execute the method.
         userCreation.jButton2.doClick();
@@ -140,7 +240,8 @@ class userCreationUT {
                     ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
         } catch (SQLException | ClassNotFoundException ignored) {}
     }
-// simple function to check and see if the username is already in the database or not.
+
+    // simple function to check and see if the username is already in the database or not.
     public static boolean isUsernameAvailable(String username) {
         boolean returnVal = false;
 

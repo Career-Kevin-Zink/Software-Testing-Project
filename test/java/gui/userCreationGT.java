@@ -1,18 +1,14 @@
 package gui;
 
 import app.Main;
-import org.assertj.core.api.Assertions;
 import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.fixture.JPanelFixture;
 import org.junit.jupiter.api.*;
 
-import java.awt.*;
-
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class userCreationGT {
     private FrameFixture window;
-    private JPanelFixture userCreationPanel;
 
     @BeforeEach
     @DisplayName("Setting up test.")
@@ -23,7 +19,6 @@ public class userCreationGT {
 
         // Open the User Creation panel.
         frame.jMenuItem5.doClick();
-        userCreationPanel = window.panel("UserCreationPanel");
     }
 
     @AfterEach
@@ -36,7 +31,7 @@ public class userCreationGT {
     @Order(1)
     @DisplayName("Is the panel showing?")
     public void isPanelVisible() {
-        userCreationPanel.requireVisible();
+        window.panel("UserCreationPanel").requireVisible();
     }
 
     @Test

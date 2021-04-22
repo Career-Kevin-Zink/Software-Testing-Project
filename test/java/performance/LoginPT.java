@@ -42,6 +42,7 @@ public class LoginPT {
 
   @Test
   @DisplayName("Query Username & Password 10 times. Should last less than 10 seconds.")
+  @Disabled("Takes a Long time, dont run for demo")
   public void searchInvalidUsernameEndurance() {
     Login login = new Login();
     login.txtuser.setText("");
@@ -57,6 +58,7 @@ public class LoginPT {
 
   @Test
   @DisplayName("Query Username & Password 10 times. Should last less than 10 seconds.")
+  @Disabled("Takes a Long time, dont run for demo")
   public void searchInvalidPasswordEndurance() {
     Login login = new Login();
     login.txtuser.setText("john");
@@ -72,6 +74,7 @@ public class LoginPT {
 
   @Test
   @DisplayName("Query Username & Password 10 times. Should last less than 10 seconds.")
+  @Disabled("Takes a Long time, dont run for demo")
   public void searchValidLoginEndurance() {
     Login login = new Login();
     login.txtuser.setText("john");
@@ -88,6 +91,7 @@ public class LoginPT {
 
   @Test
   @DisplayName("Query Invalid Username & Password 10 times. Should not crash the app.")
+  @Disabled("Takes a Long time, dont run for demo")
   public void searchInvalidLoginEndurance() {
     Login login = new Login();
     login.txtuser.setText("invalid");

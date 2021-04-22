@@ -47,10 +47,10 @@ public class MainGT {
 
   @Test
   @Order(4)
-  @DisplayName("Is the Add Ticket component visible and clickable?")
+  @DisplayName("Is the Book Ticket component visible and clickable?")
   public void addTicketShouldBeVisible() {
-    window.menuItem("Add Ticket").click();
-    window.menuItem("Add Ticket").requireVisible();
+    window.menuItem("Book Ticket").click();
+    window.menuItem("Book Ticket").requireVisible();
   }
 
   @Test

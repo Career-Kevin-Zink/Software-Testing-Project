@@ -3,15 +3,16 @@ package performance;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import app.Main;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MainPT {
 
   long startTime;
   long endTime;
 
   @Test
+  @Order(1)
   @DisplayName("Calling Main.main")
   void testMainTime() {
 
@@ -22,6 +23,7 @@ public class MainPT {
   }
 
   @Test
+  @Order(2)
   @DisplayName("Initialize Main UI in less than 5 seconds")
   public void initComponents() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -32,57 +34,41 @@ public class MainPT {
   }
 
   @Test
-  @DisplayName("")
+  @Order(3)
+  @DisplayName("Time to open the add customer panel should be less than 5 seconds.")
   public void addCustomer() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    new Main().jMenu1.doClick();
+    new Main().jMenuItem1.doClick();
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
 
     assertTrue(endTime - startTime <= 5000);
   }
 
   @Test
-  @DisplayName("")
+  @Order(4)
+  @DisplayName("Time to open the search customer panel should be less than 5 seconds.")
   public void searchCustomer() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    new Main().jMenu2.doClick();
+    new Main().jMenuItem2.doClick();
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
 
     assertTrue(endTime - startTime <= 5000);
   }
 
   @Test
-  @DisplayName("")
-  public void addTicket() {
+  @Order(5)
+  @DisplayName("Time to open the book ticket panel should be less than 5 seconds.")
+  public void bookTicket() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    new Main().jMenu3.doClick();
+    new Main().jMenuItem3.doClick();
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
 
     assertTrue(endTime - startTime <= 5000);
   }
 
   @Test
-  @DisplayName("")
-  public void addFlight() {
-    startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    new Main().jMenu4.doClick();
-    endTime = java.util.Calendar.getInstance().getTimeInMillis();
-
-    assertTrue(endTime - startTime <= 5000);
-  }
-
-  @Test
-  @DisplayName("")
-  public void createUser() {
-    startTime = java.util.Calendar.getInstance().getTimeInMillis();
-    new Main().jMenuItem6.doClick();
-    endTime = java.util.Calendar.getInstance().getTimeInMillis();
-
-    assertTrue(endTime - startTime <= 5000);
-  }
-
-  @Test
-  @DisplayName("Ticket Report button loaded in less than")
+  @Order(6)
+  @DisplayName("Time to open the book ticket panel should be less than 5 seconds.")
   public void ticketReport() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
     new Main().jMenuItem6.doClick();
@@ -91,10 +77,34 @@ public class MainPT {
     assertTrue(endTime - startTime <= 5000);
   }
 
+  @Test
+  @Order(7)
+  @DisplayName("Time to open the add flight panel should be less than 5 seconds.")
+  public void addFlight() {
+    startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    new Main().jMenuItem4.doClick();
+    endTime = java.util.Calendar.getInstance().getTimeInMillis();
+
+    assertTrue(endTime - startTime <= 5000);
+  }
+
+  @Test
+  @Order(8)
+  @DisplayName("Time to open the user creation panel should be less than 5 seconds.")
+  public void createUser() {
+    startTime = java.util.Calendar.getInstance().getTimeInMillis();
+    new Main().jMenuItem5.doClick();
+    endTime = java.util.Calendar.getInstance().getTimeInMillis();
+
+    assertTrue(endTime - startTime <= 5000);
+  }
+
   // ENDURANCE TESTS -----------------------------------------------------------------------------
 
   @Test
+  @Order(9)
   @DisplayName("Add Customer button clicked 10 times.")
+  @Disabled("Takes a Long time, dont run for demo")
   public void addCustomerEndurance() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
     for (int i = 0; i < 10; i++) {
@@ -105,7 +115,9 @@ public class MainPT {
   }
 
   @Test
+  @Order(10)
   @DisplayName("Search Customer button clicked 10 times.")
+  @Disabled("Takes a Long time, dont run for demo")
   public void searchCustomerEndurance() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
     for (int i = 0; i < 10; i++) {
@@ -116,7 +128,9 @@ public class MainPT {
   }
 
   @Test
+  @Order(11)
   @DisplayName("Add Ticket button clicked 10 times.")
+  @Disabled("Takes a Long time, dont run for demo")
   public void addTicketEndurance() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
     for (int i = 0; i < 10; i++) {
@@ -127,7 +141,9 @@ public class MainPT {
   }
 
   @Test
+  @Order(12)
   @DisplayName("Add Flight button clicked 10 times.")
+  @Disabled("Takes a Long time, dont run for demo")
   public void addFlightEndurance() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
     for (int i = 0; i < 10; i++) {
@@ -138,7 +154,9 @@ public class MainPT {
   }
 
   @Test
+  @Order(13)
   @DisplayName("Create User button clicked 10 times.")
+  @Disabled("Takes a Long time, dont run for demo")
   public void createUserEndurance() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
     for (int i = 0; i < 10; i++) {
@@ -149,7 +167,9 @@ public class MainPT {
   }
 
   @Test
+  @Order(14)
   @DisplayName("Ticket Report button clicked 10 times.")
+  @Disabled("Takes a Long time, dont run for demo")
   public void ticketReportEndurance() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
     for (int i = 0; i < 10; i++) {

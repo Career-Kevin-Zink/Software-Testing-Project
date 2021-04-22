@@ -76,7 +76,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Tickets");
-        jMenuItem3.setName("Add Ticket");
+        jMenuItem3.setName("Book Ticket");
         jMenuItem3.setText("Book Ticket");
         jMenuItem3.addActionListener(
                 new java.awt.event.ActionListener() {

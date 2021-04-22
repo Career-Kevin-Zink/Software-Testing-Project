@@ -6,8 +6,12 @@ import org.assertj.swing.fixture.FrameFixture;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
+@TestMethodOrder(OrderAnnotation.class)
 public class MainGT {
   private FrameFixture window;
 
@@ -26,6 +30,7 @@ public class MainGT {
   }
 
   @Test
+  @Order(1)
   @DisplayName("Is the Add Customer component visible and clickable?")
   public void addCustomerShouldBeVisible() {
     window.menuItem("Add Customer").click();
@@ -33,6 +38,7 @@ public class MainGT {
   }
 
   @Test
+  @Order(2)
   @DisplayName("Is the Search Customer component visible and clickable?")
   public void searchCustomerShouldBeVisible() {
     window.menuItem("Search Customer").click();
@@ -40,6 +46,7 @@ public class MainGT {
   }
 
   @Test
+  @Order(4)
   @DisplayName("Is the Add Ticket component visible and clickable?")
   public void addTicketShouldBeVisible() {
     window.menuItem("Add Ticket").click();
@@ -47,6 +54,7 @@ public class MainGT {
   }
 
   @Test
+  @Order(6)
   @DisplayName("Is the Ticket Report component visible and clickable?")
   public void ticketReportShouldBeVisible() {
     window.menuItem("Ticket Report").click();
@@ -54,6 +62,7 @@ public class MainGT {
   }
 
   @Test
+  @Order(5)
   @DisplayName("Is the Add Flight component visible and clickable?")
   public void addFlightShouldBeVisible() {
     window.menuItem("Add Flight").click();
@@ -61,6 +70,7 @@ public class MainGT {
   }
 
   @Test
+  @Order(3)
   @DisplayName("Is the User Creation component visible and clickable?")
   public void userCreationShouldBeVisible() {
     window.menuItem("User Creation").click();

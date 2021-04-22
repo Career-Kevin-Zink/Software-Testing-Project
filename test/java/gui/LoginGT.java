@@ -7,8 +7,12 @@ import org.assertj.swing.fixture.FrameFixture;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
+@TestMethodOrder(OrderAnnotation.class)
 public class LoginGT {
   private FrameFixture window;
 
@@ -27,6 +31,7 @@ public class LoginGT {
   }
 
   @Test
+  @Order(1)
   @DisplayName("Are the components visible?")
   public void shouldBeVisible() {
     window.textBox("txtuser").requireVisible();
@@ -36,6 +41,7 @@ public class LoginGT {
   }
 
   @Test
+  @Order(2)
   @DisplayName("Are the components editable?")
   public void shouldBeUsable() {
     window.textBox("txtuser").requireEditable();
@@ -43,6 +49,7 @@ public class LoginGT {
   }
 
   @Test
+  @Order(3)
   @DisplayName("Does input work after clicking button?")
   public void shouldEnterText() {
     window.textBox("txtuser").enterText("john");
@@ -51,7 +58,8 @@ public class LoginGT {
   }
 
   @Test
-  @DisplayName("Does the window close.")
+  @Order(4)
+  @DisplayName("Does the window close?")
   public void shouldClose() {
     window.button(JButtonMatcher.withText("Cancel")).click();
   }

@@ -15,9 +15,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /*
@@ -75,6 +73,23 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     txtcustid = new javax.swing.JTextField();
     jButton4 = new javax.swing.JButton();
 
+    //set the component names
+    jPanel1.setName("searchCustomerPanel");
+    //jPanel2.setName("searchCustomerPanel");
+    jButton1.setName("BrowseButton");
+    jButton3.setName("CancelButton");
+    jButton2.setName("UpdateButton");
+    jButton4.setName("FindButton");
+    txtcustid.setName("custID");
+    txtfirstname.setName("FirstName");
+    txtlastname.setName("LastName");
+    txtnic.setName("NicNumber");
+    txtpassport.setName("PassPortNumber");
+    txtaddress.setName("Address");
+    txtcontact.setName("Contact");
+
+
+
     jPanel1.setBackground(new java.awt.Color(51, 0, 255));
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -114,6 +129,9 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     txtaddress.setColumns(20);
     txtaddress.setRows(5);
     jScrollPane1.setViewportView(txtaddress);
+
+
+
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -571,7 +589,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
 
     // To be fixed! txtdob doesn't exist
-    String date = da.format(txtdate.getDate()); //txtdate.getDate()
+    String date = da.format(new Date()); //txtdate.getDate()
     String Gender;
 
     if (r1.isSelected()) {
@@ -641,6 +659,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
         Blob blob = rs.getBlob("photo");
         byte[] _imagebytes = blob.getBytes(1, (int) blob.length());
+        userimage = _imagebytes;
         System.out.println(Arrays.toString(_imagebytes));
         ImageIcon image = new ImageIcon(_imagebytes);
         Image im = image.getImage();

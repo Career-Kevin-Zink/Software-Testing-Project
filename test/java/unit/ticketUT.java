@@ -20,30 +20,32 @@ class ticketUT {
     public void initTicketTable() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
             Statement s = con.createStatement();
             s.execute("DROP TABLE IF EXISTS `ticket`");
             s.execute("CREATE TABLE `ticket` (" +
-                  "  `id` varchar(255) NOT NULL," +
-                  "  `flightid` varchar(255) NOT NULL," +
-                  "  `custid` varchar(255) NOT NULL," +
-                  "  `class` varchar(255) NOT NULL," +
-                  "  `price` varchar(255) NOT NULL," +
-                  "  `seats` varchar(255) NOT NULL," +
-                  "  `date` varchar(255) NOT NULL" +
-                  ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+                    "  `id` varchar(255) NOT NULL," +
+                    "  `flightid` varchar(255) NOT NULL," +
+                    "  `custid` varchar(255) NOT NULL," +
+                    "  `class` varchar(255) NOT NULL," +
+                    "  `price` varchar(255) NOT NULL," +
+                    "  `seats` varchar(255) NOT NULL," +
+                    "  `date` varchar(255) NOT NULL" +
+                    ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
             s.execute("INSERT INTO `ticket` (`id`, `flightid`, `custid`, `class`, `price`, `seats`, `date`) VALUES\n" +
                     "('TO001', 'FO003', 'CS001', 'Economy', 9000, 1, '2019-06-15')," +
                     "('TO002', 'FO003', 'CS001', 'Economy', 9000, 2, '2019-06-15')," +
                     "('TO003', 'FO001', 'CS003', 'Economy', 50000, 3, '2019-07-01');");
 
             // add table
-        } catch (SQLException | ClassNotFoundException ignored){}
+        } catch (SQLException | ClassNotFoundException ignored) {
+        }
     }
+
     public void wipeTicketTable() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
             Statement s = con.createStatement();
             s.execute("DROP TABLE `ticket`");
             s.execute("CREATE TABLE `ticket` (\n" +
@@ -55,15 +57,16 @@ class ticketUT {
                     "  `seats` varchar(255) NOT NULL,\n" +
                     "  `date` varchar(255) NOT NULL\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-        }catch (SQLException | ClassNotFoundException ignored) {}
+        } catch (SQLException | ClassNotFoundException ignored) {
+        }
     }
 
     /**
      * Requirement: None
-     *
+     * <p>
      * Input: String"India", String"Uk",
      * Description: Assert that inputting a destination and source will fill the jtable.
-     *
+     * <p>
      * Dependencies: None
      * Expected Output: true,
      * Actual Output: true,
@@ -71,7 +74,7 @@ class ticketUT {
      * Branch Coverage: 52%
      */
     @Test
-    void testJButton3ActionPerformed(){
+    void testJButton3ActionPerformed() {
 
         ticket ticket = new ticket();
 
@@ -85,8 +88,8 @@ class ticketUT {
 
     }
 
-   // @Test
-    void testJButton4ActionPerformed(){
+    @Test
+    void testJButton4ActionPerformed() {
         ticket ticket = new ticket();
 
         ticket.txtcustid.setText("83748902");
@@ -98,7 +101,7 @@ class ticketUT {
 
     }
 
-   // @Test
+    @Test
     void testJTable1MouseClicked() {
         ticket ticket = new ticket();
         ticket.txtsource.setSelectedItem("India");
@@ -107,7 +110,7 @@ class ticketUT {
         ticket.jButton3.doClick();
         assertTrue(ticket.jTable1.getRowCount() >= 1);
 
-        ticket.jTable1.changeSelection(0,0,false,false);
+        ticket.jTable1.changeSelection(0, 0, false, false);
 
         DefaultTableModel Df = (DefaultTableModel) ticket.jTable1.getModel();
         int selectIndex = ticket.jTable1.getSelectedRow();
@@ -118,16 +121,18 @@ class ticketUT {
         ticket.txtprice.setText(Df.getValueAt(selectIndex, 7).toString());
         Assertions.assertTrue(ticket.flightname.getText().equals("JetBlue"));
     }
-  //  @Test
-    void testTxtseatsStateChanged(){
+
+    @Test
+    void testTxtseatsStateChanged() {
         ticket ticket = new ticket();
         ticket.txtprice.setText("2000");
         ticket.txtseats.setValue(2);
         Assertions.assertTrue(ticket.txttotal.getText().equals("4000"));
 
     }
-  //  @Test
-    void testJButton1ActionPerformed(){
+
+    @Test
+    void testJButton1ActionPerformed() {
         ticket ticket = new ticket();
 
         ticket.txtticketno.setText("TO004");
@@ -141,14 +146,16 @@ class ticketUT {
         ticket.jButton1.doClick();
         assertTrue(doesTicketExist("TO004"));
     }
-  //  @Test
-    void testJButton2ActionPerformed(){
+
+    @Test
+    void testJButton2ActionPerformed() {
         ticket ticket = new ticket();
 
         ticket.jButton2.doClick();
 
     }
-   // @Test
+
+    @Test
     void testAutoID() {
         // Test for "MAX(id)") != null.
         assertDoesNotThrow(() -> {
@@ -168,7 +175,7 @@ class ticketUT {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
             PreparedStatement pst = con.prepareStatement("select * from ticket where id= ?");
             pst.setString(1, ticketNo);
 

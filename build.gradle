@@ -10,6 +10,7 @@ version '1.0'
 repositories {
     mavenCentral()
 }
+
 sourceSets {
     main {
         java {
@@ -21,7 +22,13 @@ sourceSets {
             srcDirs = ['test/java']
         }
     }
+    testnogui {
+        java {
+            srcDirs = ['test/java']
+        }
+    }
 }
+
 dependencies {
     implementation 'junit:junit:4.13.1'
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.49'
@@ -37,6 +44,7 @@ dependencies {
     testImplementation 'org.mockito:mockito-inline:3.7.7'
     testImplementation 'org.mockito:mockito-junit-jupiter:3.7.7'
 }
+
 test {
     useJUnitPlatform {
         excludeTags 'slow'
@@ -46,3 +54,17 @@ test {
     failFast = true
 }
 
+task testnogui(type: Test) {
+    filter {
+        includeTestsMatching "*UT"
+        includeTestsMatching "*IT"
+        includeTestsMatching "*PT"
+    }
+
+    useJUnitPlatform {
+        excludeTags 'slow'
+        includeEngines 'junit-jupiter', 'junit-vintage'
+    }
+
+    failFast = true
+}

@@ -21,7 +21,7 @@ public class ticketGT {
     Main frame = GuiActionRunner.execute(Main::new);
     window = new FrameFixture(frame);
     window.show();
-    window.menuItem("Add Ticket").click();
+    window.menuItem("Book Ticket").click();
   }
 
   @AfterEach

@@ -93,6 +93,18 @@ public class addflight extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Flight Charge");
 
+        // Set up component names.
+        jPanel1.setName("addflightPanel");
+        txtflightname.setName("txtFlightName");
+        txtdate.setName("txtDate");
+        txtdtime.setName("txtDepTime");
+        txtarrtime.setName("txtArrTime");
+        txtflightcharge.setName("txtFlightCharge");
+        jButton1.setName("AddBtn");
+        jButton2.setName("CancelBtn");
+        txtsource.setName("txtSource");
+        txtdepart.setName("txtDepart");
+
         jButton1.setText("Add");
         jButton1.addActionListener(
                 new java.awt.event.ActionListener() {
@@ -371,7 +383,7 @@ public class addflight extends javax.swing.JInternalFrame {
     public void autoID() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery("select MAX(id) from flight");
             rs.next();
@@ -394,70 +406,92 @@ public class addflight extends javax.swing.JInternalFrame {
     public void jButton1ActionPerformed(
             java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
 
-        Date actDate = new Date();
-        Date testDate = new Date();
-
-        String id = txtflightid.getText();
-        String flightname = txtflightname.getText();
-
-        String source = txtsource.getSelectedItem().toString().trim();
-        String depart = txtdepart.getSelectedItem().toString().trim();
-
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-        String date = da.format(txtdate.getDate());
+        String id = txtflightid.getText();
+        String flightname;
+        String source;
+        String depart;
+        String date;
+        String departtime;
+        String arrtime;
+        String flightcharge;
 
-        String departtime = txtdtime.getText();
-        String arrtime = txtarrtime.getText();
-        String flightcharge = txtflightcharge.getText();
-
-
-        try {
-            actDate = da.parse(da.format(txtdate.getDate()));
-            testDate = da.parse(da.format(testDate));
-        } catch (ParseException e) {
-            e.printStackTrace();
+        if (txtflightname.getText() != null && !txtflightname.getText().isEmpty()) flightname = txtflightname.getText();
+        else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid flight name!");
+            return;
         }
 
+        if (txtsource.getSelectedItem() != null) source = txtsource.getSelectedItem().toString();
+        else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid flight source!");
+            return;
+        }
+
+        if (txtdepart.getSelectedItem() != null) depart = txtdepart.getSelectedItem().toString();
+        else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid flight destination!");
+            return;
+        }
+
+        if (depart.equals(source))  {
+            JOptionPane.showMessageDialog(null, "Flight source cannot be the same as the destination!");
+            return;
+        }
+
+        if (txtdate.getDate() != null) date = da.format(txtdate.getDate());
+        else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid flight date!");
+            return;
+        }
+        //else date = da.format(new Date());
+
+        if (txtdtime.getText() != null && !txtdtime.getText().isEmpty()) departtime = txtdtime.getText();
+        else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid departure time!");
+            return;
+        }
+
+        if (txtarrtime.getText() != null && !txtarrtime.getText().isEmpty()) arrtime = txtarrtime.getText();
+        else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid arrival time!");
+            return;
+        }
 
         try {
-
-            if (actDate.getTime() >= testDate.getTime())  {
-
-                if (!txtdtime.getText().startsWith("-")) {
-
-                    if (!txtarrtime.getText().startsWith("-")) {
-
-                        if (!txtflightcharge.getText().startsWith("-")) {
-
-                            Class.forName("com.mysql.jdbc.Driver");
-                            con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
-                            pst = con.prepareStatement("insert into flight(id,flightname,source,depart,date,deptime,arrtime,flightcharge)values(?,?,?,?,?,?,?,?)");
-
-                            pst.setString(1, id);
-                            pst.setString(2, flightname);
-                            pst.setString(3, source);
-                            pst.setString(4, depart);
-                            pst.setString(5, date);
-                            pst.setString(6, departtime);
-                            pst.setString(7, arrtime);
-                            pst.setString(8, flightcharge);
-
-                            pst.executeUpdate();
-                            autoID();
-                            JOptionPane.showMessageDialog(null, "Flight Created.........");
-
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Please add a valid flight charge.");
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Please add a valid departure time!");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Please add a valid arrival time!");
+            if (txtflightcharge.getText() != null) {
+                int charge = Integer.parseInt(txtflightcharge.getText());
+                if (charge < 0) {
+                    JOptionPane.showMessageDialog(null, "Please enter a valid flight charge!");
+                    return;
                 }
+                else flightcharge = String.valueOf(charge);
             } else {
-                JOptionPane.showMessageDialog(null, "Please add a date after the current date!");
+                JOptionPane.showMessageDialog(null, "Please enter a valid flight charge!");
+                return;
             }
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid flight charge!");
+            return;
+        }
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
+            pst = con.prepareStatement("insert into flight(id,flightname,source,depart,date,deptime,arrtime,flightcharge)values(?,?,?,?,?,?,?,?)");
+
+            pst.setString(1, id);
+            pst.setString(2, flightname);
+            pst.setString(3, source);
+            pst.setString(4, depart);
+            pst.setString(5, date);
+            pst.setString(6, departtime);
+            pst.setString(7, arrtime);
+            pst.setString(8, flightcharge);
+
+            pst.executeUpdate();
+            autoID();
+            JOptionPane.showMessageDialog(null, "Flight Created.........");
 
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);

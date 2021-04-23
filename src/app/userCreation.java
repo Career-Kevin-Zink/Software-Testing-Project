@@ -1,6 +1,11 @@
 package app;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -19,7 +24,7 @@ import javax.swing.JOptionPane;
 */
 public class userCreation extends javax.swing.JInternalFrame {
 
-  /** Creates new form userCreation */
+  /** Creates new form userCreation. */
   public userCreation() {
     initComponents();
     autoID();
@@ -254,9 +259,10 @@ public class userCreation extends javax.swing.JInternalFrame {
   } // </editor-fold>//GEN-END:initComponents
 
   /**
-   * J button 1 action performed.
+   * J button 1 action performed. Insert into User Table the id,firstname,lastname,username, and
+   * password.
    *
-   * @param evt the evt
+   * @param evt mouse click
    */
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
@@ -268,14 +274,20 @@ public class userCreation extends javax.swing.JInternalFrame {
     String username = txtusername.getText();
     String password = txtpassword.getText();
 
-    if (id.isEmpty() || firstname.isEmpty() || lastname.isEmpty() || username.isEmpty() || password.isEmpty()) {
+    if (id.isEmpty()
+        || firstname.isEmpty()
+        || lastname.isEmpty()
+        || username.isEmpty()
+        || password.isEmpty()) {
       JOptionPane.showMessageDialog(null, "All fields are required!");
     } else {
 
       try {
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
-        pst = con.prepareStatement("insert into user(id,firstname,lastname,username,password)values(?,?,?,?,?)");
+        pst =
+            con.prepareStatement(
+                "insert into user(id,firstname,lastname,username,password)values(?,?,?,?,?)");
 
         pst.setString(1, id);
         pst.setString(2, firstname);
@@ -294,9 +306,9 @@ public class userCreation extends javax.swing.JInternalFrame {
   } // GEN-LAST:event_jButton1ActionPerformed
 
   /**
-   * J button 2 action performed.
+   * J button 2 action performed. Hide the current window.
    *
-   * @param evt the evt
+   * @param evt mouse click
    */
   public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed
@@ -304,11 +316,11 @@ public class userCreation extends javax.swing.JInternalFrame {
     this.hide();
   } // GEN-LAST:event_jButton2ActionPerformed
 
-  /** Auto id. */
+  /** Auto id. Select highest set ID in the User Table. */
   public void autoID() {
     try {
       Class.forName("com.mysql.jdbc.Driver");
-      con = DriverManager.getConnection("jdbc:mysql://localhost/airline","root","");
+      con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");
       Statement s = con.createStatement();
       ResultSet rs = s.executeQuery("select MAX(id) from user");
       rs.next();
@@ -369,5 +381,3 @@ public class userCreation extends javax.swing.JInternalFrame {
   public javax.swing.JTextField txtusername;
   // End of variables declaration//GEN-END:variables
 }
-
-

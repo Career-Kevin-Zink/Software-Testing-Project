@@ -705,9 +705,9 @@ public class ticket extends javax.swing.JInternalFrame {
     } // </editor-fold>//GEN-END:initComponents
 
   /**
-   * J button 3 action performed.
+   * J button 3 action performed. Select flight with the source and departure matching user selection.
    *
-   * @param evt the evt
+   * @param evt mouse click
    */
   // TODO Should be set to "Private" Made public only for testing purposes
   public void jButton3ActionPerformed(
@@ -755,7 +755,7 @@ public class ticket extends javax.swing.JInternalFrame {
         }
     } // GEN-LAST:event_jButton3ActionPerformed
 
-  /** Auto id. */
+  /** Auto id. Select highest set ID in the User Table. */
   public void autoID() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -780,9 +780,9 @@ public class ticket extends javax.swing.JInternalFrame {
   // TODO Should be set to "Private" Made public only for testing purposes
 
   /**
-   * J button 4 action performed.
+   * J button 4 action performed. Select customer with specified id from customer Table.
    *
-   * @param evt the evt
+   * @param evt mouse click
    */
   public void jButton4ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton4ActionPerformed
@@ -816,9 +816,9 @@ public class ticket extends javax.swing.JInternalFrame {
     } // GEN-LAST:event_jButton4ActionPerformed
 
   /**
-   * J table 1 mouse clicked.
+   * J table 1 mouse clicked. Populate table with flight data.
    *
-   * @param evt the evt
+   * @param evt mouse click
    */
   // TODO Should be set to "Private" Made public only for testing purposes
   public void jTable1MouseClicked(
@@ -838,9 +838,9 @@ public class ticket extends javax.swing.JInternalFrame {
   // TODO Should be set to "Private" Made public only for testing purposes
 
   /**
-   * Txtseats state changed.
+   * Txtseats state changed. Set the price based on number of seats selected.
    *
-   * @param evt the evt
+   * @param evt mouse click
    */
   public void txtseatsStateChanged(
       javax.swing.event.ChangeEvent evt) { // GEN-FIRST:event_txtseatsStateChanged
@@ -857,9 +857,10 @@ public class ticket extends javax.swing.JInternalFrame {
   // TODO Should be set to "Private" Made public only for testing purposes
 
   /**
-   * J button 1 action performed.
+   * J button 1 action performed. Insert into ticket Table id, flightid, custid, class,
+   * price, seats, and date.
    *
-   * @param evt the evt
+   * @param evt mouse click
    */
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
@@ -898,9 +899,9 @@ public class ticket extends javax.swing.JInternalFrame {
   // TODO Should be set to "Private" Made public only for testing purposes
 
   /**
-   * J button 2 action performed.
+   * J button 2 action performed. Hide current window.
    *
-   * @param evt the evt
+   * @param evt mouse click
    */
   public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed

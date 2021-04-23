@@ -114,9 +114,9 @@ public class ticketreport extends javax.swing.JInternalFrame {
   // TODO Should be set to "Private" Made public only for testing purposes
 
   /**
-   * J button 1 action performed.
+   * J button 1 action performed. Hide the current window.
    *
-   * @param evt the evt
+   * @param evt mouse click
    */
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
@@ -124,7 +124,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
     this.hide();
   } // GEN-LAST:event_jButton1ActionPerformed
 
-  /** Load data. */
+  /** Load all data from ticket Table. */
   public void LoadData() {
     try {
       Class.forName("com.mysql.jdbc.Driver");

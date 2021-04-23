@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
  * and open the template in the editor.
  */
 
+/** The type User creation. */
 /* TODO
     initComponents needs to be set to PRIVATE after testing completes.
     jButton1ActionPerformed needs to be set to PRIVATE after testing completes.
@@ -24,7 +25,10 @@ public class userCreation extends javax.swing.JInternalFrame {
     autoID();
   }
 
+  /** The Con. */
   Connection con;
+
+  /** The Pst. */
   PreparedStatement pst;
 
   /**
@@ -249,6 +253,11 @@ public class userCreation extends javax.swing.JInternalFrame {
     pack();
   } // </editor-fold>//GEN-END:initComponents
 
+  /**
+   * J button 1 action performed.
+   *
+   * @param evt the evt
+   */
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
@@ -284,12 +293,18 @@ public class userCreation extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton1ActionPerformed
 
+  /**
+   * J button 2 action performed.
+   *
+   * @param evt the evt
+   */
   public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
     this.hide();
   } // GEN-LAST:event_jButton2ActionPerformed
 
+  /** Auto id. */
   public void autoID() {
     try {
       Class.forName("com.mysql.jdbc.Driver");
@@ -312,20 +327,45 @@ public class userCreation extends javax.swing.JInternalFrame {
     }
   }
 
+  /** The J button 1. */
   // Variables declaration - do not modify//GEN-BEGIN:variables
   // TODO: These should be PRIVATE after we finish testing.
   public javax.swing.JButton jButton1;
+
+  /** The J button 2. */
   public javax.swing.JButton jButton2;
+
+  /** The J label 1. */
   public javax.swing.JLabel jLabel1;
+
+  /** The J label 2. */
   public javax.swing.JLabel jLabel2;
+
+  /** The J label 3. */
   public javax.swing.JLabel jLabel3;
+
+  /** The J label 4. */
   public javax.swing.JLabel jLabel4;
+
+  /** The J label 5. */
   public javax.swing.JLabel jLabel5;
+
+  /** The J panel 1. */
   public javax.swing.JPanel jPanel1;
+
+  /** The Txtfirstname. */
   public javax.swing.JTextField txtfirstname;
+
+  /** The Txtlastname. */
   public javax.swing.JTextField txtlastname;
+
+  /** The Txtpassword. */
   public javax.swing.JPasswordField txtpassword;
+
+  /** The Txtuserid. */
   public javax.swing.JLabel txtuserid;
+
+  /** The Txtusername. */
   public javax.swing.JTextField txtusername;
   // End of variables declaration//GEN-END:variables
 }

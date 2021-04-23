@@ -24,6 +24,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * and open the template in the editor.
  */
 
+/** The type Search customer. */
 public class searchCustomer extends javax.swing.JInternalFrame {
 
   /** Creates new form addCustomer */
@@ -31,10 +32,16 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     initComponents();
   }
 
+  /** The Con. */
   Connection con;
+
+  /** The Pst. */
   PreparedStatement pst;
 
+  /** The Path. */
   String path = null;
+
+  /** The Userimage. */
   public byte[] userimage = null;
 
   /**
@@ -532,16 +539,31 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     pack();
   } // </editor-fold>//GEN-END:initComponents
 
+  /**
+   * Txtlastname action performed.
+   *
+   * @param evt the evt
+   */
   public void txtlastnameActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_txtlastnameActionPerformed
     // TODO add your handling code here:
   } // GEN-LAST:event_txtlastnameActionPerformed
 
+  /**
+   * Txtpassport action performed.
+   *
+   * @param evt the evt
+   */
   public void txtpassportActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_txtpassportActionPerformed
     // TODO add your handling code here:
   } // GEN-LAST:event_txtpassportActionPerformed
 
+  /**
+   * J button 1 action performed.
+   *
+   * @param evt the evt
+   */
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
@@ -575,6 +597,11 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton1ActionPerformed
 
+  /**
+   * J button 2 action performed.
+   *
+   * @param evt the evt
+   */
   public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
@@ -623,6 +650,11 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton2ActionPerformed
 
+  /**
+   * J button 3 action performed.
+   *
+   * @param evt the evt
+   */
   public void jButton3ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton3ActionPerformed
     // TODO add your handling code here:
@@ -630,6 +662,11 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     this.hide();
   } // GEN-LAST:event_jButton3ActionPerformed
 
+  /**
+   * J button 4 action performed.
+   *
+   * @param evt the evt
+   */
   public void jButton4ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton4ActionPerformed
     // TODO add your handling code here:
@@ -691,33 +728,86 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton4ActionPerformed
 
+  /** The J button 1. */
   // Variables declaration - do not modify//GEN-BEGIN:variables
   public javax.swing.JButton jButton1;
+
+  /** The J button 2. */
   public javax.swing.JButton jButton2;
+
+  /** The J button 3. */
   public javax.swing.JButton jButton3;
+
+  /** The J button 4. */
   public javax.swing.JButton jButton4;
+
+  /** The J label 1. */
   public javax.swing.JLabel jLabel1;
+
+  /** The J label 10. */
   public javax.swing.JLabel jLabel10;
+
+  /** The J label 2. */
   public javax.swing.JLabel jLabel2;
+
+  /** The J label 3. */
   public javax.swing.JLabel jLabel3;
+
+  /** The J label 4. */
   public javax.swing.JLabel jLabel4;
+
+  /** The J label 5. */
   public javax.swing.JLabel jLabel5;
+
+  /** The J label 6. */
   public javax.swing.JLabel jLabel6;
+
+  /** The J label 8. */
   public javax.swing.JLabel jLabel8;
+
+  /** The J label 9. */
   public javax.swing.JLabel jLabel9;
+
+  /** The J panel 1. */
   public javax.swing.JPanel jPanel1;
+
+  /** The J panel 2. */
   public javax.swing.JPanel jPanel2;
+
+  /** The J scroll pane 1. */
   public javax.swing.JScrollPane jScrollPane1;
+
+  /** The R 1. */
   public javax.swing.JRadioButton r1;
+
+  /** The R 2. */
   public javax.swing.JRadioButton r2;
+
+  /** The Txtaddress. */
   public javax.swing.JTextArea txtaddress;
+
+  /** The Txtcontact. */
   public javax.swing.JTextField txtcontact;
+
+  /** The Txtcustid. */
   public javax.swing.JTextField txtcustid;
+
+  /** The Txtfirstname. */
   public javax.swing.JTextField txtfirstname;
+
+  /** The Txtlastname. */
   public javax.swing.JTextField txtlastname;
+
+  /** The Txtnic. */
   public javax.swing.JTextField txtnic;
+
+  /** The Txtdate. */
   public Date txtdate;
+
+  /** The Txtpassport. */
   public javax.swing.JTextField txtpassport;
+
+  /** The Txtphoto. */
   public javax.swing.JLabel txtphoto;
   // End of variables declaration//GEN-END:variables
 }

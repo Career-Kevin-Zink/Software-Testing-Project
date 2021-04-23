@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
  * and open the template in the editor.
  */
 
+/** The type Ticketreport. */
 public class ticketreport extends javax.swing.JInternalFrame {
 
   /** Creates new form ticketreport */
@@ -20,7 +21,10 @@ public class ticketreport extends javax.swing.JInternalFrame {
     LoadData();
   }
 
+  /** The Con. */
   Connection con;
+
+  /** The Pst. */
   PreparedStatement pst;
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -28,7 +32,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
    */
   @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  //todo SET THIS METHOD BACK TO PRIVATE AFTER TESTING
+  // todo SET THIS METHOD BACK TO PRIVATE AFTER TESTING
   public void initComponents() {
 
     jScrollPane1 = new javax.swing.JScrollPane();
@@ -107,14 +111,20 @@ public class ticketreport extends javax.swing.JInternalFrame {
     pack();
   } // </editor-fold>//GEN-END:initComponents
 
-  //TODO Should be set to "Private" Made public only for testing purposes
+  // TODO Should be set to "Private" Made public only for testing purposes
 
+  /**
+   * J button 1 action performed.
+   *
+   * @param evt the evt
+   */
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
     this.hide();
   } // GEN-LAST:event_jButton1ActionPerformed
 
+  /** Load data. */
   public void LoadData() {
     try {
       Class.forName("com.mysql.jdbc.Driver");
@@ -150,11 +160,15 @@ public class ticketreport extends javax.swing.JInternalFrame {
     }
   }
 
-
+  /** The J button 1. */
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  //todo set these back to private after testing
+  // todo set these back to private after testing
   public javax.swing.JButton jButton1;
+
+  /** The J scroll pane 1. */
   public javax.swing.JScrollPane jScrollPane1;
+
+  /** The J table 1. */
   public javax.swing.JTable jTable1;
   // End of variables declaration//GEN-END:variables
 }

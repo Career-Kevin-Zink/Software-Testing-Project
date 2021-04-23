@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
  * and open the template in the editor.
  */
 
+/** The type Login. */
 public class Login extends javax.swing.JFrame {
 
   /** Creates new form Login */
@@ -18,8 +19,13 @@ public class Login extends javax.swing.JFrame {
     initComponents();
   }
 
+  /** The Con. */
   public Connection con;
+
+  /** The Pst. */
   public PreparedStatement pst;
+
+  /** The Main. */
   public Main main;
 
   /**
@@ -190,6 +196,11 @@ public class Login extends javax.swing.JFrame {
     setLocationRelativeTo(null);
   } // </editor-fold>//GEN-END:initComponents
 
+  /**
+   * J button 1 action performed.
+   *
+   * @param evt the evt
+   */
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
@@ -229,7 +240,11 @@ public class Login extends javax.swing.JFrame {
     }
   } // GEN-LAST:event_jButton1ActionPerformed
 
-  /** @param args the command line arguments */
+  /**
+   * Main.
+   *
+   * @param args the command line arguments
+   */
   public static void main(String args[]) {
     /* Set the Nimbus look and feel */
     // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -248,13 +263,26 @@ public class Login extends javax.swing.JFrame {
         });
   }
 
+  /** The J button 1. */
   // Variables declaration - do not modify//GEN-BEGIN:variables
   public javax.swing.JButton jButton1;
+
+  /** The J button 2. */
   public javax.swing.JButton jButton2;
+
+  /** The J label 1. */
   public javax.swing.JLabel jLabel1;
+
+  /** The J label 2. */
   public javax.swing.JLabel jLabel2;
+
+  /** The J panel 1. */
   public javax.swing.JPanel jPanel1;
+
+  /** The Txtpass. */
   public javax.swing.JPasswordField txtpass;
+
+  /** The Txtuser. */
   public javax.swing.JTextField txtuser;
   // End of variables declaration//GEN-END:variables
 }

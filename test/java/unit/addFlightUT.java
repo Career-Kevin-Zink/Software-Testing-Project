@@ -376,7 +376,7 @@ public class addFlightUT {
      * Requirement:The system shall allow users to create new flights by providing a flight name,
      * source, departure, date, departure time, arrival time, and flight charge.
      * <p>
-     * Input:String"F0105",String"Delta",String"USA",String"China",String"08:00",String"09:00",String"-700"
+     * Input:none
      * Description:Testing Invalid values for the creation of a new flight.
      * <p>
      * Dependencies: Database

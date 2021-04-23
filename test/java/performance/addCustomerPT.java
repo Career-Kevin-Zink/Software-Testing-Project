@@ -101,7 +101,20 @@ public class addCustomerPT {
         } catch (SQLException | ClassNotFoundException ignored) {
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:None
+     * Description: tests initialization of addcustomer panel
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True,
+     * Actual Output: True,
+     * Statement Coverage: 80%
+     * Branch Coverage: 4%
+     */
     @Test
     @Order(1)
     @DisplayName("Initialize addCustomer UI in less than 5 seconds")
@@ -112,7 +125,19 @@ public class addCustomerPT {
 
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:None
+     * Description: it tests autoID incrementation
+     * <p>
+     * Dependencies: Database
+     * Expected Output: none
+     * Actual Output: none
+     * Statement Coverage: 80%
+     * Branch Coverage: 4%
+     */
     @Test
     @Order(2)
     @DisplayName("Test autoID with empty table.")
@@ -120,7 +145,20 @@ public class addCustomerPT {
         wipeCustomerTable();
         assertDoesNotThrow(() -> new addCustomer().autoID());
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:None
+     * Description: It tests adding customer method.
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True,
+     * Actual Output: True,
+     * Statement Coverage: 80%
+     * Branch Coverage: 4%
+     */
     @Test
     @Order(3)
     @DisplayName("Adding a customer to the database in less than 5 seconds.")
@@ -152,7 +190,20 @@ public class addCustomerPT {
 
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:None
+     * Description: It tests adding customer method. endurance test
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True,
+     * Actual Output: True,
+     * Statement Coverage: 80%
+     * Branch Coverage: 4%
+     */
     @Test
     @Order(4)
     @DisplayName("Adding 100 customers")
@@ -186,6 +237,20 @@ public class addCustomerPT {
         assertTrue(endTime - startTime <= 10000);
     }
 
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:None
+     * Description: checks to see if the image chooser works correctly
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True,
+     * Actual Output: True,
+     * Statement Coverage: 85%
+     * Branch Coverage: 13%
+     */
     @Test
     @Order(5)
     void jButton1ActionPerformed() {
@@ -195,7 +260,20 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 15000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS004",String"John",String"Doe",String"JohnnyPassport",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding a valid male customer works correctly.
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 88%
+     * Branch Coverage: 45%
+     */
     @Test
     @Order(6)
     @DisplayName("Check that adding a valid female customer takes less than 5 seconds.")
@@ -221,6 +299,20 @@ public class addCustomerPT {
         assertTrue(endTime - startTime <= 5000);
     }
 
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123"String"JanePassport",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding a valid female customer works correctly.
+     * in less than 5 seconds
+     *  <p>
+     * Dependencies: Database
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 88%
+     * Branch Coverage: 45%
+     */
     @Test
     @Order(7)
     @DisplayName("Check that adding a valid female customer takes less than 5 seconds.")
@@ -245,7 +337,20 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Doe",String"ABC123"String"JanePassport",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding an invalid first name works correctly.
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 81%
+     * Branch Coverage: 9%
+     */
     @Test
     @Order(8)
     @DisplayName("Check that an invalid first name shows an error dialog in less than 5 seconds.")
@@ -269,7 +374,20 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"ABC123",String"JanePassport",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding an invalid last name works correctly.
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 81%
+     * Branch Coverage: 13%
+     */
     @Test
     @Order(9)
     @DisplayName("Check that an invalid last name shows an error dialog in less than 5 seconds.")
@@ -293,7 +411,20 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"JanePassport",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 81%
+     * Branch Coverage: 18%
+     */
     @Test
     @Order(10)
     @DisplayName("Check that an invalid nicno shows an error dialog in less than 5 seconds.")
@@ -317,7 +448,20 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 81%
+     * Branch Coverage: 22%
+     */
     @Test
     @Order(11)
     @DisplayName("Check that an invalid passport shows an error dialog in less than 5 seconds.")
@@ -341,7 +485,20 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"JanePassport",String"123456"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 81%
+     * Branch Coverage: 27%
+     */
     @Test
     @Order(12)
     @DisplayName("Check that an invalid address shows an error dialog in less than 5 seconds.")
@@ -365,7 +522,20 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"JanePassport",String"123456"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * in less than 5 seconds
+     *  <p>
+     * Dependencies: Database
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 88%
+     * Branch Coverage: 45%
+     */
     @Test
     @Order(13)
     @DisplayName("Check that an invalid date shows an error dialog in less than 5 seconds.")
@@ -390,7 +560,20 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"JanePassport",String""
+     * Description: checks to see if adding an invalid customer works correctly.
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 81%
+     * Branch Coverage: 31%
+     */
     @Test
     @Order(14)
     @DisplayName("Check that an empty contact shows an error dialog in less than 5 seconds.")
@@ -414,7 +597,20 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"JanePassport",String"Hello"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 84%
+     * Branch Coverage: 45%
+     */
     @Test
     @Order(15)
     @DisplayName("Check that an invalid contact shows an error dialog in less than 5 seconds.")
@@ -439,7 +635,20 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * in less than 5 seconds
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"JanePassport",String"123456"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 81%
+     * Branch Coverage: 36%
+     */
     @Test
     @Order(16)
     @DisplayName("Check that an invalid user image shows an error dialog in less than 5 seconds.")
@@ -463,7 +672,21 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * in less than 5 seconds
+     * <p>
+     * Input:None
+     * Description: checks to see if hitting the cancel button correctly brings us back to the main screen.
+     * in less than 5 seconds
+     *  <p>
+     * Dependencies: None
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 81%
+     * Branch Coverage: 4%
+     */
     @Test
     @Order(17)
     @DisplayName("Check that the window is hidden in less than 2 seconds.")
@@ -473,7 +696,20 @@ public class addCustomerPT {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 2000);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * in less than 5 seconds
+     * <p>
+     * Input:None
+     * Description: check txtlastnameACtionPerformed in less than 5 seconds.
+     *  <p>
+     * Dependencies: None
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 82%
+     * Branch Coverage: 6%
+     */
     @Test
     @Order(18)
     @DisplayName("Test txtlastnameActionPerformed")
@@ -481,7 +717,20 @@ public class addCustomerPT {
         ActionEvent ae = new ActionEvent(ActionEvent.ACTION_PERFORMED, 1, null);
         assertDoesNotThrow(() -> new addCustomer().txtlastnameActionPerformed(ae));
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * in less than 5 seconds
+     * <p>
+     * Input:None
+     * Description: checks txtpassportActionPerformed in less than 5 seconds.
+     *  <p>
+     * Dependencies: None
+     * Expected Output: true
+     * Actual Output: true
+     * Statement Coverage: 71%
+     * Branch Coverage: 10%
+     */
     @Test
     @Order(19)
     @DisplayName("Test txtpassportActionPerformed")

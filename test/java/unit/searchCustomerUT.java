@@ -266,7 +266,7 @@ class searchCustomerUT {
   /**
    * Requirement: none
    * <p>
-   * Input:String
+   * Input:
    * Description: Checks to see if the cancel button method works correctly
    * <p>
    * Dependencies: none

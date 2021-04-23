@@ -60,7 +60,18 @@ public class addFlightPT {
     } catch (SQLException | ClassNotFoundException ignored) {}
   }
 
-
+  /**
+   * Requirement:None
+   * <p>
+   * Input:String
+   * Description:init addflight in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: True
+   * Actual Output: True
+   * Statement Coverage: 55%
+   * Branch Coverage: 0%
+   */
   @Test
   @DisplayName("Initialize addflight UI in less than 5 seconds")
   void initComponents() {
@@ -72,7 +83,18 @@ public class addFlightPT {
     // Testing the GUI initialization time is less than 5 seconds.
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:None
+   * <p>
+   * Input:String
+   * Description:Checks to see if the database can increment id's in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: True, True, True
+   * Actual Output: True, True, True
+   * Statement Coverage: 78%
+   * Branch Coverage: 11%
+   */
   @Test
   void testAutoID() {
     long startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -86,6 +108,20 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:String"F0105",String"",String"USA",String"China",String"08:00",String"09:00",String"700"
+   * Description:Testing passing values for the creation of a new flight.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 89%
+   * Branch Coverage: 50%
+   */
   @Test
   void testCreateFlight() {
     //testing to see if the program can create a flight and store it in less than 5 seconds
@@ -122,7 +158,20 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:String"F0105",String"",String"USA",String"China",String"08:00",String"09:00",String"700"
+   * Description:Testing passing values for the creation of a new flight.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 89%
+   * Branch Coverage: 50%
+   */
   @Test
   void testCreateFlightValidInput() {
     addflight addflight = new addflight();
@@ -140,7 +189,20 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:String"F0105",String"",String"USA",String"China",String"08:00",String"09:00",String"700"
+   * Description:Testing invalid values for the creation of a new flight.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 80%
+   * Branch Coverage: 11%
+   */
   @Test
   void testCreateFlightEmptyName() {
     addflight addflight = new addflight();
@@ -158,7 +220,20 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:String"F0105",String"Delta",String"",String"China",String"08:00",String"09:00",String"700"
+   * Description:Testing Invalid values for the creation of a new flight.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 81%
+   * Branch Coverage: 16%
+   */
   @Test
   void testCreateFlightInvalidSource() {
     addflight addflight = new addflight();
@@ -176,7 +251,20 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:String"F0105",String"Delta",String"USA",String"",String"08:00",String"09:00",String"700"
+   * Description:Testing Invalid values for the creation of a new flight.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 81%
+   * Branch Coverage: 22%
+   */
   @Test
   void testCreateFlightInvalidDepart() {
     addflight addflight = new addflight();
@@ -194,7 +282,20 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:String"F0105",String"Delta",String"USA",String"USA",String"08:00",String"09:00",String"700"
+   * Description:Testing Invalid values for the creation of a new flight.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 81%
+   * Branch Coverage: 27%
+   */
   @Test
   void testCreateFlightSourceEqualsDepart() {
     addflight addflight = new addflight();
@@ -212,7 +313,20 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:String"F0105",String"Delta",String"USA",String"China",String"08:00",String"09:00",String"700"
+   * Description:Testing Invalid values for the creation of a new flight.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 82%
+   * Branch Coverage: 33%
+   */
   @Test
   void testCreateFlightInvalidDate() {
     addflight addflight = new addflight();
@@ -229,7 +343,20 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:String"F0105",String"Delta",String"USA",String"China",String"",String"09:00",String"700"
+   * Description:Testing Invalid values for the creation of a new flight.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 82%
+   * Branch Coverage: 38%
+   */
   @Test
   void testCreateFlightEmptyDepartureTime() {
     addflight addflight = new addflight();
@@ -247,7 +374,20 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:String"F0105",String"Delta",String"USA",String"China",String"08:00",String"",String"700"
+   * Description:Testing Invalid values for the creation of a new flight.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 82%
+   * Branch Coverage: 44%
+   */
   @Test
   void testCreateFlightEmptyArrivalTime() {
     addflight addflight = new addflight();
@@ -265,7 +405,20 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:String"F0105",String"Delta",String"USA",String"China",String"08:00",String"09:00",String"-700"
+   * Description:Testing Invalid values for the creation of a new flight.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 73%
+   * Branch Coverage: 40%
+   */
   @Test
   void testCreateFlightInvalidPrice() {
     addflight addflight = new addflight();
@@ -283,7 +436,19 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:String"F0105",String"Delta",String"USA",String"China",String"08:00",String"09:00",String"-"
+   * Description:Testing Invalid values for the creation of a new flight. in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 83%
+   * Branch Coverage: 44%
+   */
   @Test
   void testCreateFlightEmptyPrice() {
     addflight addflight = new addflight();
@@ -301,7 +466,19 @@ public class addFlightPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
+   * <p>
+   * Input:none
+   * Description:Testing Invalid values for the creation of a new flight. in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: True
+   * Actual Output: True
+   * Statement Coverage: 79%
+   * Branch Coverage: 5%
+   */
   @Test
   void jButton2ActionPerformed() {
     //Testing to see if the button will close the window in less than 5 seconds
@@ -310,7 +487,6 @@ public class addFlightPT {
     addflight addFlight = new addflight();
     // Setup the GUI
     addFlight.initComponents();
-    assertTrue(true);
     // Execute the method.
     addFlight.jButton2.doClick();
 

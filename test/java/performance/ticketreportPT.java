@@ -14,7 +14,18 @@ public class ticketreportPT {
 
   long startTime = java.util.Calendar.getInstance().getTimeInMillis();
   long endTime = java.util.Calendar.getInstance().getTimeInMillis();
-
+  /**
+   * Requirement: The system shall display all tickets from the database in under ten seconds.
+   * <p>
+   * Input: none
+   * Description: Tests that the GUI initializes in less than 10 seconds
+   * <p>
+   * Dependencies: none
+   * Expected Output: True
+   * Actual Output: True
+   * Statement Coverage: 91%
+   * Branch Coverage: 100%
+   */
   @Test
   @DisplayName("Initialize ticketreport UI in less than 5 seconds")
   void initComponents() {
@@ -22,9 +33,21 @@ public class ticketreportPT {
     new ticketreport();
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
 
-    assertTrue(endTime - startTime <= 5000);
+    assertTrue(endTime - startTime <= 10000);
   }
-
+  /**
+   * Requirement: The system shall display all tickets from the database in under ten seconds.
+   * <p>
+   * Input: none
+   * Description: Checks to see if the table loads up correctly
+   * in less than 10 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: True
+   * Actual Output: True
+   * Statement Coverage: 91%
+   * Branch Coverage: 100%
+   */
   @Test
   @DisplayName("Fill the jTable in less than 5 seconds")
   public void fill() {
@@ -59,14 +82,26 @@ public class ticketreportPT {
         Df.addRow(v2);
       }
       endTime = java.util.Calendar.getInstance().getTimeInMillis();
-      assertTrue(endTime - startTime <= 5000);
+      assertTrue(endTime - startTime <= 10000);
 
 
     } catch (ClassNotFoundException | SQLException e) {
       e.printStackTrace();
     }
   }
-
+  /**
+   * Requirement: The system shall display all tickets from the database in under ten seconds.
+   * <p>
+   * Input: none
+   * Description: this test tests the only clickable button on the pannel.
+   * in less than 10 seconds
+   * <p>
+   * Dependencies: True
+   * Expected Output: True
+   * Actual Output: True
+   * Statement Coverage: 97%
+   * Branch Coverage: 100%
+   */
   @Test
   void jButton1ActionPerformed() {
     // testing to see if the button closes the window in less than 1 second
@@ -74,7 +109,7 @@ public class ticketreportPT {
     ticketreport TR = new ticketreport();
     TR.jButton1.doClick();
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
-    assertTrue(endTime - startTime <= 5000);
+    assertTrue(endTime - startTime <= 10000);
 
 
   }

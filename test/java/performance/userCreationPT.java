@@ -55,7 +55,20 @@ public class userCreationPT {
               ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
     } catch (SQLException | ClassNotFoundException ignored) {}
   }
-
+  /**
+   * Requirement: The system shall add a new user to the database in under five seconds
+   *
+   *
+   * Input: None
+   *
+   * Description: Initialize the userCreation GUI in less than 5 seconds
+   *
+   * Dependencies: None
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 84%
+   * Branch Coverage: 8%
+   */
   @Test
   @DisplayName("Initialize userCreation UI in less than 5 seconds")
   void initComponents() {
@@ -65,7 +78,19 @@ public class userCreationPT {
 
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement: The system shall add a new user to the database in under five seconds
+   *
+   * Input: String"UO005", String"John", String"Doe", String "jdoe69", String"ABC123"
+   * Description: Assert that creating a user will create the user in the database.
+   * in less than 5 seconds
+   *
+   * Dependencies: None
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 95%
+   * Branch Coverage: 50%
+   */
   @Test
   void userCreationValidDetails() {
     userCreation userCreation = new userCreation();
@@ -81,7 +106,19 @@ public class userCreationPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement: The system shall add a new user to the database in under five seconds
+   *
+   * Input: String"", String"John", String"Doe", String "jdoe69", String"ABC123"
+   * Description: checking to see if a false entry correctly stops the entry from going to the database.
+   * in less than 5 seconds
+   *
+   * Dependencies: database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 89%
+   * Branch Coverage: 16%
+   */
   @Test
   void userCreationInvalidId() {
     userCreation userCreation = new userCreation();
@@ -97,7 +134,19 @@ public class userCreationPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement: The system shall add a new user to the database in under five seconds
+   *
+   * Input: String"UO005", String"", String"Doe", String "jdoe69", String"ABC123"
+   * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+   * in less than 5 seconds
+   *
+   * Dependencies: database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 89%
+   * Branch Coverage: 33%
+   */
   @Test
   void userCreationInvalidFirstName() {
     userCreation userCreation = new userCreation();
@@ -114,7 +163,19 @@ public class userCreationPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement: The system shall add a new user to the database in under five seconds
+   *
+   * Input: String"UO005", String"John", String"", String "jdoe69", String"ABC123"
+   * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+   * in less than 5 seconds
+   *
+   * Dependencies: database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 89%
+   * Branch Coverage: 33%
+   */
   @Test
   void userCreationInvalidLastName() {
     userCreation userCreation = new userCreation();
@@ -131,7 +192,19 @@ public class userCreationPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement: The system shall add a new user to the database in under five seconds
+   *
+   * Input: String"UO005", String"John", String"Doe", String "", String"ABC123"
+   * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+   * in less than 5 seconds
+   *
+   * Dependencies: database
+   * Expected Output: true
+   * Actual Output: true
+   * Statement Coverage: 89%
+   * Branch Coverage: 41%
+   */
   @Test
   void userCreationInvalidUsername() {
     userCreation userCreation = new userCreation();
@@ -148,7 +221,19 @@ public class userCreationPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement: The system shall add a new user to the database in under five seconds
+   *
+   * Input: String"UO005", String"John", String"Doe", String "jdoe69", String""
+   * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+   *in less than 5 seconds
+   *
+   * Dependencies: database
+   * Expected Output: true,
+   * Actual Output: true,
+   * Statement Coverage: 89%
+   * Branch Coverage: 50%
+   */
   @Test
   void userCreationInvalidPassword() {
     userCreation userCreation = new userCreation();
@@ -164,7 +249,19 @@ public class userCreationPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall add a new user to the database in under five seconds
+   *
+   * Input: none
+   * Description: Assert that creating a user will create the user in the database.
+   *in less than 5 seconds
+   *
+   * Dependencies: Database
+   * Expected Output: True
+   * Actual Output: True
+   * Statement Coverage: 85%
+   * Branch Coverage: 8%
+   */
   @Test
   void jButton2ActionPerformed() {
     long startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -178,7 +275,19 @@ public class userCreationPT {
     long endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:The system shall add a new user to the database in under five seconds.
+   *
+   * Input: none
+   * Description: Makes sure that they can pull the next ID from the database
+   * in less than 5 seconds
+   *
+   * Dependencies: Database
+   * Expected Output: true, true, True
+   * Actual Output: true, true, True
+   * Statement Coverage: 85%
+   * Branch Coverage: 16%
+   */
   @Test
   void testAutoID() {
     long startTime = java.util.Calendar.getInstance().getTimeInMillis();

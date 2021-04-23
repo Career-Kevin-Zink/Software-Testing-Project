@@ -60,7 +60,18 @@ public class ticketPT {
     }catch (SQLException | ClassNotFoundException ignored) {}
   }
 
-
+  /**
+   * Requirement:  The system shall fetch flight details from the database in under five seconds.
+   * <p>
+   * Input:
+   * Description: Initializes the GUI for -book ticket- in less than 5 seconds
+   * <p>
+   * Dependencies: None
+   * Expected Output: true,
+   * Actual Output: true,
+   * Statement Coverage: 80%
+   * Branch Coverage: 12%
+   */
   @Test
   @DisplayName("Initialize ticket UI in less than 5 seconds")
   void initComponents() {
@@ -69,7 +80,19 @@ public class ticketPT {
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
-
+  /**
+   * Requirement:  The system shall fetch flight details from the database in under five seconds.
+   * <p>
+   * Input: String"India", String"Uk",
+   * Description: Input Validation: Assert that inputting a destination and source will fill the jtable.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: None
+   * Expected Output: true,
+   * Actual Output: true,
+   * Statement Coverage: 86%
+   * Branch Coverage: 62%
+   */
   @Test
   void testJButton3ActionPerformed() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -84,6 +107,19 @@ public class ticketPT {
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
+  /**
+   * Requirement: The system shall fetch flight details from the database in under five seconds.
+   * <p>
+   * Input: String"83748902", String"CS001",
+   * Description: Input Validation: Assert that inputting a valid customer ID will fill the appropriate fields.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: None
+   * Expected Output: true,
+   * Actual Output: true,
+   * Statement Coverage: 83%
+   * Branch Coverage: 37%
+   */
   @Test
   void testJButton4ActionPerformed(){
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -97,6 +133,19 @@ public class ticketPT {
     assertTrue(endTime - startTime <= 5000);
 
   }
+  /**
+   * Requirement: The system shall fetch flight details from the database in under five seconds.
+   * <p>
+   * Input: String"India", String"Uk", mouseclick
+   * Description: Rerun of previous test, also that selecting the flight in the Jtable fills in the approrpriate fields.
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: None
+   * Expected Output: true,
+   * Actual Output: true,
+   * Statement Coverage: 86%
+   * Branch Coverage: 62%
+   */
   @Test
   void testJTable1MouseClicked() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -118,6 +167,19 @@ public class ticketPT {
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
+  /**
+   * Requirement: The system shall fetch flight details from the database in under five seconds.
+   * <p>
+   * Input: String"2000",
+   * Description: Checking the programming math to see if it correctly multiplies price by seats.
+   *  in less than 5 seconds
+   * <p>
+   * Dependencies: None
+   * Expected Output: true,
+   * Actual Output: true,
+   * Statement Coverage: 81%
+   * Branch Coverage: 12%
+   */
   @Test
   void testTxtseatsStateChanged(){
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -127,6 +189,19 @@ public class ticketPT {
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
+  /**
+   * Requirement: The system shall fetch flight details from the database in under five seconds.
+   * <p>
+   * Input: String"TO004",String"FO001",String"CS001",String"Economy",String"50000",Int"1",
+   * Description: This test fills in the fields and then checks to see if the ticket exists
+   * in less than 5 seconds
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true,
+   * Actual Output: true,
+   * Statement Coverage: 86%
+   * Branch Coverage: 12%
+   */
   @Test
   void testJButton1ActionPerformed(){
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -143,6 +218,19 @@ public class ticketPT {
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
+  /**
+   * Requirement: The system shall fetch flight details from the database in under five seconds.
+   * <p>
+   * Input: none
+   * Description: this test checks to see if cancel hides the window correctly
+   *  in less than 5 seconds
+   * <p>
+   * Dependencies: none
+   * Expected Output: True,
+   * Actual Output: True,
+   * Statement Coverage: 81%
+   * Branch Coverage: 12%
+   */
   @Test
   void testJButton2ActionPerformed(){
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
@@ -152,6 +240,19 @@ public class ticketPT {
     endTime = java.util.Calendar.getInstance().getTimeInMillis();
     assertTrue(endTime - startTime <= 5000);
   }
+  /**
+   * Requirement:The system shall fetch flight details from the database in under five seconds.
+   * <p>
+   * Input: none
+   * Description: this test checks to see if the database can incrememnt to the next ID
+   * in less than 5 seconds.
+   * <p>
+   * Dependencies: Database
+   * Expected Output: true, true, True
+   * Actual Output: true, true, True
+   * Statement Coverage: 80%
+   * Branch Coverage: 25%
+   */
   @Test
   void testAutoID() {
     // Test for "MAX(id)") != null.

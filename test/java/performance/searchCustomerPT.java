@@ -117,7 +117,18 @@ public class searchCustomerPT extends Component {
         } catch (SQLException | ClassNotFoundException ignored) {
         }
     }
-
+    /**
+     * Requirement:The system shall fetch customer details from the database in under five seconds.
+     * <p>
+     * Input:none
+     * Description:Check for a valid or invalid picture
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 72%
+     * Branch Coverage: 0%
+     */
     @Test
     @DisplayName("Initialize searchCustomer UI in less than 5 seconds")
     public void initComponents() {
@@ -135,7 +146,18 @@ public class searchCustomerPT extends Component {
         sc.jButton1.doClick();
         assertNotNull(sc.userimage);
     }
-
+    /**
+     * Requirement:The system shall fetch customer details from the database in under five seconds.
+     * <p>
+     * Input:String "joe", String, "Mana", String"NICJOE123", String"JOEPASSPORT1" String "JOEADDRESS123"String"5558802"
+     * Description:Checks to see if the method correctly updates the database
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 79%
+     * Branch Coverage: 12%
+     */
     @Test
     @DisplayName("Update Customer in less than 5 seconds")
     public void updateMale() {
@@ -157,7 +179,18 @@ public class searchCustomerPT extends Component {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement:The system shall fetch customer details from the database in under five seconds.
+     * <p>
+     * Input:String "alex", String, "jones", String"34324", String"3443" String "TEXAS"
+     * Description:Checks to see if the method correctly updates the database in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 79%
+     * Branch Coverage: 12%
+     */
     @Test
     @DisplayName("Update Customer in less than 5 seconds")
     public void updateFemaleTest() {
@@ -180,7 +213,19 @@ public class searchCustomerPT extends Component {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement: The system shall fetch customer details from the database in under five seconds.
+     * <p>
+     * Input:
+     * Description: checks to see if the program can fill in the appropriate fields given a valid custid
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 80%
+     * Branch Coverage: 32%
+     */
     @Test
     @DisplayName("Search customer in less than 5 seconds")
     public void searchTestValidMaleCustomer() {
@@ -191,7 +236,19 @@ public class searchCustomerPT extends Component {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement: The system shall fetch customer details from the database in under five seconds.
+     * <p>
+     * Input:
+     * Description: checks to see if the program can fill in the appropriate fields given a valid custid
+     * in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 83%
+     * Branch Coverage: 29%
+     */
     @Test
     @DisplayName("Search customer in less than 5 seconds")
     public void searchTestValidFemaleCustomer() {
@@ -202,7 +259,18 @@ public class searchCustomerPT extends Component {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement: The system shall fetch customer details from the database in under five seconds.
+     * <p>
+     * Input:
+     * Description: Checks to make sure that an invalid CustID responds with the popup window in less than 5 seconds
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 81%
+     * Branch Coverage: 25%
+     */
     @Test
     @DisplayName("Search customer in less than 5 seconds")
     public void searchTestInvalidCustomer() {
@@ -213,7 +281,18 @@ public class searchCustomerPT extends Component {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 5000);
     }
-
+    /**
+     * Requirement: The system shall fetch customer details from the database in under five seconds.
+     * <p>
+     * Input:
+     * Description: Checks to see if the cancel button method works correctly in less than 1 second
+     * <p>
+     * Dependencies: none
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 73%
+     * Branch Coverage: 0%
+     */
     @Test
     @DisplayName("Hide the window in less than 1 second.")
     void hideTest() {
@@ -223,14 +302,36 @@ public class searchCustomerPT extends Component {
         long endTime = java.util.Calendar.getInstance().getTimeInMillis();
         assertTrue(endTime - startTime <= 1000);
     }
-
+    /**
+     * Requirement:The system shall fetch customer details from the database in under five seconds.
+     * <p>
+     * Input:String none,
+     * Description: txtlastname action performed test
+     * <p>
+     * Dependencies: Database
+     * Expected Output: none
+     * Actual Output: none
+     * Statement Coverage: 75%
+     * Branch Coverage: 12%
+     */
     @Test
     @DisplayName("Test txtlastnameActionPerformed")
     void txtlastnameActionPerformed() {
         ActionEvent ae = new ActionEvent(ActionEvent.ACTION_PERFORMED, 1, null);
         assertDoesNotThrow(() -> new searchCustomer().txtlastnameActionPerformed(ae));
     }
-
+    /**
+     * Requirement:The system shall fetch customer details from the database in under five seconds.
+     * <p>
+     * Input:String none,
+     * Description: txtpassport action performed test
+     * <p>
+     * Dependencies: Database
+     * Expected Output: none
+     * Actual Output: none
+     * Statement Coverage: 75%
+     * Branch Coverage: 12%
+     */
     @Test
     @DisplayName("Test txtpassportActionPerformed")
     void txtpassportActionPerformed() {

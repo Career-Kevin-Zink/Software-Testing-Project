@@ -242,7 +242,7 @@ class ticketUT {
 
     public static boolean doesTicketExist(String ticketNo) {
         boolean returnVal = false;
-
+        //Checks to see if the ticket already exists within the DB
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/airline", "root", "");

@@ -204,7 +204,7 @@ public class MainPT {
   @Order(9)
   @DisplayName("Add Customer button clicked 10 times.")
   @Disabled("Takes a Long time, dont run for demo")
-  public void addCustomerEndurance() {
+  public void addCustomerStress() {
     startTime = java.util.Calendar.getInstance().getTimeInMillis();
     for (int i = 0; i < 10; i++) {
       new Main().jMenuItem1.doClick();

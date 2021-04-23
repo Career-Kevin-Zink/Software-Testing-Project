@@ -351,7 +351,7 @@ class searchCustomerUT {
   /**
    * Requirement:The system shall allow users to UPDATE existing customers in the database.
    * <p>
-   * Input:String "CS001",
+   * Input:String "CS004",
    * Description:Checks the database to see if the customers picture updates with the database correctly (Fail)
    * <p>
    * Dependencies: Database

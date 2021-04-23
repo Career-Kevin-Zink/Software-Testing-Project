@@ -17,16 +17,16 @@ import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class addCustomerIT {
-
+    //mock the connection
     @Mock
     private Connection conn;
-
+    //mock the result set
     @Mock
     private ResultSet rs;
-
+    //mock the prepared statement
     @Mock
     private PreparedStatement pst;
-
+    //set the mock database
     @BeforeEach
     void setDB() {
         conn = mock(Connection.class);
@@ -137,7 +137,19 @@ public class addCustomerIT {
             System.out.println("SQLException in addCustomerIT: autoIDPassed()");
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:None
+     * Description:Testing the database to see if it can increment to the next ID
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True, True
+     * Actual Output: True, True
+     * Statement Coverage: 80%
+     * Branch Coverage: 9%
+     */
     @Test
     void autoIDFailed() {
 
@@ -158,7 +170,19 @@ public class addCustomerIT {
             System.out.println("SQLException in addCustomerIT: autoIDFailed()");
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:None
+     * Description: It tests the txtlastnameActionPerformed method.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True,
+     * Actual Output: True,
+     * Statement Coverage: 80%
+     * Branch Coverage: 4%
+     */
     @Test
     void txtlastnameActionPerformed() {
 
@@ -166,7 +190,19 @@ public class addCustomerIT {
         new addCustomer().txtlastnameActionPerformed(ae);
         assertNotNull(conn);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:None
+     * Description: It tests the txtpassportActionPerformed method.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True,
+     * Actual Output: True,
+     * Statement Coverage: 80%
+     * Branch Coverage: 4%
+     */
     @Test
     void txtpassportActionPerformed() {
 
@@ -174,7 +210,19 @@ public class addCustomerIT {
         new addCustomer().txtpassportActionPerformed(ae);
         assertNotNull(conn);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:None
+     * Description: checks to see if the image chooser works correctly
+     * <p>
+     * Dependencies: Database
+     * Expected Output: True,
+     * Actual Output: True,
+     * Statement Coverage: 85%
+     * Branch Coverage: 13%
+     */
     @Test
     void jButton1ActionPerformed() {
         addCustomer addCustomer = new addCustomer();
@@ -182,7 +230,19 @@ public class addCustomerIT {
         assertNotNull(addCustomer.userimage);
         assertNotNull(conn);
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS004",String"John",String"Doe",String"JohnnyPassport",String"123 Apple Street",String"123456"
+     * Description: mocks adding two valid customers
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 88%
+     * Branch Coverage: 45%
+     */
     @Test
     void jButton2ActionPerformed() {
         addCustomer addCustomer = new addCustomer();
@@ -244,7 +304,19 @@ public class addCustomerIT {
             System.out.println("SQLException in addCustomerIT: jButton2ActionPerformed()");
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS004",String"John",String"Doe",String"JohnnyPassport",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding a valid male customer works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 88%
+     * Branch Coverage: 45%
+     */
     @Test
     void addCustomerValidMale() {
         addCustomer addCustomer = new addCustomer();
@@ -271,7 +343,19 @@ public class addCustomerIT {
             se.printStackTrace();
         }
 }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123"String"JanePassport",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding a valid female customer works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 88%
+     * Branch Coverage: 45%
+     */
     @Test
     void addCustomerValidFemale() {
         addCustomer addCustomer = new addCustomer();
@@ -298,7 +382,19 @@ public class addCustomerIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Doe",String"ABC123"String"JanePassport",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding an invalid first name works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 81%
+     * Branch Coverage: 9%
+     */
     @Test
     void addCustomerInvalidFirstName() {
         addCustomer addCustomer = new addCustomer();
@@ -324,7 +420,19 @@ public class addCustomerIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"ABC123",String"JanePassport",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding an invalid last name works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 81%
+     * Branch Coverage: 13%
+     */
     @Test
     void addCustomerInvalidLastName() {
         addCustomer addCustomer = new addCustomer();
@@ -349,7 +457,19 @@ public class addCustomerIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"JanePassport",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 81%
+     * Branch Coverage: 18%
+     */
     @Test
     void addCustomerInvalidNicNumber() {
         addCustomer addCustomer = new addCustomer();
@@ -375,7 +495,19 @@ public class addCustomerIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"123 Apple Street",String"123456"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 81%
+     * Branch Coverage: 22%
+     */
     @Test
     void addCustomerInvalidPassport() {
         addCustomer addCustomer = new addCustomer();
@@ -401,7 +533,19 @@ public class addCustomerIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"JanePassport",String"123456"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 81%
+     * Branch Coverage: 27%
+     */
     @Test
     void addCustomerInvalidAddress() {
         addCustomer addCustomer = new addCustomer();
@@ -427,7 +571,19 @@ public class addCustomerIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"JanePassport",String"123456"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 88%
+     * Branch Coverage: 45%
+     */
     @Test
     void addCustomerInvalidDate() {
         addCustomer addCustomer = new addCustomer();
@@ -454,7 +610,19 @@ public class addCustomerIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"JanePassport",String""
+     * Description: checks to see if adding an invalid customer works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 81%
+     * Branch Coverage: 31%
+     */
     @Test
     void addCustomerEmptyContact() {
         addCustomer addCustomer = new addCustomer();
@@ -480,7 +648,19 @@ public class addCustomerIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"JanePassport",String"Hello"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 84%
+     * Branch Coverage: 45%
+     */
     @Test
     void addCustomerInvalidContact() {
         addCustomer addCustomer = new addCustomer();
@@ -507,7 +687,19 @@ public class addCustomerIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:String"CS005",String"Jane",String"Doe",String"ABC123",String"JanePassport",String"123456"
+     * Description: checks to see if adding an invalid customer works correctly.
+     * <p>
+     * Dependencies: Database
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 81%
+     * Branch Coverage: 36%
+     */
     @Test
     void addCustomerInvalidUserImage() {
         addCustomer addCustomer = new addCustomer();
@@ -533,7 +725,19 @@ public class addCustomerIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new customers by providing the first name, last name,
+     * NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
+     * <p>
+     * Input:None
+     * Description: checks to see if hitting the cancel button correctly brings us back to the main screen.
+     * <p>
+     * Dependencies: None
+     * Expected Output: None
+     * Actual Output: None
+     * Statement Coverage: 81%
+     * Branch Coverage: 4%
+     */
     @Test
     void jButton3ActionPerformed() {
         new addCustomer().jButton3.doClick();

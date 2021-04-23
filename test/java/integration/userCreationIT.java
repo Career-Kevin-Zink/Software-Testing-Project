@@ -14,16 +14,16 @@ import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class userCreationIT {
-
+// mocking the database connection
     @Mock
     private Connection conn;
-
+ // mocks the DB result set
     @Mock
     private ResultSet rs;
-
+// starts mocking the prepared statement
     @Mock
     private PreparedStatement pst;
-
+   // Sets our mock DB's
     @BeforeEach
     void setDB() {
         conn = mock(Connection.class);
@@ -31,6 +31,19 @@ public class userCreationIT {
         pst = mock(PreparedStatement.class);
     }
 
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: String"UO005", String"John", String"Doe", String "jdoe69", String"ABC123"
+     * Description: Assert that creating a user will create the user in the database.
+     *
+     * Dependencies: None
+     * Expected Output: true, false
+     * Actual Output: true, false
+     * Statement Coverage: 95%
+     * Branch Coverage: 50%
+     */
     @Test
     void userCreationValidDetails() {
         userCreation userCreation = new userCreation();
@@ -61,7 +74,19 @@ public class userCreationIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: String"", String"John", String"Doe", String "jdoe69", String"ABC123"
+     * Description: checking to see if a false entry correctly stops the entry from going to the database.
+     *
+     * Dependencies: database
+     * Expected Output: true, True
+     * Actual Output: true, True
+     * Statement Coverage: 89%
+     * Branch Coverage: 16%
+     */
     @Test
     void userCreationInvalidId() {
         userCreation userCreation = new userCreation();
@@ -91,7 +116,19 @@ public class userCreationIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: String"UO005", String"", String"Doe", String "jdoe69", String"ABC123"
+     * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+     *
+     * Dependencies: database
+     * Expected Output: true, True
+     * Actual Output: true, True
+     * Statement Coverage: 89%
+     * Branch Coverage: 33%
+     */
     @Test
     void userCreationInvalidFirstName() {
         userCreation userCreation = new userCreation();
@@ -121,7 +158,19 @@ public class userCreationIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: String"UO005", String"John", String"", String "jdoe69", String"ABC123"
+     * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+     *
+     * Dependencies: database
+     * Expected Output: true, True
+     * Actual Output: true, True
+     * Statement Coverage: 89%
+     * Branch Coverage: 33%
+     */
     @Test
     void userCreationInvalidLastName() {
         userCreation userCreation = new userCreation();
@@ -151,7 +200,19 @@ public class userCreationIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: String"UO005", String"John", String"Doe", String "", String"ABC123"
+     * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+     *
+     * Dependencies: database
+     * Expected Output: true, True
+     * Actual Output: true, True
+     * Statement Coverage: 89%
+     * Branch Coverage: 41%
+     */
     @Test
     void userCreationInvalidUsername() {
         userCreation userCreation = new userCreation();
@@ -182,7 +243,19 @@ public class userCreationIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: String"UO005", String"John", String"Doe", String "jdoe69", String""
+     * Description:  checking to see if a false entry correctly stops the entry from going to the database.
+     *
+     * Dependencies: database
+     * Expected Output: true, True
+     * Actual Output: true, True
+     * Statement Coverage: 89%
+     * Branch Coverage: 50%
+     */
     @Test
     void userCreationInvalidPassword() {
         userCreation userCreation = new userCreation();
@@ -213,7 +286,19 @@ public class userCreationIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: none
+     * Description: Assert that creating a user will create the user in the database.
+     *
+     * Dependencies: Database
+     * Expected Output: none
+     * Actual Output: none
+     * Statement Coverage: 85%
+     * Branch Coverage: 8%
+     */
     @Test
     void jButton2ActionPerformed() {
         userCreation userCreation = new userCreation();
@@ -222,7 +307,19 @@ public class userCreationIT {
         userCreation.jButton2.doClick();
         assertNotNull(conn);
     }
-
+    /**
+     * Requirement: The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
+     *
+     * Input: none
+     * Description: Makes sure that they can pull the next ID from the database
+     *
+     * Dependencies: Database
+     * Expected Output: true, true
+     * Actual Output: true, true
+     * Statement Coverage: 85%
+     * Branch Coverage: 16%
+     */
     @Test
     void testAutoID() {
         // Test for "MAX(id)") != null.

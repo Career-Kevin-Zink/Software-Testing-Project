@@ -18,16 +18,16 @@ import java.sql.*;
 @RunWith(MockitoJUnitRunner.class)
 public class ticketIT {
 
-
+    //setting the mock connection.
     @Mock
     private Connection conn;
-
+    //setting the mock result set
     @Mock
     private ResultSet rs;
-
+    // setting the mock prepared statement
     @Mock
     private PreparedStatement pst;
-
+    //setting the mock db
     @BeforeEach
     void setDB() {
         conn = mock(Connection.class);
@@ -78,7 +78,18 @@ public class ticketIT {
                     ") ENGINE=InnoDB DEFAULT CHARSET=latin1;");
         }catch (SQLException | ClassNotFoundException ignored) {}
     }
-
+    /**
+     * Requirement: The system shall allow users to search for flights by selecting a source and departure location.
+     * <p>
+     * Input: String"India", String"Uk",
+     * Description: Input Validation: Assert that inputting a destination and source will fill the jtable.
+     * <p>
+     * Dependencies: None
+     * Expected Output: true,
+     * Actual Output: true,
+     * Statement Coverage: 84%
+     * Branch Coverage: 52%
+     */
     @Test
     void testJButton3ActionPerformed(){
 
@@ -104,7 +115,19 @@ public class ticketIT {
             System.out.println("SQLException in TicketIT: testJButton3ActionPerformed");
         }
     }
-
+    /**
+     * Requirement:The system shall allow users to book tickets for an existing flight
+     * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
+     * <p>
+     * Input: none
+     * Description: this test checks to see if the database can incrememnt to the next ID
+     * <p>
+     * Dependencies: Database
+     * Expected Output: true, true
+     * Actual Output: true, true
+     * Statement Coverage: 80%
+     * Branch Coverage: 25%
+     */
     @Test
     void testAutoID() {
         // Test for "MAX(id)") != null.
@@ -118,7 +141,18 @@ public class ticketIT {
         new ticket().autoID();
         assertNotNull(conn);
     }
-
+    /**
+     * Requirement: The system shall allow users to search for flights by selecting a source and departure location.
+     * <p>
+     * Input: String"83748902", String"CS001",
+     * Description: Input Validation: Assert that inputting a valid customer ID will fill the appropriate fields.
+     * <p>
+     * Dependencies: None
+     * Expected Output: false, true,
+     * Actual Output: false, true,
+     * Statement Coverage: 83%
+     * Branch Coverage: 37%
+     */
     @Test
     void testJButton4ActionPerformed(){
         ticket ticket = new ticket();
@@ -143,7 +177,18 @@ public class ticketIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement: None
+     * <p>
+     * Input: String"India", String"Uk", mouseclick
+     * Description: Rerun of previous test, also that selecting the flight in the Jtable fills in the approrpriate fields.
+     * <p>
+     * Dependencies: None
+     * Expected Output: true, true
+     * Actual Output: true, true
+     * Statement Coverage: 86%
+     * Branch Coverage: 62%
+     */
     @Test
     void jTable1MouseClickedTest() {
 
@@ -166,7 +211,19 @@ public class ticketIT {
         ticket.jButton3.doClick();
         assertNotNull(conn);
     }
-
+    /**
+     * Requirement: The system shall allow users to book tickets for an existing flight
+     * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
+     * <p>
+     * Input: String"2000",
+     * Description: Checking the programming math to see if it correctly multiplies price by seats.
+     * <p>
+     * Dependencies: database
+     * Expected Output: none
+     * Actual Output: none
+     * Statement Coverage: 81%
+     * Branch Coverage: 12%
+     */
     @Test
     void testTxtseatsStateChanged() {
         ticket ticket = new ticket();
@@ -181,7 +238,19 @@ public class ticketIT {
 
         assertNotNull(conn);
     }
-
+    /**
+     * Requirement: The system shall allow users to book tickets for an existing flight
+     * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
+     * <p>
+     * Input: String"TO004",String"FO001",String"CS001",String"Economy",String"50000",Int"1",
+     * Description: This test fills in the fields and then checks to see if the ticket exists
+     * <p>
+     * Dependencies: Database
+     * Expected Output: none
+     * Actual Output: none
+     * Statement Coverage: 86%
+     * Branch Coverage: 12%
+     */
     @Test
     void testJButton1ActionPerformed() {
         ticket ticket = new ticket();
@@ -202,7 +271,19 @@ public class ticketIT {
             se.printStackTrace();
         }
     }
-
+    /**
+     * Requirement: The system shall allow users to book tickets for an existing flight
+     * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
+     * <p>
+     * Input: none
+     * Description: this test checks to see if cancel hides the window correctly
+     * <p>
+     * Dependencies: none
+     * Expected Output: true,
+     * Actual Output: true,
+     * Statement Coverage: 81%
+     * Branch Coverage: 12%
+     */
     @Test
     void testJButton2ActionPerformed() {
         ticket ticket = new ticket();

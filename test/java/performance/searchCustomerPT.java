@@ -118,7 +118,7 @@ public class searchCustomerPT extends Component {
         }
     }
     /**
-     * Requirement:The system shall fetch customer details from the database in under five seconds.
+     * Requirement:The system shall allow users to UPDATE existing customers in the database.
      * <p>
      * Input:none
      * Description:Check for a valid or invalid picture

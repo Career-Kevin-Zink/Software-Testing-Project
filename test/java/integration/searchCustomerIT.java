@@ -15,23 +15,34 @@ import java.util.Date;
 
 @RunWith(MockitoJUnitRunner.class)
 public class searchCustomerIT {
-
+  //sets mock connection
   @Mock
   private Connection conn;
-
+  //sets mock result set
   @Mock
   private ResultSet rs;
-
+  //sets mock prepared statement
   @Mock
   private PreparedStatement pst;
-
+  //sets mock DB
   @BeforeEach
   void setDB() {
     conn = mock(Connection.class);
     rs = mock(ResultSet.class);
     pst = mock(PreparedStatement.class);
   }
-
+  /**
+   * Requirement:The system shall fetch customer details from the database in under five seconds.
+   * <p>
+   * Input:String none,
+   * Description: txtlastname action performed test
+   * <p>
+   * Dependencies: Database
+   * Expected Output: none
+   * Actual Output: none
+   * Statement Coverage: 75%
+   * Branch Coverage: 12%
+   */
   @Test
   void txtlastnameActionPerformed() {
 
@@ -39,7 +50,18 @@ public class searchCustomerIT {
     new searchCustomer().txtlastnameActionPerformed(ae);
     assertNotNull(conn);
   }
-
+  /**
+   * Requirement:The system shall fetch customer details from the database in under five seconds.
+   * <p>
+   * Input:String none,
+   * Description: txtpassport action performed test
+   * <p>
+   * Dependencies: Database
+   * Expected Output: none
+   * Actual Output: none
+   * Statement Coverage: 75%
+   * Branch Coverage: 12%
+   */
   @Test
   void txtpassportActionPerformed() {
 
@@ -47,7 +69,18 @@ public class searchCustomerIT {
     new searchCustomer().txtpassportActionPerformed(ae);
     assertNotNull(conn);
   }
-
+  /**
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
+   * <p>
+   * Input:none
+   * Description:Check to see if the method updates the fields with customer information
+   * <p>
+   * Dependencies: Database
+   * Expected Output:  True
+   * Actual Output: True
+   * Statement Coverage: 77%
+   * Branch Coverage: 25%
+   */
   @Test
   @DisplayName("jBtn #1 ActionPerformed")
   void jButtonOneActionPerformed() {
@@ -55,7 +88,18 @@ public class searchCustomerIT {
     searchCustomer.jButton1.doClick();
     assertNotNull(conn);
   }
-
+  /**
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
+   * <p>
+   * Input:String "alex", String, "jones", String"34324", String"3443" String "TEXAS"
+   * Description:Checks to see if the method correctly updates the database
+   * <p>
+   * Dependencies: Database
+   * Expected Output: none
+   * Actual Output: none
+   * Statement Coverage: 79%
+   * Branch Coverage: 12%
+   */
   @Test
   @DisplayName("jBtn #2 ActionPerformed (UPDATE CUSTOMER) Male")
   void jBtnTwoActionPerformedMale() {
@@ -85,7 +129,18 @@ public class searchCustomerIT {
       System.out.println("SQLException in searchCustomerIT: JBtnTwoActionPerformedFemale");
     }
   }
-
+  /**
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
+   * <p>
+   * Input:String "alex", String, "jones", String"34324", String"3443" String "TEXAS"
+   * Description:Checks to see if the method correctly updates the database
+   * <p>
+   * Dependencies: Database
+   * Expected Output: none
+   * Actual Output: none
+   * Statement Coverage: 79%
+   * Branch Coverage: 12%
+   */
   @Test
   @DisplayName("jBtn #2 ActionPerformed (UPDATE CUSTOMER) Female")
   void jBtnTwoActionPerformedFemale() {
@@ -115,7 +170,18 @@ public class searchCustomerIT {
       System.out.println("SQLException in searchCustomerIT: JBtnTwoActionPerformedFemale");
     }
   }
-
+  /**
+   * Requirement: none
+   * <p>
+   * Input:
+   * Description: Checks to see if the cancel button method works correctly
+   * <p>
+   * Dependencies: none
+   * Expected Output: True
+   * Actual Output: True
+   * Statement Coverage: 73%
+   * Branch Coverage: 0%
+   */
   @Test
   @DisplayName("jBtn #3 ActionPerformed")
   void jBtnTHREEActionPerformed() {
@@ -124,7 +190,18 @@ public class searchCustomerIT {
     new searchCustomer().jButton3ActionPerformed(ae);
     assertNotNull(conn);
   }
-
+  /**
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
+   * <p>
+   * Input:String "CS001",
+   * Description:Checks the database to see if the customers picture updates with the database correctly
+   * <p>
+   * Dependencies: Database
+   * Expected Output: none
+   * Actual Output: none
+   * Statement Coverage: 81%
+   * Branch Coverage: 25%
+   */
   @Test
   @DisplayName("jBtn #4 ActionPerformed (QUERY CUSTOMER) Passed Male")
   void jBtnFOURActionPerformedPassedMale() {
@@ -150,7 +227,18 @@ public class searchCustomerIT {
       System.out.println("SQLException in searchCustomerIT: JBtnFourActionPerformedPassedMale");
     }
   }
-
+  /**
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
+   * <p>
+   * Input:String "CS001",
+   * Description:Checks the database to see if the customers picture updates with the database correctly (Fail)
+   * <p>
+   * Dependencies: Database
+   * Expected Output: none
+   * Actual Output: none
+   * Statement Coverage: 75%
+   * Branch Coverage: 12%
+   */
     @Test
     @DisplayName("jBtn #4 ActionPerformed (QUERY CUSTOMER) Failed Male")
     void jBtnFourActionPerformedFailedMale() {
@@ -177,7 +265,18 @@ public class searchCustomerIT {
         System.out.println("SQLException in searchCustomerIT: JBtnFourActionPerformedFailedMale");
       }
     }
-
+  /**
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
+   * <p>
+   * Input:String "CS001",
+   * Description:Checks the database to see if the customers picture updates with the database correctly
+   * <p>
+   * Dependencies: Database
+   * Expected Output: none
+   * Actual Output: none
+   * Statement Coverage: 81%
+   * Branch Coverage: 25%
+   */
   @Test
   @DisplayName("jBtn #4 ActionPerformed (QUERY CUSTOMER) Passed Female")
   void jBtnFourActionPerformedPassedFemale() {
@@ -203,7 +302,18 @@ public class searchCustomerIT {
       System.out.println("SQLException in searchCustomerIT: JBtnFourActionPerformedPassedFemale");
     }
   }
-
+  /**
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
+   * <p>
+   * Input:String "CS004",
+   * Description:Checks the database to see if the customers picture updates with the database correctly (Fail)
+   * <p>
+   * Dependencies: Database
+   * Expected Output: none
+   * Actual Output: none
+   * Statement Coverage: 75%
+   * Branch Coverage: 12%
+   */
   @Test
   @DisplayName("jBtn #4 ActionPerformed (QUERY CUSTOMER) Failed Female")
   void jBtnFOURActionPerformedFailedFemale() {

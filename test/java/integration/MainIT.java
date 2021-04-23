@@ -15,23 +15,34 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 
 public class MainIT {
-
+    //mock the connection
     @Mock
     private Connection conn;
-
+    //mock the result set
     @Mock
     private ResultSet rs;
-
+    //mock the prepared statement
     @Mock
     private PreparedStatement pst;
-
+    //set the mock database
     @BeforeEach
     void setDB() {
         conn = mock(Connection.class);
         rs = mock(ResultSet.class);
         pst = mock(PreparedStatement.class);
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem1ActionPerformed() {
 
@@ -40,7 +51,18 @@ public class MainIT {
         assertNotNull(main.jDesktopPane1);
         assertNotNull(conn);
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem2ActionPerformed() {
 
@@ -49,7 +71,18 @@ public class MainIT {
         assertNotNull(main.jDesktopPane1);
         assertNotNull(conn);
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem3ActionPerformed() {
 
@@ -58,7 +91,18 @@ public class MainIT {
         assertNotNull(main.jDesktopPane1);
         assertNotNull(conn);
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem4ActionPerformed() {
 
@@ -69,7 +113,18 @@ public class MainIT {
             assertNotNull(conn);
         });
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem5ActionPerformed() {
 
@@ -80,7 +135,18 @@ public class MainIT {
             assertNotNull(conn);
         });
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if hitting the button opens the corresponding panel
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 67%
+     * Branch Coverage: 100%
+     */
     @Test
     void JMenuItem6ActionPerformed() {
         assertDoesNotThrow(()->{
@@ -89,7 +155,18 @@ public class MainIT {
             assertNotNull(conn);
         });
     }
-
+    /**
+     * Requirement:None
+     * <p>
+     * Input:String "CS001",
+     * Description:Checks to see if calling main.main works correctly.
+     * <p>
+     * Dependencies: None
+     * Expected Output: True
+     * Actual Output: True
+     * Statement Coverage: 4%
+     * Branch Coverage: 100%
+     */
     @Test
     @DisplayName("Calling Main.main")
     void testMain(){

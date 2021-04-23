@@ -112,7 +112,13 @@ public class searchCustomerGT {
     }
   }
 
-  /** Sets . */
+  /**
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
+   *
+   * Description: gracefully starts up the robot.
+   *
+   * Dependencies: AssertJ
+   */
   @BeforeEach
   @DisplayName("Setting up test.")
   public void setup() {
@@ -124,19 +130,25 @@ public class searchCustomerGT {
     frame.jMenuItem2.doClick();
   }
 
-  /** Tear down. */
-  @AfterEach
+  /**
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
+   *
+   * Description: gracefully tears down the robot.
+   *
+   * Dependencies: AssertJ
+   */  @AfterEach
   @DisplayName("Cleaning up test.")
   public void tearDown() {
     window.cleanUp();
   }
 
   /**
-   * * Requirement:
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
    *
-   * <p>Input:None Description:
+   * Description: Checks to see if the SearchCustomer panel is showing,
+   * with a robut.
    *
-   * <p>Dependencies: Expected Output: Actual Output: Statement Coverage: Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(1)
@@ -144,13 +156,13 @@ public class searchCustomerGT {
   public void isPanelVisable() {
     window.panel("searchCustomerPanel").requireVisible();
   }
-
   /**
-   * * Requirement:
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
    *
-   * <p>Input:None Description:
+   * Description: Checks to see if an empty custid field pulls up the error dialog,
+   * with a robut.
    *
-   * <p>Dependencies: Expected Output: Actual Output: Statement Coverage: Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(2)
@@ -161,11 +173,12 @@ public class searchCustomerGT {
   }
 
   /**
-   * * Requirement:
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
    *
-   * <p>Input:None Description:
+   * Description: Checks to see if hitting the find button with the custid filled in fills
+   * apropriate fields, with a robut.
    *
-   * <p>Dependencies: Expected Output: Actual Output: Statement Coverage: Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(3)
@@ -184,11 +197,12 @@ public class searchCustomerGT {
   }
 
   /**
-   * * Requirement:
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
    *
-   * <p>Input:None Description:
+   * Description: Checks to see if the update button updates the database with the current info,
+   * with a robut.
    *
-   * <p>Dependencies: Expected Output: Actual Output: Statement Coverage: Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(4)
@@ -204,11 +218,12 @@ public class searchCustomerGT {
     window.optionPane().requireVisible();
   }
   /**
-   * * Requirement:
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
    *
-   * <p>Input:None Description:
+   * Description: Checks to see if the browse button pulls up the file browser,
+   * with a robut.
    *
-   * <p>Dependencies: Expected Output: Actual Output: Statement Coverage: Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(5)
@@ -219,11 +234,12 @@ public class searchCustomerGT {
   }
 
   /**
-   * * Requirement:
+   * Requirement:The system shall allow users to UPDATE existing customers in the database.
    *
-   * <p>Input:None Description:
+   * Description: Checks to see if the cancel button brings the user back to the main menu,
+   * with a robut.
    *
-   * <p>Dependencies: Expected Output: Actual Output: Statement Coverage: Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(6)

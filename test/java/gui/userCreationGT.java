@@ -7,32 +7,25 @@ import org.assertj.swing.fixture.JPanelFixture;
 import org.junit.jupiter.api.*;
 
 /**
- * Requirement:
+ * Requirement:The system shall allow users to create new users by providing the first name,
+ * last name, username and password for the new user.
  *
  * Input:None
- * Description:
+ * Description: gui test, starts teh robot on going through the screens
  *
- * Dependencies:
- * Expected Output:
- * Actual Output:
- * Statement Coverage:
- * Branch Coverage:
+ * Dependencies: AssertJ
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class userCreationGT {
     private FrameFixture window;
 
     /**
-     * Requirement:
+     * Requirement:The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
-     * Input:None
-     * Description:
+     * Description: sets up the test with the robut
      *
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: AssertJ
      */
 @BeforeEach
     @DisplayName("Setting up test.")
@@ -45,35 +38,27 @@ public class userCreationGT {
         frame.jMenuItem5.doClick();
     }
 
+
     /**
-     * Requirement:
+     * Requirement:The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
-     * Input:None
-     * Description:
+     * Description: this ends the test in a clean manner
      *
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: AssertJ
      */
 @AfterEach
     @DisplayName("Cleaning up test.")
     public void tearDown() {
         window.cleanUp();
     }
-
     /**
-     * Requirement:
+     * Requirement:The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
-     * Input:None
-     * Description:
+     * Description: this ends the test in a clean manner
      *
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: AssertJ
      */
 @Test
     @Order(1)
@@ -82,17 +67,14 @@ public class userCreationGT {
         window.panel("UserCreationPanel").requireVisible();
     }
 
-    /**
-     * Requirement:
+     /**
+     * Requirement:The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
-     * Input:None
-     * Description:
+     * Description: tests to see if an empty first name brings up the options pane,
+      * with a robut.
      *
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: AssertJ
      */
 @Test
     @Order(2)
@@ -109,16 +91,13 @@ public class userCreationGT {
     }
 
     /**
-     * Requirement:
+     * Requirement:The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
-     * Input:None
-     * Description:
+     * Description: tests to see if an empty last name brings up the options pane,
+     * with a robut.
      *
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: AssertJ
      */
 @Test
     @Order(3)
@@ -135,18 +114,14 @@ public class userCreationGT {
     }
 
     /**
-     * Requirement:
+     * Requirement:The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
-     * Input:None
-     * Description:
+     * Description: tests to see if an empty user name brings up the options pane,
+     * with a robut.
      *
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: AssertJ
      */
-@Test
     @Order(4)
     @DisplayName("Does an empty User Name open the error dialog?")
     public void checkEmptyUserName() {
@@ -161,16 +136,13 @@ public class userCreationGT {
     }
 
     /**
-     * Requirement:
+     * Requirement:The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
-     * Input:None
-     * Description:
+     * Description: tests to see if an empty password brings up the options pane,
+     * with a robut.
      *
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: AssertJ
      */
 @Test
     @Order(5)
@@ -187,16 +159,13 @@ public class userCreationGT {
     }
 
     /**
-     * Requirement:
+     * Requirement:The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
-     * Input:None
-     * Description:
+     * Description: tests to see if the add user button works if everything is filled in,
+     * with a robut.
      *
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: AssertJ
      */
 @Test
     @Order(6)
@@ -214,16 +183,13 @@ public class userCreationGT {
     }
 
     /**
-     * Requirement:
+     * Requirement:The system shall allow users to create new users by providing the first name,
+     * last name, username and password for the new user.
      *
-     * Input:None
-     * Description:
+     * Description: tests to see if the cancel button closes the panel,
+     * with a robut.
      *
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: AssertJ
      */
 @Test
     @Order(7)

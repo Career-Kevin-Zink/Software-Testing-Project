@@ -16,7 +16,14 @@ import org.junit.jupiter.api.TestMethodOrder;
 public class ticketreportGT {
   private FrameFixture window;
 
-  /** Sets . */
+  /**
+   * Requirement:The system shall allow users to view all existing tickets.
+   *
+   * Description: starts the robot up, vroom vroom
+   *
+   *
+   * Dependencies: AssertJ
+   */
   @BeforeEach
   @DisplayName("Setting up test.")
   public void setup() {
@@ -27,7 +34,14 @@ public class ticketreportGT {
     // open searchCustomer panel.
     frame.jMenuItem6.doClick();
   }
-  /** Tear down. */
+  /**
+   * Requirement:The system shall allow users to view all existing tickets.
+   *
+   * Description: gracefully ends the test
+   *
+   *
+   * Dependencies: AssertJ
+   */
   @AfterEach
   @DisplayName("Cleaning up test.")
   public void tearDown() {
@@ -35,16 +49,12 @@ public class ticketreportGT {
   }
 
   /**
-   * Requirement:
+   * Requirement:The system shall allow users to view all existing tickets.
    *
-   * Input:None
-   * Description:
+   * Description: tests to see if the panel comes up correctly
+   * with a robut.
    *
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(1)
@@ -54,16 +64,12 @@ public class ticketreportGT {
   }
 
   /**
-   * Requirement:
+   * Requirement:The system shall allow users to view all existing tickets.
    *
-   * Input:None
-   * Description:
+   * Description: tests to see if the cancel button closes the panel,
+   * with a robut.
    *
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(2)

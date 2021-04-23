@@ -16,7 +16,14 @@ import org.junit.jupiter.api.TestMethodOrder;
 public class ticketGT {
   private FrameFixture window;
 
-  /** Sets up. */
+  /**
+   * Requirement:The system shall allow users to book tickets for an existing flight
+   * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
+   *
+   * Description:gracefully starts up the robot
+   *
+   * Dependencies: AssertJ
+   */
   @BeforeEach
   @DisplayName("Setting up test.")
   public void setUp() {
@@ -26,24 +33,27 @@ public class ticketGT {
     window.menuItem("Book Ticket").click();
   }
 
-  /** Tear down. */
-  @AfterEach
+  /**
+   * Requirement:The system shall allow users to book tickets for an existing flight
+   * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
+   *
+   * Description:gracefully closes down the robot
+   *
+   * Dependencies: AssertJ
+   */  @AfterEach
   @DisplayName("Cleaning up test.")
   public void tearDown() {
     window.cleanUp();
   }
 
   /**
-   * Requirement:
+   * Requirement:The system shall allow users to book tickets for an existing flight
+   * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
    *
-   * Input:None
-   * Description:
+   * Description: checks to see if the ticket panel is visible,
+   * with a robut
    *
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(1)
@@ -53,16 +63,13 @@ public class ticketGT {
   }
 
   /**
-   * Requirement:
+   * Requirement:The system shall allow users to book tickets for an existing flight
+   * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
    *
-   * Input:None
-   * Description:
+   * Description: checks to see if the ticket's subpanel is visible,
+   * with a robut
    *
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(2)
@@ -72,16 +79,13 @@ public class ticketGT {
   }
 
   /**
-   * Requirement:
+   * Requirement:The system shall allow users to book tickets for an existing flight
+   * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
    *
-   * Input:None
-   * Description:
+   * Description: checks to see if the third ticket panel is visible,
+   * with a robut
    *
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(3)
@@ -91,16 +95,13 @@ public class ticketGT {
   }
 
   /**
-   * Requirement:
+   * Requirement:The system shall allow users to book tickets for an existing flight
+   * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
    *
-   * Input:None
-   * Description:
+   * Description: checks to see if the scroll pane is visible,
+   * with a robut
    *
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(4)
@@ -110,16 +111,13 @@ public class ticketGT {
   }
 
   /**
-   * Requirement:
+   * Requirement:The system shall allow users to book tickets for an existing flight
+   * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
    *
-   * Input:None
-   * Description:
+   * Description: checks to see if the table panel is visible,
+   * with a robut
    *
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(5)
@@ -129,16 +127,13 @@ public class ticketGT {
   }
 
   /**
-   * Requirement:
+   * Requirement:The system shall allow users to book tickets for an existing flight
+   * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
    *
-   * Input:None
-   * Description:
+   * Description: checks to see if the labels are visable and displaying text,
+   * with a robut
    *
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(6)
@@ -162,16 +157,13 @@ public class ticketGT {
   }
 
   /**
-   * Requirement:
+   * Requirement:The system shall allow users to book tickets for an existing flight
+   * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
    *
-   * Input:None
-   * Description:
+   * Description: checks to see if the buttons are visable and enabled,
+   * with a robut
    *
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(7)
@@ -184,16 +176,13 @@ public class ticketGT {
   }
 
   /**
-   * Requirement:
+   * Requirement:The system shall allow users to book tickets for an existing flight
+   * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
    *
-   * Input:None
-   * Description:
+   * Description: checks to see if the search customerpopulated the correct fields,
+   * with a robut
    *
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(8)
@@ -207,16 +196,13 @@ public class ticketGT {
   }
 
   /**
-   * Requirement:
+   * Requirement:The system shall allow users to book tickets for an existing flight
+   * by selecting the flight and providing their customer id, the ticket class, and the number of tickets.
    *
-   * Input:None
-   * Description:
+   * Description: checks to see if searching by source & departure populate the table correctly,
+   * with a robut
    *
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: AssertJ
    */
   @Test
   @Order(9)

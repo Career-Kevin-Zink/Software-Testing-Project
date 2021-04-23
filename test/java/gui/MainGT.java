@@ -11,10 +11,12 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+/** The type Main gt. */
 @TestMethodOrder(OrderAnnotation.class)
 public class MainGT {
   private FrameFixture window;
 
+  /** Sets up. */
   @BeforeEach
   @DisplayName("Setting up test.")
   public void setUp() {
@@ -23,12 +25,24 @@ public class MainGT {
     window.show();
   }
 
+  /** Tear down. */
   @AfterEach
   @DisplayName("Cleaning up test.")
   public void tearDown() {
     window.cleanUp();
   }
 
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
   @Test
   @Order(1)
   @DisplayName("Is the Add Customer component visible and clickable?")
@@ -37,6 +51,17 @@ public class MainGT {
     window.menuItem("Add Customer").requireVisible();
   }
 
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
   @Test
   @Order(2)
   @DisplayName("Is the Search Customer component visible and clickable?")
@@ -45,6 +70,17 @@ public class MainGT {
     window.menuItem("Search Customer").requireVisible();
   }
 
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
   @Test
   @Order(4)
   @DisplayName("Is the Book Ticket component visible and clickable?")
@@ -53,6 +89,17 @@ public class MainGT {
     window.menuItem("Book Ticket").requireVisible();
   }
 
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
   @Test
   @Order(6)
   @DisplayName("Is the Ticket Report component visible and clickable?")
@@ -61,6 +108,17 @@ public class MainGT {
     window.menuItem("Ticket Report").requireVisible();
   }
 
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
   @Test
   @Order(5)
   @DisplayName("Is the Add Flight component visible and clickable?")
@@ -69,6 +127,17 @@ public class MainGT {
     window.menuItem("Add Flight").requireVisible();
   }
 
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
   @Test
   @Order(3)
   @DisplayName("Is the User Creation component visible and clickable?")

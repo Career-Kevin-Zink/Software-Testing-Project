@@ -12,13 +12,15 @@ import javax.swing.text.JTextComponent;
 import java.awt.event.KeyEvent;
 import java.io.File;
 
+/** The type Add customer gt. */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class addCustomerGT {
     private FrameFixture window;
 
-    @BeforeEach
-    @DisplayName("Setting up test.")
-    public void setUp() {
+  /** Sets up. */
+  @BeforeEach
+  @DisplayName("Setting up test.")
+  public void setUp() {
         Main frame = GuiActionRunner.execute(Main::new);
         window = new FrameFixture(frame);
         window.show();
@@ -27,24 +29,48 @@ public class addCustomerGT {
         frame.jMenuItem1.doClick();
     }
 
-    @AfterEach
-    @DisplayName("Cleaning up test.")
-    public void tearDown() {
+  /** Tear down. */
+  @AfterEach
+  @DisplayName("Cleaning up test.")
+  public void tearDown() {
         window.cleanUp();
     }
 
-    @Test
-    @Order(1)
-    @DisplayName("Check that the Picture Chooser successfully selects an image.")
-    public void fileChooserSelectImage() {
+  /**
+   * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
+  @Test
+  @Order(1)
+  @DisplayName("Check that the Picture Chooser successfully selects an image.")
+  public void fileChooserSelectImage() {
         window.button("BrowseBtn").click();
         window.fileChooser().selectFile(new File("test/res/Test-Dummy-Tux-icon.png"));
     }
 
-    @Test
-    @Order(2)
-    @DisplayName("Does an empty first name open the error dialog?")
-    public void checkEmptyFirstName() {
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
+  @Test
+  @Order(2)
+  @DisplayName("Does an empty first name open the error dialog?")
+  public void checkEmptyFirstName() {
         // Fill in the other fields so we know the first name text entry caused the dialog.
         window.textBox("txtLastName").setText("Jenkins");
         window.textBox("txtNic").setText("LJen5");
@@ -62,10 +88,21 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-    @Test
-    @Order(3)
-    @DisplayName("Does an empty last name open the error dialog?")
-    public void checkEmptyLastName() {
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
+  @Test
+  @Order(3)
+  @DisplayName("Does an empty last name open the error dialog?")
+  public void checkEmptyLastName() {
         // Fill in the other fields so we know the first name text entry caused the dialog.
         window.textBox("txtFirstName").setText("Leeroy");
         window.textBox("txtNic").setText("LJen5");
@@ -83,10 +120,21 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-    @Test
-    @Order(4)
-    @DisplayName("Does an empty nic open the error dialog?")
-    public void checkEmptyNic() {
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
+  @Test
+  @Order(4)
+  @DisplayName("Does an empty nic open the error dialog?")
+  public void checkEmptyNic() {
         // Fill in the other fields so we know the first name text entry caused the dialog.
         window.textBox("txtFirstName").setText("Leeroy");
         window.textBox("txtLastName").setText("Jenkins");
@@ -104,10 +152,21 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-    @Test
-    @Order(5)
-    @DisplayName("Does an empty passport open the error dialog?")
-    public void checkEmptyPassport() {
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
+  @Test
+  @Order(5)
+  @DisplayName("Does an empty passport open the error dialog?")
+  public void checkEmptyPassport() {
         // Fill in the other fields so we know the first name text entry caused the dialog.
         window.textBox("txtFirstName").setText("Leeroy");
         window.textBox("txtLastName").setText("Jenkins");
@@ -125,10 +184,21 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-    @Test
-    @Order(6)
-    @DisplayName("Does an empty address open the error dialog?")
-    public void checkEmptyAddress() {
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
+  @Test
+  @Order(6)
+  @DisplayName("Does an empty address open the error dialog?")
+  public void checkEmptyAddress() {
         // Fill in the other fields so we know the first name text entry caused the dialog.
         window.textBox("txtFirstName").setText("Leeroy");
         window.textBox("txtLastName").setText("Jenkins");
@@ -146,10 +216,21 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-    @Test
-    @Order(7)
-    @DisplayName("Does an empty contact open the error dialog?")
-    public void checkEmptyContact() {
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
+  @Test
+  @Order(7)
+  @DisplayName("Does an empty contact open the error dialog?")
+  public void checkEmptyContact() {
         // Fill in the other fields so we know the first name text entry caused the dialog.
         window.textBox("txtFirstName").setText("Leeroy");
         window.textBox("txtLastName").setText("Jenkins");
@@ -167,10 +248,21 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-    @Test
-    @Order(8)
-    @DisplayName("Does a non-numeric contact open the error dialog?")
-    public void checkNonNumericContact() {
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
+  @Test
+  @Order(8)
+  @DisplayName("Does a non-numeric contact open the error dialog?")
+  public void checkNonNumericContact() {
         // Fill in the other fields so we know the first name text entry caused the dialog.
         window.textBox("txtFirstName").setText("Leeroy");
         window.textBox("txtLastName").setText("Jenkins");
@@ -189,10 +281,21 @@ public class addCustomerGT {
         window.optionPane().requireMessage("Contact must be a number!");
     }
 
-    @Test
-    @Order(9)
-    @DisplayName("Does an empty photo open the error dialog?")
-    public void checkEmptyPhoto() {
+  /** * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
+  @Test
+  @Order(9)
+  @DisplayName("Does an empty photo open the error dialog?")
+  public void checkEmptyPhoto() {
         // Fill in the other fields so we know the first name text entry caused the dialog.
         window.textBox("txtFirstName").setText("Leeroy");
         window.textBox("txtLastName").setText("Jenkins");
@@ -206,10 +309,22 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-    @Test
-    @Order(10)
-    @DisplayName("Check that valid inputs result in adding a customer.")
-    public void checkValidCustomer() {
+  /**
+   * Requirement:
+   * <p>
+   * Input:None
+   * Description:
+   * <p>
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   * */
+  @Test
+  @Order(10)
+  @DisplayName("Check that valid inputs result in adding a customer.")
+  public void checkValidCustomer() {
         // Fill in the other fields so we know the first name text entry caused the dialog.
         window.textBox("txtFirstName").setText("Leeroy");
         window.textBox("txtLastName").setText("Jenkins");

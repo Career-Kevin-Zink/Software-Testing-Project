@@ -11,10 +11,12 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+/** The type Ticket gt. */
 @TestMethodOrder(OrderAnnotation.class)
 public class ticketGT {
   private FrameFixture window;
 
+  /** Sets up. */
   @BeforeEach
   @DisplayName("Setting up test.")
   public void setUp() {
@@ -24,12 +26,25 @@ public class ticketGT {
     window.menuItem("Book Ticket").click();
   }
 
+  /** Tear down. */
   @AfterEach
   @DisplayName("Cleaning up test.")
   public void tearDown() {
     window.cleanUp();
   }
 
+  /**
+   * Requirement:
+   *
+   * Input:None
+   * Description:
+   *
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   */
   @Test
   @Order(1)
   @DisplayName("Is the first panel visible?")
@@ -37,6 +52,18 @@ public class ticketGT {
     window.panel("first panel").requireVisible();
   }
 
+  /**
+   * Requirement:
+   *
+   * Input:None
+   * Description:
+   *
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   */
   @Test
   @Order(2)
   @DisplayName("Is the second panel visible?")
@@ -44,6 +71,18 @@ public class ticketGT {
     window.panel("second panel").requireVisible();
   }
 
+  /**
+   * Requirement:
+   *
+   * Input:None
+   * Description:
+   *
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   */
   @Test
   @Order(3)
   @DisplayName("Is the third panel visible?")
@@ -51,6 +90,18 @@ public class ticketGT {
     window.panel("third panel").requireVisible();
   }
 
+  /**
+   * Requirement:
+   *
+   * Input:None
+   * Description:
+   *
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   */
   @Test
   @Order(4)
   @DisplayName("Is the scroll pane visible?")
@@ -58,6 +109,18 @@ public class ticketGT {
     window.scrollPane("Scroll Pane").requireVisible();
   }
 
+  /**
+   * Requirement:
+   *
+   * Input:None
+   * Description:
+   *
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   */
   @Test
   @Order(5)
   @DisplayName("Is the table visible?")
@@ -65,6 +128,18 @@ public class ticketGT {
     window.table("first table").requireVisible();
   }
 
+  /**
+   * Requirement:
+   *
+   * Input:None
+   * Description:
+   *
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   */
   @Test
   @Order(6)
   @DisplayName("Are the labels visible and displaying text?")
@@ -86,6 +161,18 @@ public class ticketGT {
     window.label("Flight Number").requireVisible().requireText("jLabel18");
   }
 
+  /**
+   * Requirement:
+   *
+   * Input:None
+   * Description:
+   *
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   */
   @Test
   @Order(7)
   @DisplayName("Are the buttons visible and enabled?")
@@ -96,6 +183,18 @@ public class ticketGT {
     window.button("Search Customer Button").requireVisible().requireEnabled();
   }
 
+  /**
+   * Requirement:
+   *
+   * Input:None
+   * Description:
+   *
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   */
   @Test
   @Order(8)
   @DisplayName("Does searching customer by ID populate the correct components?")
@@ -107,6 +206,18 @@ public class ticketGT {
     window.label("txtpassport").requireText("3443");
   }
 
+  /**
+   * Requirement:
+   *
+   * Input:None
+   * Description:
+   *
+   * Dependencies:
+   * Expected Output:
+   * Actual Output:
+   * Statement Coverage:
+   * Branch Coverage:
+   */
   @Test
   @Order(9)
   @DisplayName("Does searching by Source/Departure populate the correct components?")

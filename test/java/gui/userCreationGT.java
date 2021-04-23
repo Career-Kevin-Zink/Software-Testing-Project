@@ -6,11 +6,35 @@ import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.fixture.JPanelFixture;
 import org.junit.jupiter.api.*;
 
+/**
+ * Requirement:
+ *
+ * Input:None
+ * Description:
+ *
+ * Dependencies:
+ * Expected Output:
+ * Actual Output:
+ * Statement Coverage:
+ * Branch Coverage:
+ */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class userCreationGT {
     private FrameFixture window;
 
-    @BeforeEach
+    /**
+     * Requirement:
+     *
+     * Input:None
+     * Description:
+     *
+     * Dependencies:
+     * Expected Output:
+     * Actual Output:
+     * Statement Coverage:
+     * Branch Coverage:
+     */
+@BeforeEach
     @DisplayName("Setting up test.")
     public void setUp() {
         Main frame = GuiActionRunner.execute(Main::new);
@@ -21,20 +45,56 @@ public class userCreationGT {
         frame.jMenuItem5.doClick();
     }
 
-    @AfterEach
+    /**
+     * Requirement:
+     *
+     * Input:None
+     * Description:
+     *
+     * Dependencies:
+     * Expected Output:
+     * Actual Output:
+     * Statement Coverage:
+     * Branch Coverage:
+     */
+@AfterEach
     @DisplayName("Cleaning up test.")
     public void tearDown() {
         window.cleanUp();
     }
 
-    @Test
+    /**
+     * Requirement:
+     *
+     * Input:None
+     * Description:
+     *
+     * Dependencies:
+     * Expected Output:
+     * Actual Output:
+     * Statement Coverage:
+     * Branch Coverage:
+     */
+@Test
     @Order(1)
     @DisplayName("Is the panel showing?")
     public void isPanelVisible() {
         window.panel("UserCreationPanel").requireVisible();
     }
 
-    @Test
+    /**
+     * Requirement:
+     *
+     * Input:None
+     * Description:
+     *
+     * Dependencies:
+     * Expected Output:
+     * Actual Output:
+     * Statement Coverage:
+     * Branch Coverage:
+     */
+@Test
     @Order(2)
     @DisplayName("Does an empty FirstName open the error dialog?")
     public void checkEmptyFirstName() {
@@ -48,7 +108,19 @@ public class userCreationGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-    @Test
+    /**
+     * Requirement:
+     *
+     * Input:None
+     * Description:
+     *
+     * Dependencies:
+     * Expected Output:
+     * Actual Output:
+     * Statement Coverage:
+     * Branch Coverage:
+     */
+@Test
     @Order(3)
     @DisplayName("Does an empty LastName open the error dialog?")
     public void checkEmptyLastName() {
@@ -62,7 +134,19 @@ public class userCreationGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-    @Test
+    /**
+     * Requirement:
+     *
+     * Input:None
+     * Description:
+     *
+     * Dependencies:
+     * Expected Output:
+     * Actual Output:
+     * Statement Coverage:
+     * Branch Coverage:
+     */
+@Test
     @Order(4)
     @DisplayName("Does an empty User Name open the error dialog?")
     public void checkEmptyUserName() {
@@ -76,7 +160,19 @@ public class userCreationGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-    @Test
+    /**
+     * Requirement:
+     *
+     * Input:None
+     * Description:
+     *
+     * Dependencies:
+     * Expected Output:
+     * Actual Output:
+     * Statement Coverage:
+     * Branch Coverage:
+     */
+@Test
     @Order(5)
     @DisplayName("Does an empty Password open the error dialog?")
     public void checkEmptyPassword() {
@@ -90,7 +186,19 @@ public class userCreationGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-    @Test
+    /**
+     * Requirement:
+     *
+     * Input:None
+     * Description:
+     *
+     * Dependencies:
+     * Expected Output:
+     * Actual Output:
+     * Statement Coverage:
+     * Branch Coverage:
+     */
+@Test
     @Order(6)
     @DisplayName("Does the Add User button work correctly?")
     public void addValidUser() {
@@ -105,7 +213,19 @@ public class userCreationGT {
         window.optionPane().requireMessage("User Created.........");
     }
 
-    @Test
+    /**
+     * Requirement:
+     *
+     * Input:None
+     * Description:
+     *
+     * Dependencies:
+     * Expected Output:
+     * Actual Output:
+     * Statement Coverage:
+     * Branch Coverage:
+     */
+@Test
     @Order(7)
     @DisplayName("Does the cancel button close the panel?")
     public void hitCancelButton() {

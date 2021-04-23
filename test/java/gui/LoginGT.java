@@ -33,16 +33,14 @@ public class LoginGT {
     window.cleanUp();
   }
 
-  /** * Requirement:
+  /** * Requirement: A user will log into the system by providing their username and password.
    * <p>
    * Input:None
-   * Description:
+   * Description: Checking if the components visible
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: app.Login
+   * Expected Output: True,True
+   * Actual Output: True,True
    * */
   @Test
   @Order(1)
@@ -54,16 +52,14 @@ public class LoginGT {
     window.button(JButtonMatcher.withText("Cancel")).requireVisible();
   }
 
-  /** * Requirement:
+  /** * Requirement: A user will log into the system by providing their username and password.
    * <p>
    * Input:None
-   * Description:
+   * Description: Testing if the input components editable.
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: app.Login
+   * Expected Output: True
+   * Actual Output:True
    * */
   @Test
   @Order(2)
@@ -73,16 +69,14 @@ public class LoginGT {
     window.textBox("txtpass").requireEditable();
   }
 
-  /** * Requirement:
+  /** Requirement: A user will log into the system by providing their username and password.
    * <p>
    * Input:None
-   * Description:
+   * Description: Main window should open after successful login.
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: app.Login
+   * Expected Output: Main window should open.
+   * Actual Output: Main window opens.
    * */
   @Test
   @Order(3)
@@ -93,16 +87,14 @@ public class LoginGT {
     window.button(JButtonMatcher.withText("Login")).click();
   }
 
-  /** * Requirement:
+  /** Requirement:
    * <p>
-   * Input:None
-   * Description:
+   * Input: none
+   * Description: Clicks the button with text "Cancel" to close the window.
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: app.Login
+   * Expected Output: Window should close.
+   * Actual Output: Close window.
    * */
   @Test
   @Order(4)

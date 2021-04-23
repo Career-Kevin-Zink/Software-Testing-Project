@@ -38,16 +38,15 @@ public class addFlightGT {
     window.cleanUp();
   }
 
-    /** * Requirement:
+  /** * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
      * <p>
      * Input:None
-     * Description:
+     * Description: Check that the Add Flight Panel opens.
      * <p>
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: addFlight
+     * Expected Output: panel("addflightPanel").requireVisible()
+     * Actual Output: True
      * */
   @Test
   @Order(1)
@@ -56,16 +55,15 @@ public class addFlightGT {
     window.panel("addflightPanel").requireVisible();
   }
 
-    /** * Requirement:
+  /** * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
      * <p>
      * Input:None
-     * Description:
+     * Description: Does an empty flight name display an error dialog?
      * <p>
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: addFlight
+     * Expected Output: requireMessage("Please enter a valid flight name!")
+     * Actual Output: True
      * */
   @Test
   @Order(2)
@@ -85,16 +83,15 @@ public class addFlightGT {
     window.optionPane().requireMessage("Please enter a valid flight name!");
   }
 
-    /** * Requirement:
+  /** * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
      * <p>
      * Input:None
-     * Description:
+     * Description: Does an empty source display an error dialog?
      * <p>
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: addFlight
+     * Expected Output: requireMessage("Please enter a valid flight source!")
+     * Actual Output: True
      * */
   @Test
   @Order(3)
@@ -115,16 +112,15 @@ public class addFlightGT {
     window.optionPane().requireMessage("Please enter a valid flight source!");
   }
 
-    /** * Requirement:
+  /** * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
      * <p>
      * Input:None
-     * Description:
+     * Description: Does an empty departure display an error dialog?
      * <p>
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: addFlight
+     * Expected Output: requireMessage("Please enter a valid flight destination!")
+     * Actual Output: True
      * */
   @Test
   @Order(4)
@@ -145,16 +141,15 @@ public class addFlightGT {
     window.optionPane().requireMessage("Please enter a valid flight destination!");
   }
 
-    /** * Requirement:
+  /** * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
      * <p>
      * Input:None
-     * Description:
+     * Description: Does having the same source as departure display an error dialog?
      * <p>
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: addFlight
+     * Expected Output: requireMessage("Flight source cannot be the same as the destination!")
+     * Actual Output: True
      * */
   @Test
   @Order(5)
@@ -175,16 +170,15 @@ public class addFlightGT {
     window.optionPane().requireMessage("Flight source cannot be the same as the destination!");
   }
 
-    /** * Requirement:
+  /** * Requirement:The system shall allow users to create new flights by providing a flight name,
+   * source, departure, date, departure time, arrival time, and flight charge.
      * <p>
      * Input:None
-     * Description:
+     * Description: Does an empty flight date display an error dialog?
      * <p>
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: addFlight
+     * Expected Output: requireMessage("Please enter a valid flight date!")
+     * Actual Output: True
      * */
   @Test
   @Order(6)
@@ -203,16 +197,15 @@ public class addFlightGT {
     window.optionPane().requireMessage("Please enter a valid flight date!");
   }
 
-    /** * Requirement:
+    /** * Requirement:The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
      * <p>
      * Input:None
-     * Description:
+     * Description: Does an empty departure time display an error dialog?
      * <p>
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: addFlight
+     * Expected Output: requireMessage("Please enter a valid departure time!")
+     * Actual Output: True
      * */
   @Test
   @Order(7)
@@ -232,16 +225,15 @@ public class addFlightGT {
     window.optionPane().requireMessage("Please enter a valid departure time!");
   }
 
-    /** * Requirement:
+    /** * Requirement:The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
      * <p>
      * Input:None
-     * Description:
+     * Description: Does an empty arrival time display an error dialog?
      * <p>
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: addFlight
+     * Expected Output: requireMessage("Please enter a valid arrival time!")
+     * Actual Output: True
      * */
   @Test
   @Order(8)
@@ -261,16 +253,15 @@ public class addFlightGT {
     window.optionPane().requireMessage("Please enter a valid arrival time!");
   }
 
-    /** * Requirement:
+    /** Requirement:The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
      * <p>
      * Input:None
-     * Description:
+     * Description: Does an empty flight charge display an error dialog?
      * <p>
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: addFlight
+     * Expected Output: requireMessage("Please enter a valid flight charge!")
+     * Actual Output: True
      * */
   @Test
   @Order(9)
@@ -290,16 +281,16 @@ public class addFlightGT {
     window.optionPane().requireMessage("Please enter a valid flight charge!");
   }
 
-    /** * Requirement:
+    /**
+     * Requirement: The system shall allow users to create new flights by providing a flight name,
+     * source, departure, date, departure time, arrival time, and flight charge.
      * <p>
      * Input:None
-     * Description:
+     * Description: Check that adding a flight works with valid data.
      * <p>
-     * Dependencies:
-     * Expected Output:
-     * Actual Output:
-     * Statement Coverage:
-     * Branch Coverage:
+     * Dependencies: addFlight
+     * Expected Output: requireMessage("Flight Created.........")
+     * Actual Output: True
      * */
   @Test
   @DisplayName("Check that adding a flight works with valid data.")

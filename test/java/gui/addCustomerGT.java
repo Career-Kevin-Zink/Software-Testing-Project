@@ -37,16 +37,14 @@ public class addCustomerGT {
     }
 
   /**
-   * Requirement:
+   * Requirement: The system shall allow users to create new customers by providing the first name, last name, NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
    * <p>
    * Input:None
-   * Description:
+   * Description: Check that the Picture Chooser successfully selects an image.
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: addCustomer
+   * Expected Output: selectFile(new File("test/res/Test-Dummy-Tux-icon.png")
+   * Actual Output: True
    * */
   @Test
   @Order(1)
@@ -56,16 +54,14 @@ public class addCustomerGT {
         window.fileChooser().selectFile(new File("test/res/Test-Dummy-Tux-icon.png"));
     }
 
-  /** * Requirement:
+  /** * Requirement: The system shall allow users to create new customers by providing the first name, last name, NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
    * <p>
    * Input:None
-   * Description:
+   * Description: Does an empty first name open the error dialog?
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: addCustomer
+   * Expected Output: requireMessage("All fields are required!")
+   * Actual Output: True
    * */
   @Test
   @Order(2)
@@ -88,16 +84,14 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-  /** * Requirement:
+  /** * Requirement: The system shall allow users to create new customers by providing the first name, last name, NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
    * <p>
    * Input:None
-   * Description:
+   * Description: Does an empty last name open the error dialog?
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: addCustomer
+   * Expected Output: requireMessage("All fields are required!")
+   * Actual Output: True
    * */
   @Test
   @Order(3)
@@ -120,16 +114,14 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-  /** * Requirement:
+  /** * Requirement: The system shall allow users to create new customers by providing the first name, last name, NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
    * <p>
    * Input:None
-   * Description:
+   * Description: Does an empty nic open the error dialog?
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: addCustomer
+   * Expected Output: requireMessage("All fields are required!")
+   * Actual Output: True
    * */
   @Test
   @Order(4)
@@ -152,16 +144,14 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-  /** * Requirement:
+  /** * Requirement: The system shall allow users to create new customers by providing the first name, last name, NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
    * <p>
    * Input:None
-   * Description:
+   * Description: Does an empty passport open the error dialog?
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: addCustomer
+   * Expected Output: requireMessage("All fields are required!")
+   * Actual Output: True
    * */
   @Test
   @Order(5)
@@ -184,16 +174,14 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-  /** * Requirement:
+  /** * Requirement: The system shall allow users to create new customers by providing the first name, last name, NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
    * <p>
    * Input:None
-   * Description:
+   * Description: Does an empty address open the error dialog?
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: addCustomer
+   * Expected Output: requireMessage("All fields are required!")
+   * Actual Output: True
    * */
   @Test
   @Order(6)
@@ -216,16 +204,14 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-  /** * Requirement:
+  /** * Requirement: The system shall allow users to create new customers by providing the first name, last name, NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
    * <p>
    * Input:None
-   * Description:
+   * Description: Does an empty contact open the error dialog?
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: addCustomer
+   * Expected Output: requireMessage("All fields are required!")
+   * Actual Output: True
    * */
   @Test
   @Order(7)
@@ -248,16 +234,14 @@ public class addCustomerGT {
         window.optionPane().requireMessage("All fields are required!");
     }
 
-  /** * Requirement:
+  /** * Requirement: The system shall allow users to create new customers by providing the first name, last name, NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
    * <p>
    * Input:None
-   * Description:
+   * Description: Does a non-numeric contact open the error dialog?
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: addCustomer
+   * Expected Output: requireMessage("Contact must be a number!")
+   * Actual Output: True
    * */
   @Test
   @Order(8)
@@ -281,16 +265,14 @@ public class addCustomerGT {
         window.optionPane().requireMessage("Contact must be a number!");
     }
 
-  /** * Requirement:
+  /** * Requirement: The system shall allow users to create new customers by providing the first name, last name, NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
    * <p>
    * Input:None
-   * Description:
+   * Description: Does an empty photo open the error dialog?
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: addCustomer
+   * Expected Output: requireMessage("All fields are required!")
+   * Actual Output: True
    * */
   @Test
   @Order(9)
@@ -310,16 +292,14 @@ public class addCustomerGT {
     }
 
   /**
-   * Requirement:
+   * Requirement: The system shall allow users to create new customers by providing the first name, last name, NIC number, passport id, address, date of birth, gender, contact number, and a photo of the customer.
    * <p>
    * Input:None
-   * Description:
+   * Description: Check that valid inputs result in adding a customer.
    * <p>
-   * Dependencies:
-   * Expected Output:
-   * Actual Output:
-   * Statement Coverage:
-   * Branch Coverage:
+   * Dependencies: addCustomer
+   * Expected Output: requireMessage("Registration Created.........")
+   * Actual Output: True
    * */
   @Test
   @Order(10)

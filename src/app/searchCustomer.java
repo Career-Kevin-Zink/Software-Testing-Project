@@ -541,8 +541,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
   /**
    * Txtlastname action performed.
-   *
-   * @param evt the evt
+   * performs action event when txtlastname is clicked (allows you to change it and shouldn't? bad mehtod.
+   * @param evt mouse click
    */
   public void txtlastnameActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_txtlastnameActionPerformed
@@ -551,7 +551,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
   /**
    * Txtpassport action performed.
-   *
+   *performs action event when txtpassport is clicked (allows you to change it and shouldn't? bad mehtod.
    * @param evt the evt
    */
   public void txtpassportActionPerformed(
@@ -561,8 +561,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
   /**
    * J button 1 action performed.
-   *
-   * @param evt the evt
+   * allows you to input a valid customer ID and fills in the appropriate fields with the information of the customer
+   * @param evt mouse click
    */
   public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton1ActionPerformed
@@ -599,8 +599,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
   /**
    * J button 2 action performed.
-   *
-   * @param evt the evt
+   * updates the database with the information in the fields, works without any information or without new information.
+   * @param evt mouse click
    */
   public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed
@@ -652,8 +652,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
   /**
    * J button 3 action performed.
-   *
-   * @param evt the evt
+   * brings the user back to the main screen
+   * @param evt mouse click
    */
   public void jButton3ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton3ActionPerformed
@@ -664,8 +664,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
   /**
    * J button 4 action performed.
-   *
-   * @param evt the evt
+   * allows the user to pick a new picture from their files to use as a profile picture.
+   * @param evt mouse click
    */
   public void jButton4ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton4ActionPerformed
@@ -728,17 +728,25 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     }
   } // GEN-LAST:event_jButton4ActionPerformed
 
-  /** The J button 1. */
+  /** The J button 1.
+   * browse button
+   * */
   // Variables declaration - do not modify//GEN-BEGIN:variables
   public javax.swing.JButton jButton1;
 
-  /** The J button 2. */
+  /** The J button 2.
+   * update button
+   * */
   public javax.swing.JButton jButton2;
 
-  /** The J button 3. */
+  /** The J button 3.
+   * cancel button
+   * */
   public javax.swing.JButton jButton3;
 
-  /** The J button 4. */
+  /** The J button 4.
+   * find button
+   * */
   public javax.swing.JButton jButton4;
 
   /** The J label 1. */

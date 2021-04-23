@@ -382,7 +382,9 @@ public class addflight extends javax.swing.JInternalFrame {
         pack();
     } // </editor-fold>//GEN-END:initComponents
 
-  /** Auto id. */
+  /** Auto id.
+   * increments the ID in the DB so that it can know which ID to push to next.
+   * */
   public void autoID() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -407,8 +409,8 @@ public class addflight extends javax.swing.JInternalFrame {
 
   /**
    * J button 1 action performed.
-   *
-   * @param evt the evt
+   *adds a flight to the database if the information is correctly filled out.
+   * @param evt mouse click
    */
   // TODO: Change back to private.
   public void jButton1ActionPerformed(
@@ -501,8 +503,8 @@ public class addflight extends javax.swing.JInternalFrame {
 
   /**
    * J button 2 action performed.
-   *
-   * @param evt the evt
+   * hides the pannel and returns the user to the main screen
+   * @param evt mouse click
    */
   // TODO: Change to private once finsished testing.
   public void jButton2ActionPerformed(
@@ -512,12 +514,16 @@ public class addflight extends javax.swing.JInternalFrame {
         this.hide();
     } // GEN-LAST:event_jButton2ActionPerformed
 
-  /** The J button 1. */
+  /** The J button 1.
+   * add button
+   * */
   // Variables declaration - do not modify//GEN-BEGIN:variables
   // TODO: Change the methods back to private.
   public javax.swing.JButton jButton1;
 
-  /** The J button 2. */
+  /** The J button 2.
+   * cancel button
+   * */
   public javax.swing.JButton jButton2;
 
   /** The J label 1. */

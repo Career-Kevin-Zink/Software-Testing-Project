@@ -198,7 +198,7 @@ public class Login extends javax.swing.JFrame {
 
   /**
    * J button 1 action performed.
-   *
+   * the login button, takes the user to the main page if they fill out the username/password fields correctly.
    * @param evt the evt
    */
   public void jButton1ActionPerformed(

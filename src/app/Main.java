@@ -192,7 +192,7 @@ public class Main extends javax.swing.JFrame {
 
   /**
    * Main.
-   *
+   * initializes the main page
    * @param args the command line arguments /
    */
   public static void main(String args[]) {
@@ -236,22 +236,34 @@ public class Main extends javax.swing.JFrame {
   /** The J menu bar 1. */
   public javax.swing.JMenuBar jMenuBar1;
 
-  /** The J menu item 1. */
+  /** The J menu item 1.
+   *addCustomer
+   * */
   public javax.swing.JMenuItem jMenuItem1;
 
-  /** The J menu item 2. */
+  /** The J menu item 2.
+   *SearchCustomer
+   * */
   public javax.swing.JMenuItem jMenuItem2;
 
-  /** The J menu item 3. */
+  /** The J menu item 3.
+   *Book Ticket
+   * */
   public javax.swing.JMenuItem jMenuItem3;
 
-  /** The J menu item 4. */
+  /** The J menu item 4.
+   * Add Flgiht
+   * */
   public javax.swing.JMenuItem jMenuItem4;
 
-  /** The J menu item 5. */
+  /** The J menu item 5.
+   *User Creation
+   * */
   public javax.swing.JMenuItem jMenuItem5;
 
-  /** The J menu item 6. */
+  /** The J menu item 6.
+   *Ticket Report
+   * */
   public javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }

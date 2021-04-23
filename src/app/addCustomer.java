@@ -536,7 +536,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
     pack();
   } // </editor-fold>//GEN-END:initComponents
 
-  /** Auto id. */
+  /** Auto id.
+   * Increments the id's in the database so that the DB knows which row to pull
+   * */
   public void autoID() {
     try {
       Class.forName("com.mysql.jdbc.Driver");
@@ -560,7 +562,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
   /**
    * Txtlastname action performed.
-   *
+   *performs action event on the txtlastname
    * @param evt the evt
    */
   // TODO: Change to private once testing is finished.
@@ -571,7 +573,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
   /**
    * Txtpassport action performed.
-   *
+   * performs the action event on the txtpassport
    * @param evt the evt
    */
   // TODO: Change to private once testing is finished.
@@ -582,8 +584,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
   /**
    * J button 1 action performed.
-   *
-   * @param evt the evt
+   *this button allows the user to choose an image from their files to load as their profile picture
+   * @param evt mouse click
    */
   // TODO: Change to private once testing is finished.
   public void jButton1ActionPerformed(
@@ -620,8 +622,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
   /**
    * J button 2 action performed.
-   *
-   * @param evt the evt
+   * this button allows the user to add the customer to the database if their information is filled out correctly.
+   * @param evt mouse click
    */
   public void jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton2ActionPerformed
@@ -685,8 +687,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
   /**
    * J button 3 action performed.
-   *
-   * @param evt the evt
+   * this button hides the pannel and brings the user back to the main screen
+   * @param evt mouse click9
    */
   public void jButton3ActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jButton3ActionPerformed
@@ -695,17 +697,23 @@ public class addCustomer extends javax.swing.JInternalFrame {
     this.hide();
   } // GEN-LAST:event_jButton3ActionPerformed
 
-  /** The J button 1. */
+  /** The J button 1.
+   * browse button
+   * */
   // Variables declaration - do not modify//GEN-BEGIN:variables
   public javax.swing.JButton jButton1;
 
-  /** The J button 2. */
+  /** The J button 2.
+   * add button
+   * */
   public javax.swing.JButton jButton2;
 
-  /** The J button 3. */
+  /** The J button 3.
+   * cancel button
+   * */
   public javax.swing.JButton jButton3;
 
-  /** The J label 1. */
+  /** The J label 1*/
   public javax.swing.JLabel jLabel1;
 
   /** The J label 10. */
